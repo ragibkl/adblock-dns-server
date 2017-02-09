@@ -22,3 +22,4 @@ ADBLOCK_SOURCES = [
 FQDN = socket.getfqdn()
 IP4 = socket.gethostbyname(FQDN)
 IP6 = None
+

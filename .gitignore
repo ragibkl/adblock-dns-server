@@ -90,3 +90,7 @@ ENV/
 
 # PyCharm editor
 /.idea/
+
+# Runtime generated files
+/files/null.zone.file
+/files/badlist

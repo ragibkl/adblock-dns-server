@@ -103,3 +103,4 @@ def update_badlist():
 if __name__ == '__main__':
     create_null_zone()
     update_badlist()
+
