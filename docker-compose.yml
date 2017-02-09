@@ -5,9 +5,14 @@ services:
       context: .
       dockerfile: adblock_bind.Dockerfile
     restart: always
+    ports:
+      - "53:53"
 
   nginx:
     build:
       context: .
       dockerfile: adblock_nginx.Dockerfile
     restart: always
+    ports:
+      - "80:80"
+      - "443:443"
