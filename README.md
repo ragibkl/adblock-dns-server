@@ -16,32 +16,35 @@ To run this project, make sure your system/server has the following packages ins
 Follow these steps to get this project up and running.
 1. Clone this project   
    `git clone https://github.com/ragibkl/adblock-dns-server.git`
+
 2. cd into the cloned project.  
    `cd adblock-dns-server`   
+
 3. run the start script    
    `./start.sh`
+
 4. do a quick test   
-```shell
-# tests dns lookup against Google's dns server
-# should return regular/valid response
-$ nslookup zedo.com 8.8.8.8
-Server:		8.8.8.8
-Address:	8.8.8.8#53
-
-Non-authoritative answer:
-Name:	zedo.com
-Address: 64.41.197.44
-
-# tests dns lookup against our adblock dns server
-# should return our server's IP instead
-$ nslookup zedo.com X.X.X.X
-Server:		X.X.X.X
-Address:	X.X.X.X#53
-
-Non-authoritative answer:
-Name:	zedo.com
-Address: X.X.X.X
-```
+    ```shell
+    # tests dns lookup against Google's dns server
+    # should return regular/valid response
+    $ nslookup zedo.com 8.8.8.8
+    Server:		8.8.8.8
+    Address:	8.8.8.8#53
+    
+    Non-authoritative answer:
+    Name:	zedo.com
+    Address: 64.41.197.44
+    
+    # tests dns lookup against our adblock dns server
+    # should return our server's IP instead
+    $ nslookup zedo.com X.X.X.X
+    Server:		X.X.X.X
+    Address:	X.X.X.X#53
+    
+    Non-authoritative answer:
+    Name:	zedo.com
+    Address: X.X.X.X
+    ```
 
 5. stopping the dns server       
     `./stop.sh`
