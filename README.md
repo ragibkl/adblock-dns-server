@@ -14,6 +14,7 @@ To run this project, make sure your system/server has the following packages ins
 
 ## Running the server
 Follow these steps to get this project up and running.
+
 1. Clone this project   
    `git clone https://github.com/ragibkl/adblock-dns-server.git`
 
