@@ -6,7 +6,8 @@ services:
       dockerfile: adblock_bind.Dockerfile
     restart: always
     ports:
-      - "53:53"
+      - "53:53/tcp"
+      - "53:53/udp"
 
   nginx:
     build:
