@@ -1,0 +1,13 @@
+version: '2'
+services:
+  bind:
+    build:
+      context: .
+      dockerfile: adblock_bind.Dockerfile
+    restart: always
+
+  nginx:
+    build:
+      context: .
+      dockerfile: adblock_nginx.Dockerfile
+    restart: always
