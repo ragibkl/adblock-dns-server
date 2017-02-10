@@ -4,7 +4,7 @@ Adblocking DNS server using bind and nginx services. The services are run inside
 ## Overview
 This project is created to help block Ads, at the DNS resolution level.
 Using this project, you can quickly bring up a caching DNS server that also redirects Ads to a null webserver.
-If you this DNS server on your devices/wifi-router instead of your ISP's or other regular DNS servers (Google, OpenDNS), Ads wil be blocked.
+If you use this DNS server on your devices/wifi-router instead of your ISP's or other regular DNS servers (Google, OpenDNS), Ads wil be blocked.
 
 ## Requirements
 To run this project, make sure your system/server has the following packages installed: 
