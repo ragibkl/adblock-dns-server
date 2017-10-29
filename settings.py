@@ -3,7 +3,7 @@ import socket
 import sys, shutil
 
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__)),
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # BADLIST_PATH = '/etc/bind/badlist'
 
 BADLIST_PATH = os.path.join(BASE_DIR, os.path.abspath('files/badlist'))
