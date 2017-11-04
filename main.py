@@ -1,9 +1,9 @@
 #!python3
-import requests
 from datetime import datetime
 
 import settings
-
+from domain_utils.crawler import Crawler
+from domain_utils.blacklist_writer import BlacklistWriter
 
 def create_null_zone():
     null_zone_file_path = settings.NULL_ZONE_FILE_PATH
@@ -43,64 +43,20 @@ def create_null_zone():
 
 
 def update_badlist():
-    null_domain = settings.NULL_DOMAIN
-    null_ip = settings.IP4
+    redirect_ip = settings.IP4
     output_path = settings.BADLIST_PATH
-
     sources = settings.ADBLOCK_SOURCES
 
     ad_domain_list = []
-
     for source in sources :
-        print('Started downloading from : %s' % (source))
-        response = requests.get(source)
-        openfile = str(response.content, 'UTF-8')
-        lines = openfile.replace('\r','').split('\n')
-        for line in lines :
-            a = line.replace('\t',' ').split(' ')
-            if a[0] == '#':
-                print('Rejected : %s' % (line))
+        crawler = Crawler(source)
+        ad_domain_list.extend(crawler.get_domains())
+    ad_domain_list = Crawler.remove_duplicates(ad_domain_list)
 
-            elif len(a) < 2:
-                print('Rejected : %s' % (line))
-
-            elif '_' in a[1]:
-                print('Rejected : %s' % (line))
-
-            elif len(a[1]) > 1 and a[1][-1] == '.' :
-                print ('Rejected : %s' % (line))
-
-            elif a[1] in ('','localhost'):
-                print('Rejected : %s' % (line))
-
-            elif a[0] in ['0.0.0.0', '127.0.0.1'] and a[1][-1] != '.':
-                ad_domain_list.append(a[1].lower())
-        print('Finished downloading from : %s' % (source) )
-
-    print('Before del duplicates, row count = %d' % (len(ad_domain_list)))
-    ad_domain_list = list(set(ad_domain_list))
-    print('After de-duplicate, row count = %d' % (len(ad_domain_list)))
-
-    adblock_zone_list = [
-        '$TTL 1H',
-        '@               SOA     LOCALHOST. named-mgr.example.com (1 1h 15m 30d 2h)',
-        '                NS      LOCALHOST.',
-        '',
-    ]
-    for ad_domain in ad_domain_list :
-        # adblock_zone_list.append('{line}\tCNAME\t{null_domain}'.format(line=line, null_domain=null_domain) )
-        adblock_zone_list.append('{ad_domain}\t\t\tA\t{null_domain}'.format(ad_domain=ad_domain, null_domain=null_ip))
-
-    adblock_zone_list.append('')
-    string = '\n'.join(adblock_zone_list)
-    print("Created file %s with %d zones." % (output_path,len(adblock_zone_list)))
-
-    output_file = open(output_path,'w')
-    output_file.write(string)
-    output_file.close()
+    blacklist_writer = BlacklistWriter(ad_domain_list, redirect_ip, output_path)
+    blacklist_writer.export_to_file()
 
 
 if __name__ == '__main__':
     create_null_zone()
     update_badlist()
-
