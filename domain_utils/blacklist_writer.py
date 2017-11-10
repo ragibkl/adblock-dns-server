@@ -9,6 +9,16 @@ class BlacklistWriter:
         '                NS      LOCALHOST.',
     ]
 
+    _padding_size = 0
+
+    @property
+    def padding_size(self):
+        if not self._padding_size:
+            maxlength = max(len(s) for s in self.domain_list)
+            self._padding_size = maxlength
+
+        return self._padding_size
+
     def __init__(self, domain_list, redirect_ip, output_path):
         self.domain_list = domain_list
         self.redirect_ip = redirect_ip
@@ -31,8 +41,8 @@ class BlacklistWriter:
 
     def get_formatted_domain_string(self, domain_name):
         redirect_ip = self.redirect_ip
-        formatted_string = '{domain_name}\t\t\tA\t{redirect_ip}'.format(
-            domain_name=domain_name,
+        formatted_string = '{domain_name} A {redirect_ip}'.format(
+            domain_name=domain_name.ljust(self.padding_size),
             redirect_ip=redirect_ip
         )
         return formatted_string
