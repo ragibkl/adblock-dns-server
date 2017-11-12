@@ -39,4 +39,4 @@ class NullzoneWriter:
         output_file.write(content)
         output_file.close()
 
-        print('Created [nullzone] file "{}"'.format(file_name))
+        print('Created "nullzone" file: "{}"'.format(file_name))

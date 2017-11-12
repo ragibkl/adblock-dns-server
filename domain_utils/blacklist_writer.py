@@ -54,4 +54,4 @@ class BlacklistWriter:
         output_file.write(content)
         output_file.close()
 
-        print('Created file {}.'.format(file_name))
+        print('Created "blacklist_file" file: "{}"'.format(file_name))

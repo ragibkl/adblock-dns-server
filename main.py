@@ -8,10 +8,10 @@ from domain_utils.nullzone_writer import NullzoneWriter
 
 
 def create_null_zone():
-    null_zone_file_path = settings.NULL_ZONE_FILE_PATH
+    output_path = settings.NULLZONE_FILEPATH
     fqdn = settings.FQDN
-    ipv6 = settings.IP6
-    ipv4 = settings.IP4
+    ipv4 = settings.IPV4
+    ipv6 = settings.IPV6
     domain_parts = fqdn.split('.')
 
     # set blacklist server ip
@@ -22,13 +22,13 @@ def create_null_zone():
     else:
         domain = '.'.join(domain_parts)
 
-    nullzone_writer = NullzoneWriter(null_zone_file_path, ipv4, ipv6, domain, host)
+    nullzone_writer = NullzoneWriter(output_path, ipv4, ipv6, domain, host)
     nullzone_writer.export_to_file()
 
 
 def update_badlist():
-    redirect_ip = settings.IP4
-    output_path = settings.BADLIST_PATH
+    redirect_ip = settings.IPV4
+    output_path = settings.BLACKLIST_FILEPATH
     sources = settings.ADBLOCK_SOURCES
 
     ad_domain_list = []
