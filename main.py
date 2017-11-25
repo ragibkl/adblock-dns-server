@@ -2,7 +2,7 @@
 from datetime import datetime
 
 import settings
-from domain_utils.crawler import Crawler
+from domain_utils.host_crawler import HostCrawler
 from domain_utils.blacklist_writer import BlacklistWriter
 from domain_utils.nullzone_writer import NullzoneWriter
 
@@ -33,9 +33,9 @@ def update_badlist():
 
     ad_domain_list = []
     for source in sources :
-        crawler = Crawler(source)
+        crawler = HostCrawler(source)
         ad_domain_list.extend(crawler.get_domains())
-    ad_domain_list = Crawler.remove_duplicates(ad_domain_list)
+    ad_domain_list = HostCrawler.remove_duplicates(ad_domain_list)
 
     blacklist_writer = BlacklistWriter(ad_domain_list, redirect_ip, output_path)
     blacklist_writer.export_to_file()
