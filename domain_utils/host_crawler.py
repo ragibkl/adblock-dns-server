@@ -10,7 +10,7 @@ def is_not_comment(line):
     return True
 
 
-def isvalid_length(line):
+def is_valid_length(line):
     if len(line) == 0:
         return False
     line_parts = line.split(' ')
@@ -30,11 +30,7 @@ def does_not_contains_invalid_chars(line):
 
 
 def starts_with_local_ip(line):
-    localhosts = [
-        '0.0.0.0 ',
-        '127.0.0.1 ',
-    ]
-
+    localhosts = [ '0.0.0.0 ', '127.0.0.1 ' ]
     return any( line.startswith(host) for host in localhosts )
 
 
@@ -42,7 +38,7 @@ class HostCrawler:
     """Crawler class, to crawl the http source for the adblock list"""
     filters = [
         is_not_comment,
-        isvalid_length,
+        is_valid_length,
         does_not_contains_invalid_chars,
         starts_with_local_ip,
     ]
@@ -63,12 +59,8 @@ class HostCrawler:
 
     def get_domains(self):
         lines = self.fetch_list()
-
-        domain_names = []
-        for line in lines:
-            domain = self.get_domain_name(line)
-            if domain:
-                domain_names.append(domain)
+        filtered_lines = [ line for line in lines if self.is_line_valid(line) ]
+        domain_names = [ self.get_domain_name(line) for line in filtered_lines ]
 
         return domain_names
 
@@ -77,23 +69,21 @@ class HostCrawler:
         response = requests.get(self.source)
         openfile = str(response.content, 'UTF-8')
         lines = openfile.replace('\r','').split('\n')
+        lines = [ line.replace('\t', ' ') for line in lines ]
         return lines
 
     def get_domain_name(self, line):
-        try:
-            string = line.replace('\t',' ')
-            if self.is_line_valid(string):
-                string_parts = string.split(' ')
-                return string_parts[1]
-        except Exception as e:
-            print('Exception in source: "{}", for line: "{}", reason: {}'.format(self.source, line, e))
-
-        return None
+        string_parts = line.split(' ')
+        return string_parts[1]
 
     def is_line_valid(self, line):
-        for filter_func in self.filters:
-            if not filter_func(line):
-                print('Rejected line: "{}", reason: {}'.format(line, filter_func.__name__))
-                return False
+        try:
+            for filter_func in self.filters:
+                if not filter_func(line):
+                    print('Validation failed: [{}], line: "{}"'.format(filter_func.__name__, line))
+                    return False
+        except Exception as e:
+            print('Exception in source: "{}", reason: {}, line: "{}", '.format(self.source, e, line))
+            return False
 
         return True
