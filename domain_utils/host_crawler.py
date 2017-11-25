@@ -2,6 +2,7 @@
 import requests
 from datetime import datetime
 
+
 class HostCrawler:
     """Crawler class, to crawl the http source for the adblock list"""
     filter_list = [
@@ -98,8 +99,5 @@ class HostCrawler:
             '0.0.0.0',
             '127.0.0.1',
         ]
-        for i in localhosts:
-            if line.find(i) == 0:
-                return True
 
-        return False
+        return any( line.startswith(host) for host in localhosts )
