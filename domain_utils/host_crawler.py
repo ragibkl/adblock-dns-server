@@ -19,10 +19,7 @@ def is_valid_length(line):
 
 
 def does_not_contains_invalid_chars(line):
-    invalid_strings = [
-        'localhost',
-        '_',
-    ]
+    invalid_strings = [ 'localhost', '_' ]
     if any( s in line for s in invalid_strings ):
         return False
 
@@ -74,7 +71,7 @@ class HostCrawler:
 
     def get_domain_name(self, line):
         string_parts = line.split(' ')
-        return string_parts[1]
+        return string_parts[1].encode("idna").decode('ascii')
 
     def is_line_valid(self, line):
         try:
