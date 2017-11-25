@@ -3,13 +3,48 @@ import requests
 from datetime import datetime
 
 
+# hosts file line filter methods
+def is_not_comment(line):
+    if line.startswith('#'):
+        return False
+    return True
+
+
+def isvalid_length(line):
+    if len(line) == 0:
+        return False
+    line_parts = line.split(' ')
+
+    return len(line_parts) >= 2
+
+
+def does_not_contains_invalid_chars(line):
+    invalid_strings = [
+        'localhost',
+        '_',
+    ]
+    if any( s in line for s in invalid_strings ):
+        return False
+
+    return True
+
+
+def starts_with_local_ip(line):
+    localhosts = [
+        '0.0.0.0 ',
+        '127.0.0.1 ',
+    ]
+
+    return any( line.startswith(host) for host in localhosts )
+
+
 class HostCrawler:
     """Crawler class, to crawl the http source for the adblock list"""
-    filter_list = [
-        'exclude_invalid_length',
-        'exclude_comments',
-        'exclude_invalid_chars',
-        'starts_with_local_ip',
+    filters = [
+        is_not_comment,
+        isvalid_length,
+        does_not_contains_invalid_chars,
+        starts_with_local_ip,
     ]
 
     @classmethod
@@ -55,49 +90,10 @@ class HostCrawler:
 
         return None
 
-    def filter_lines(self, lines):
-        filtered_lines = lines[:]
-
-        return filtered_lines
-
     def is_line_valid(self, line):
-        for filter_name in self.filter_list:
-             if not getattr(self, filter_name)(line):
-                 print('Rejected line: "{}", reason: {}'.format(line, filter_name))
-                 return False
+        for filter_func in self.filters:
+            if not filter_func(line):
+                print('Rejected line: "{}", reason: {}'.format(line, filter_func.__name__))
+                return False
 
         return True
-
-    def exclude_invalid_length(self, line):
-        if len(line) == 0:
-            return False
-
-        line_parts = line.split(' ')
-        return len(line_parts) >= 2
-
-    def exclude_comments(self, line):
-        if line[0] == '#':
-            return False
-
-        return True
-
-    def exclude_invalid_chars(self, line):
-        if 'localhost' in line:
-            return False
-
-        if '_' in line:
-            return False
-
-        line_parts = line.split(' ')
-        if len(line_parts) > 1 and len(line_parts[1]) and line_parts[1][-1] == '.':
-            return False
-
-        return True
-
-    def starts_with_local_ip(self, line):
-        localhosts = [
-            '0.0.0.0',
-            '127.0.0.1',
-        ]
-
-        return any( line.startswith(host) for host in localhosts )
