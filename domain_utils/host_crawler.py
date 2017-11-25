@@ -2,7 +2,7 @@
 import requests
 from datetime import datetime
 
-class Crawler:
+class HostCrawler:
     """Crawler class, to crawl the http source for the adblock list"""
     filter_list = [
         'exclude_invalid_length',
