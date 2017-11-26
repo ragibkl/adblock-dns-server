@@ -15,8 +15,12 @@ ADBLOCK_SOURCES = [
     'http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext',
     'http://winhelp2002.mvps.org/hosts.txt',
     'http://hosts-file.net/ad_servers.txt',
+    'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts',
+    'local_sources/porn_custom.txt',
+    'local_sources/porn_reddit.txt',
 ]
 
-FQDN = socket.getfqdn()
-IPV4 = socket.gethostbyname(FQDN)
+HOST = 'dns1'
+DOMAIN = 'example.org'
+IPV4 = '0.0.0.0'
 IPV6 = None

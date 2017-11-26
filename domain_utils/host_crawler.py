@@ -1,6 +1,21 @@
-#!python3
+import os
 import requests
+from urllib.parse import urlparse
 from datetime import datetime
+
+
+# check if string is a valid url
+def is_url(string):
+    try:
+        result = urlparse(string)
+        return result.scheme and result.netloc and result.path
+    except:
+        return False
+
+
+# check if string is a valid file
+def is_file(string):
+    return os.path.exists(string) and os.path.isfile(string)
 
 
 # hosts file line filter methods
@@ -55,19 +70,38 @@ class HostCrawler:
         self.source = source
 
     def get_domains(self):
-        lines = self.fetch_list()
+        lines = self.fetch_hosts_list()
         filtered_lines = [ line for line in lines if self.is_line_valid(line) ]
         domain_names = [ self.get_domain_name(line) for line in filtered_lines ]
 
         return domain_names
 
-    def fetch_list(self):
-        print('Started downloading from : {}'.format(self.source))
-        response = requests.get(self.source)
-        openfile = str(response.content, 'UTF-8')
+    def fetch_hosts_list(self):
+        if is_url(self.source):
+            openfile = self.fetch_http()
+        elif is_file(self.source):
+            openfile = self.fetch_file()
+        else:
+            return []
+
         lines = openfile.replace('\r','').split('\n')
         lines = [ line.replace('\t', ' ') for line in lines ]
         return lines
+
+    def fetch_http(self):
+        print('Started downloading from : {}'.format(self.source))
+        response = requests.get(self.source)
+        content = str(response.content, 'UTF-8')
+
+        return content
+
+    def fetch_file(self):
+        print('Reading from local file source : {}'.format(self.source))
+        openfile = open(self.source)
+        content = openfile.read()
+        openfile.close()
+
+        return content
 
     def get_domain_name(self, line):
         string_parts = line.split(' ')
