@@ -1,6 +1,6 @@
 import os
 import requests
-from urlparse import urlparse
+from urllib.parse import urlparse
 from datetime import datetime
 
 
@@ -70,13 +70,13 @@ class HostCrawler:
         self.source = source
 
     def get_domains(self):
-        lines = self.fetch_list()
+        lines = self.fetch_hosts_list()
         filtered_lines = [ line for line in lines if self.is_line_valid(line) ]
         domain_names = [ self.get_domain_name(line) for line in filtered_lines ]
 
         return domain_names
 
-    def fetch_list(self):
+    def fetch_hosts_list(self):
         if is_url(self.source):
             openfile = self.fetch_http()
         elif is_file(self.source):
@@ -96,7 +96,8 @@ class HostCrawler:
         return content
 
     def fetch_file(self):
-        openfile = open(self.source, r)
+        print('Reading from local file source : {}'.format(self.source))
+        openfile = open(self.source)
         content = openfile.read()
         openfile.close()
 
