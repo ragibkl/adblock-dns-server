@@ -1,4 +1,4 @@
-#!python3
+#!/usr/bin/env python3
 from datetime import datetime
 
 import settings
@@ -9,18 +9,10 @@ from domain_utils.nullzone_writer import NullzoneWriter
 
 def create_null_zone():
     output_path = settings.NULLZONE_FILEPATH
-    fqdn = settings.FQDN
+    host = settings.HOST
+    domain = settings.DOMAIN
     ipv4 = settings.IPV4
     ipv6 = settings.IPV6
-    domain_parts = fqdn.split('.')
-
-    # set blacklist server ip
-    host = domain_parts[0]
-    del domain_parts[0]
-    if len(domain_parts) == 0:
-        domain = 'example.com'
-    else:
-        domain = '.'.join(domain_parts)
 
     nullzone_writer = NullzoneWriter(output_path, ipv4, ipv6, domain, host)
     nullzone_writer.export_to_file()
