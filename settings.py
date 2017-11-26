@@ -16,6 +16,9 @@ ADBLOCK_SOURCES = [
     'http://winhelp2002.mvps.org/hosts.txt',
     'http://hosts-file.net/ad_servers.txt',
     'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts',
+
+    # porn sites to block
+    'https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts',
     'local_sources/porn_custom.txt',
     'local_sources/porn_reddit.txt',
 ]
