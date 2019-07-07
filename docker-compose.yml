@@ -4,8 +4,8 @@ services:
     image: ragibkl/adblock_dns
     restart: always
     ports:
-      # - "5353:53/tcp"
-      - "5353:53/udp"
+      - 53:53/tcp
+      - 53:53/udp
     volumes:
       - ./files/badlist:/etc/bind/badlist
       - ./files/null.zone.file:/etc/bind/null.zone.file
@@ -14,5 +14,5 @@ services:
     image: ragibkl/adblock_http
     restart: always
     ports:
-      - "80:80"
-      - "443:443"
+      - 80:80
+      - 443:443
