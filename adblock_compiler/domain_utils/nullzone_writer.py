@@ -1,4 +1,6 @@
 from datetime import datetime
+from pathlib import Path
+import os
 
 class NullzoneWriter:
     """docstring for ConfigBuilder."""
@@ -33,10 +35,9 @@ class NullzoneWriter:
         return '\n'.join(null_zone_lines)
 
     def write_to_file(self, content):
-        file_name = self.output_path
-
-        output_file = open(file_name, 'w')
+        filename = self.output_path
+        output_file = open(filename, 'w+')
         output_file.write(content)
         output_file.close()
 
-        print('Created "nullzone" file: "{}"'.format(file_name))
+        print('Created "nullzone" file: "{}"'.format(filename))
