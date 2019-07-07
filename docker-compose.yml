@@ -1,19 +1,18 @@
 version: '2'
 services:
-  bind:
-    build:
-      context: .
-      dockerfile: adblock_bind.Dockerfile
+  adblock_dns:
+    image: ragibkl/adblock_dns
     restart: always
     ports:
-      - "53:53/tcp"
-      - "53:53/udp"
+      - 53:53/tcp
+      - 53:53/udp
+    volumes:
+      - ./files/badlist:/etc/bind/badlist
+      - ./files/null.zone.file:/etc/bind/null.zone.file
 
-  nginx:
-    build:
-      context: .
-      dockerfile: adblock_nginx.Dockerfile
+  adblock_http:
+    image: ragibkl/adblock_http
     restart: always
     ports:
-      - "80:80"
-      - "443:443"
+      - 80:80
+      - 443:443

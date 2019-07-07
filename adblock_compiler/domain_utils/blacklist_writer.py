@@ -50,7 +50,7 @@ class BlacklistWriter:
     def write_to_file(self, content):
         file_name = self.output_path
 
-        output_file = open(file_name, 'w')
+        output_file = open(file_name, 'w+')
         output_file.write(content)
         output_file.close()
 

@@ -7,8 +7,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 BLACKLIST_FILEPATH = os.path.join(BASE_DIR, os.path.abspath('files/badlist'))
 NULLZONE_FILEPATH = os.path.join(BASE_DIR, os.path.abspath('files/null.zone.file'))
-NAMED_CONFIG_PATH = os.path.join(BASE_DIR, os.path.abspath('files/named/'))
-NAMED_MAIN_CONFIG = os.path.join(BASE_DIR, os.path.abspath('files/named.conf'))
+# NAMED_CONFIG_PATH = os.path.join(BASE_DIR, os.path.abspath('files/named/'))
+# NAMED_MAIN_CONFIG = os.path.join(BASE_DIR, os.path.abspath('files/named.conf'))
 
 ADBLOCK_SOURCES = [
     'http://adaway.org/hosts.txt',
@@ -23,7 +23,7 @@ ADBLOCK_SOURCES = [
     'local_sources/porn_reddit.txt',
 ]
 
-HOST = 'dns1'
-DOMAIN = 'example.org'
-IPV4 = '0.0.0.0'
-IPV6 = None
+HOST = os.getenv('HOST', default='dns1')
+DOMAIN = os.getenv('DOMAIN', default='localhost.localdomain')
+IPV4 = os.getenv('IPV4', '127.0.0.1')
+IPV6 = os.getenv('IPV6', None)
