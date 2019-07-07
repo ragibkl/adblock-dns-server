@@ -23,7 +23,7 @@ ADBLOCK_SOURCES = [
     'local_sources/porn_reddit.txt',
 ]
 
-HOST = 'dns1'
-DOMAIN = 'example.org'
-IPV4 = '0.0.0.0'
-IPV6 = None
+HOST = os.getenv('HOST', default='dns1')
+DOMAIN = os.getenv('DOMAIN', default='localhost.localdomain')
+IPV4 = os.getenv('IPV4', '127.0.0.1')
+IPV6 = os.getenv('IPV6', None)
