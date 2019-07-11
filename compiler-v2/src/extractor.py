@@ -14,9 +14,11 @@ def extract_domain(text):
         return None
 
     for name in text.split():
-        name_enc = name.encode('idna').decode('ascii')
-        if validators.domain(name_enc):
-            return name_enc
+        name_idn = name.encode('idna').decode('ascii')
+        if '_' in name_idn:
+            continue
+        if validators.domain(name_idn):
+            return name_idn
 
     return None
 

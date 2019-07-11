@@ -6,4 +6,4 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
-zone "badlist" {type master; file "/etc/bind/badlist"; allow-query {none;}; };
+zone "/%ZONE_NAME%/" {type master; file "/%ZONE_PATH%/"; allow-query {none;}; };

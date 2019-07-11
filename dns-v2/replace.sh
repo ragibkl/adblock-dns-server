@@ -11,6 +11,8 @@ FORWARDER_2="${FORWARDER_2:-8.8.4.4}"
 ZONE_NAME="${ZONE_NAME:-blacklist}"
 ZONE_PATH="${ZONE_PATH:-/etc/bind/blacklist.zone}"
 
+mkdir -p config
+
 cat templates/named.conf.local | \
     sed s,'/%ZONE_NAME%/',"${ZONE_NAME}",g | \
     sed s,'/%ZONE_PATH%/',"${ZONE_PATH}",g > \
