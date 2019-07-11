@@ -89,4 +89,7 @@ ENV/
 .ropeproject
 
 # PyCharm editor
-/.idea/
+.idea/
+
+# VsCode
+.vscode
