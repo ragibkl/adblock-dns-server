@@ -1,7 +1,7 @@
-FROM ubuntu:14.04
+FROM alpine:latest
+RUN apk --update add bind
 
-RUN apt-get update && apt-get install -y bind9
-
+COPY etc/bind/. /etc/bind/.
 COPY templates /templates
 COPY replace.sh /replace.sh
 COPY entrypoint.sh /entrypoint.sh
