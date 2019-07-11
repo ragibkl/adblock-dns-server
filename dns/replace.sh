@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 TIMESTAMP=$(date +"%Y%m%d%H")
 FQDN="${FQDN:-localhost.localdomain}"

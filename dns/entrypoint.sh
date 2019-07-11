@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 ./replace.sh
 
@@ -7,4 +7,4 @@ cp config/named.conf.options /etc/bind/named.conf.options
 cp config/null.zone.file /etc/bind/null.zone.file
 cp config/blacklist.zone /etc/bind/blacklist.zone
 
-named -g
+named -g -u named
