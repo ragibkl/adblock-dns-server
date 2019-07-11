@@ -26,10 +26,19 @@ Follow these steps to get this project up and running.
     cp sample.env .env
     nano .env
     ```
+    If you are running this locally on your computer, you can leave the default values as is. This will redirect all ads traffic to your computer, and they will return empty.
 
-3. run the setup script to generate the badlist. Then, run the start script to start the dns server
+    If you are running this on a local network, or a public server, you should place the ipv4/ipv6 addresses of your server. This will redirect all ads to your server, with empty result.
+
     ```
-    ./setup.sh
+    # .env file - running locally
+    FQDN=dns.localhost.localdomain  # optional: fdqn of your server
+    IPV4=127.0.0.1                  # ipv4 address of your server
+    IPv6=::1                        # ipv6 address of your server
+    ```
+
+3. run the start script to start the dns server
+    ```
     ./start.sh
     ```
 
