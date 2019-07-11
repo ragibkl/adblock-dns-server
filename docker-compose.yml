@@ -1,4 +1,5 @@
-version: '2'
+version: '3'
+
 services:
   adblock_dns:
     image: ragibkl/adblock_dns
@@ -6,8 +7,10 @@ services:
     ports:
       - 53:53/tcp
       - 53:53/udp
-    env_file:
-      - .env
+    environment:
+      FQDN: dns.localhost.localdomain
+      IPV4: 127.0.0.1
+      IPv6: ::1
 
   adblock_http:
     image: ragibkl/adblock_http
