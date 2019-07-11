@@ -3,8 +3,9 @@ import os
 import http_loader
 import file_loader
 import extractor
+from blacklist_writer import write_to_file
 
-from settings import HTTP_BLACKLIST_PATH, CUSTOM_BLACKLIST_DIR
+from settings import HTTP_BLACKLIST_PATH, CUSTOM_BLACKLIST_DIR, BLACKLIST_OUTPUT_PATH
 
 
 def main():
@@ -15,12 +16,13 @@ def main():
         url_domains = http_loader.load_domains_for_url(url)
         domains.extend(list(url_domains))
 
-    paths = os.listdir(CUSTOM_BLACKLIST_DIR)
+    paths = file_loader.get_paths_in_dir(CUSTOM_BLACKLIST_DIR)
     for path in paths:
         path_domains = file_loader.load_domains_for_file(path)
         domains.extend(list(path_domains))
 
     domains = list(set(domains))
+    write_to_file(domains, BLACKLIST_OUTPUT_PATH)
 
 
 if __name__ == "__main__":
