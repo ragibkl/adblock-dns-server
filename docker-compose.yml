@@ -8,6 +8,11 @@ services:
       - 53:53/tcp
       - 53:53/udp
     env_file: .env
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "20"
 
   adblock_http:
     image: ragibkl/adblock_http
@@ -15,3 +20,8 @@ services:
     ports:
       - 80:80
       - 443:443
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "20"
