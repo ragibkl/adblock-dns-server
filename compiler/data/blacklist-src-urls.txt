@@ -2,5 +2,8 @@ http://adaway.org/hosts.txt
 http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext
 http://winhelp2002.mvps.org/hosts.txt
 http://hosts-file.net/ad_servers.txt
-https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+https://raw.githubusercontent.com/EnergizedProtection/block/master/blu/formats/hosts
+https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds.txt
+https://raw.githubusercontent.com/ookangzheng/blahdns/master/hosts/rpz.blacklist
 https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts
+https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
