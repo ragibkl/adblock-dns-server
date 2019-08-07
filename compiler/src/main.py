@@ -21,7 +21,7 @@ def main():
         path_domains = file_loader.load_domains_for_file(path)
         domains.extend(list(path_domains))
 
-    domains = list(set(domains))
+    domains = extractor.dedup_domains(domains)
     write_to_file(domains, BLACKLIST_OUTPUT_PATH)
 
 

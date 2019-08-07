@@ -9,12 +9,27 @@ def is_comment(line):
     return line.startswith('#')
 
 
+def is_too_short(line):
+    return len(line) <= 3
+
+
+def decode(domain):
+    try:
+        return domain.encode('idna').decode('ascii')
+    except Exception as e:
+        print(f'Failed to decode idna domain: {domain}')
+        return None
+
+
 def extract_domain(text):
     if is_comment(text):
         return None
 
-    for name in text.split():
-        name_idn = name.encode('idna').decode('ascii')
+    names = [x for x in text.split() if not is_too_short(x)]
+    for name in names:
+        name_idn = decode(name)
+        if not name_idn:
+            continue
         if '_' in name_idn:
             continue
         if validators.domain(name_idn):
@@ -30,4 +45,4 @@ def extract_domains(text):
 
 
 def dedup_domains(domains):
-    pass
+    return list(set(domains))
