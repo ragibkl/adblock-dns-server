@@ -5,7 +5,12 @@ import file_loader
 import extractor
 from blacklist_writer import write_to_file
 
-from settings import HTTP_BLACKLIST_PATH, CUSTOM_BLACKLIST_DIR, BLACKLIST_OUTPUT_PATH
+from settings import (
+    HTTP_BLACKLIST_PATH,
+    CUSTOM_BLACKLIST_DIR,
+    CUSTOM_WHITELIST_DIR,
+    BLACKLIST_OUTPUT_PATH,
+)
 
 
 def main():
@@ -21,7 +26,14 @@ def main():
         path_domains = file_loader.load_domains_for_file(path)
         domains.extend(list(path_domains))
 
+    whitelist_domains = []
+    paths = file_loader.get_paths_in_dir(CUSTOM_WHITELIST_DIR)
+    for path in paths:
+        path_domains = file_loader.load_domains_for_file(path)
+        whitelist_domains.extend(list(path_domains))
+
     domains = extractor.dedup_domains(domains)
+    domains = extractor.exclude_whitelist_domains(domains, whitelist_domains)
     write_to_file(domains, BLACKLIST_OUTPUT_PATH)
 
 

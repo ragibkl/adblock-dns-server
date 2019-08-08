@@ -15,6 +15,12 @@ HTTP_BLACKLIST_PATH = os.getenv(
     default=os.path.join(DATA_DIR, 'blacklist-src-urls.txt')
 )
 
+# Local custom whitelist files
+CUSTOM_WHITELIST_DIR = os.getenv(
+    'CUSTOM_BLACKLIST_DIR',
+    default=os.path.join(DATA_DIR, 'whitelist.d')
+)
+
 # Output blacklist path
 BLACKLIST_OUTPUT_PATH = os.getenv(
     'BLACKLIST_OUTPUT_PATH',

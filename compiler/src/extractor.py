@@ -52,3 +52,7 @@ def extract_domains(text):
 
 def dedup_domains(domains):
     return list(set(domains))
+
+
+def exclude_whitelist_domains(domains, whitelist):
+    return [d for d in domains if d not in whitelist]
