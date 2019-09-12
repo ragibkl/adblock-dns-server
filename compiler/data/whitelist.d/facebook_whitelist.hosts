@@ -1,0 +1,6 @@
+# whitelist
+127.0.0.1 api.facebook.com
+127.0.0.1 edge-mqtt.facebook.com
+127.0.0.1 lithium.facebook.com
+127.0.0.1 graph.facebook.com
+127.0.0.1 www.facebook.com
