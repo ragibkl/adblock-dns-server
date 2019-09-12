@@ -2,6 +2,7 @@
 
 touch templates/blacklist.zone
 
+docker pull ragibkl/adblock_compiler
 docker run -ti \
     -v $PWD/templates/blacklist.zone:/data/output.d/blacklist.zone \
     ragibkl/adblock_compiler

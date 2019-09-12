@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker build -t ragibkl/adblock_dns:latest .
+docker build --pull -t ragibkl/adblock_dns:latest .
