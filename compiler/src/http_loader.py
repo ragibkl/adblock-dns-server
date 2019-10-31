@@ -1,5 +1,6 @@
 import validators
 import requests
+from requests_futures.sessions import FuturesSession
 
 import extractor
 
@@ -18,6 +19,29 @@ def fetch(url):
     return content
 
 
+def fetch_urls(urls):
+    session = FuturesSession()
+    futures = [ session.get(url) for url in urls ]
+    contents = []
+    for f in futures:
+        response = f.result()
+        print('Completed downloading from : {}'.format(response.url))
+        content = str(response.content, 'UTF-8')
+        contents.append(content)
+
+    return contents
+
+
 def load_domains_for_url(url):
     content = fetch(url)
     return extractor.extract_domains(content)
+
+
+def load_domains_for_urls(urls):
+    contents = fetch_urls(urls)
+    res_domains = []
+    for c in contents:
+        domains = extractor.extract_domains(c)
+        res_domains.extend(domains)
+
+    return res_domains

@@ -9,6 +9,7 @@ pylint = "*"
 [packages]
 requests = "*"
 validators = "*"
+requests-futures = "*"
 
 [requires]
 python_version = "3.7"

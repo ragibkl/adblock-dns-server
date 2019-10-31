@@ -14,12 +14,8 @@ from settings import (
 
 
 def main():
-    domains = []
-
     urls = http_loader.get_urls_from_file(HTTP_BLACKLIST_PATH)
-    for url in urls:
-        url_domains = http_loader.load_domains_for_url(url)
-        domains.extend(list(url_domains))
+    domains = http_loader.load_domains_for_urls(urls)
 
     paths = file_loader.get_paths_in_dir(CUSTOM_BLACKLIST_DIR)
     for path in paths:
