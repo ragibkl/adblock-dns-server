@@ -34,6 +34,7 @@ def main():
 
     domains = extractor.dedup_domains(domains)
     domains = extractor.exclude_whitelist_domains(domains, whitelist_domains)
+    domains = extractor.sort_domains(domains)
     write_to_file(domains, BLACKLIST_OUTPUT_PATH)
 
 

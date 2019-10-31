@@ -56,3 +56,9 @@ def dedup_domains(domains):
 
 def exclude_whitelist_domains(domains, whitelist):
     return [d for d in domains if d not in whitelist]
+
+
+def sort_domains(domains):
+    def get_sort_key(domain):
+        return '.'.join(reversed(domain.split('.')))
+    return sorted(domains, key=get_sort_key)
