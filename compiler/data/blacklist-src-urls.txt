@@ -8,3 +8,4 @@ https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds.tx
 https://raw.githubusercontent.com/ookangzheng/blahdns/master/hosts/blacklist.txt
 https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts
 https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+https://sebsauvage.net/hosts/hosts
