@@ -7,6 +7,8 @@ services:
     ports:
       - 53:53/tcp
       - 53:53/udp
+    volumes:
+      - ./data/output.d/blacklist.zone:/templates/blacklist.zone
     env_file: .env
     logging:
       driver: json-file
