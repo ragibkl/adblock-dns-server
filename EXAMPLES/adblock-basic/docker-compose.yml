@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  adblock_dns:
+    image: ragibkl/adblock_dns
+    restart: always
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+    env_file: .env
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+        max-file: "20"
