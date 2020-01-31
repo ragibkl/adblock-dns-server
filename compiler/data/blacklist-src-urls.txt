@@ -2,11 +2,13 @@ http://adaway.org/hosts.txt
 http://hosts-file.net/ad_servers.txt
 http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext
 http://winhelp2002.mvps.org/hosts.txt
+https://280blocker.net/files/280blocker_domain.txt
 https://getadhell.com/standard-package.txt
 https://oooo.b-cdn.net/blahdns/adsblock.txt
 https://raw.githubusercontent.com/Clefspeare13/pornhosts/master/127.0.0.1/hosts
-https://raw.githubusercontent.com/EnergizedProtection/block/master/blu/formats/hosts
+https://raw.githubusercontent.com/EnergizedProtection/block/master/porn/formats/hosts
+https://raw.githubusercontent.com/EnergizedProtection/block/master/ultimate/formats/hosts
 https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds.txt
-https://raw.githubusercontent.com/ookangzheng/blahdns/master/hosts/blacklist.txt
+https://raw.githubusercontent.com/Spam404/lists/master/main-blacklist.txt
 https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling-porn/hosts
 https://sebsauvage.net/hosts/hosts
