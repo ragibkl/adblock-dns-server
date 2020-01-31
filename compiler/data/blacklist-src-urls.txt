@@ -7,6 +7,7 @@ https://oooo.b-cdn.net/blahdns/adsblock.txt
 https://raw.githubusercontent.com/Clefspeare13/pornhosts/master/127.0.0.1/hosts
 https://raw.githubusercontent.com/EnergizedProtection/block/master/blu/formats/hosts
 https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds.txt
-https://raw.githubusercontent.com/ookangzheng/blahdns/master/hosts/blacklist.txt
 https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling-porn/hosts
 https://sebsauvage.net/hosts/hosts
+https://raw.githubusercontent.com/Spam404/lists/master/main-blacklist.txt
+https://280blocker.net/files/280blocker_domain.txt
