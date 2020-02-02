@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-docker push ragibkl/adblock_dns:latest
+TAG=${1:-latest}
+docker push ragibkl/adblock_dns:$TAG
