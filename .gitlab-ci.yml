@@ -1,4 +1,4 @@
-image: docker:latest
+image: docker:alpine
 
 services:
   - docker:dind
@@ -9,5 +9,6 @@ build:
     - tags
     - branches
   script:
+    - apk --update add git bash
     - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-    - sh scripts/ci-build.sh
+    - bash scripts/ci-build.sh
