@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-docker build --pull -t ragibkl/adblock_http:latest .
+TAG=${1:-latest}
+docker build --pull -t ragibkl/adblock_http:$TAG .
