@@ -7,4 +7,4 @@ build:
   stage: build
   script:
     - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-    - bash scripts/ci-build.sh
+    - ./scripts/ci-build.sh
