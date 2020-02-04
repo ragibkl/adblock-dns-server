@@ -6,5 +6,6 @@ services:
 build:
   stage: build
   script:
+    - ls -al
     - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - ./scripts/ci-build.sh
