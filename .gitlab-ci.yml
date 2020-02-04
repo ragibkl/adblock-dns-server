@@ -5,7 +5,9 @@ services:
 
 build:
   stage: build
+  only:
+    - tags
+    - branches
   script:
-    - ls -al
     - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-    - ./scripts/ci-build.sh
+    - sh scripts/ci-build.sh
