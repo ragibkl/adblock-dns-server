@@ -1,0 +1,10 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+build:
+  stage: build
+  script:
+    - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - bash scripts/ci-build.sh
