@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-docker push ragibkl/adblock_compiler:latest
+TAG=${1:-latest}
+docker push ragibkl/adblock_compiler:$TAG
