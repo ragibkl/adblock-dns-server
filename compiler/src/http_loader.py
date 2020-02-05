@@ -32,11 +32,6 @@ def fetch_urls(urls):
     return contents
 
 
-def load_domains_for_url(url):
-    content = fetch(url)
-    return extractor.extract_domains(content)
-
-
 def load_domains_for_urls(urls):
     contents = fetch_urls(urls)
     res_domains = []
