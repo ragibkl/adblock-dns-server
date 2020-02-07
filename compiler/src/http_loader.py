@@ -16,10 +16,19 @@ def fetch(url):
     print('Started downloading from : {}'.format(url))
     response = requests.get(url)
     content = str(response.content, 'UTF-8')
+    print('Completed downloading from : {}'.format(url))
     return content
 
 
 def fetch_urls(urls):
+    contents = []
+    for url in urls:
+        content = fetch(url)
+        contents.append(content)
+    return contents
+
+
+def fetch_urls_parallel(urls):
     session = FuturesSession()
     futures = [ session.get(url) for url in urls ]
     contents = []
