@@ -6,7 +6,6 @@ http://winhelp2002.mvps.org/hosts.txt
 https://280blocker.net/files/280blocker_domain.txt
 https://getadhell.com/standard-package.txt
 https://gitlab.com/curben/urlhaus-filter/raw/master/urlhaus-filter-hosts-online.txt
-https://lists.noads.online/lists/compilation.txt
 https://oooo.b-cdn.net/blahdns/adsblock.txt
 https://pgl.yoyo.org/as/serverlist.php?showintro=0;hostformat=hosts
 https://raw.githubusercontent.com/Clefspeare13/pornhosts/master/127.0.0.1/hosts
