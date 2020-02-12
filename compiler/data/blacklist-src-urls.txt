@@ -6,8 +6,10 @@ http://winhelp2002.mvps.org/hosts.txt
 https://280blocker.net/files/280blocker_domain.txt
 https://getadhell.com/standard-package.txt
 https://gitlab.com/curben/urlhaus-filter/raw/master/urlhaus-filter-hosts-online.txt
+https://gitlab.com/Kurobeats/phishing_hosts/-/raw/master/hosts
 https://oooo.b-cdn.net/blahdns/adsblock.txt
 https://pgl.yoyo.org/as/serverlist.php?showintro=0;hostformat=hosts
+https://raw.githubusercontent.com/badmojr/1Hosts/master/Pro/hosts.txt
 https://raw.githubusercontent.com/Clefspeare13/pornhosts/master/127.0.0.1/hosts
 https://raw.githubusercontent.com/EnergizedProtection/block/master/porn/formats/hosts
 https://raw.githubusercontent.com/EnergizedProtection/block/master/ultimate/formats/hosts
