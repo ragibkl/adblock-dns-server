@@ -11,12 +11,12 @@ https://oooo.b-cdn.net/blahdns/adsblock.txt
 https://pgl.yoyo.org/as/serverlist.php?showintro=0;hostformat=hosts
 https://raw.githubusercontent.com/Clefspeare13/pornhosts/master/127.0.0.1/hosts
 https://raw.githubusercontent.com/EnergizedProtection/block/master/porn/formats/hosts
-https://raw.githubusercontent.com/EnergizedProtection/block/master/basic/formats/hosts
+https://raw.githubusercontent.com/EnergizedProtection/block/master/ultimate/formats/hosts
 https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-LeEco-Extension.txt
 https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Xiaomi-Extension.txt
 https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds.txt
 https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/hosts
 https://raw.githubusercontent.com/Spam404/lists/master/main-blacklist.txt
-https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling-porn/hosts
+https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts
 https://sebsauvage.net/hosts/hosts
 https://someonewhocares.org/hosts/zero/hosts
