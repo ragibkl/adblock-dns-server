@@ -21,6 +21,12 @@ CUSTOM_WHITELIST_DIR = os.getenv(
     default=os.path.join(DATA_DIR, 'whitelist.d')
 )
 
+# Custom domain overrides files
+CUSTOM_OVERRIDES_DIR = os.getenv(
+    'CUSTOM_OVERRIDES_DIR',
+    default=os.path.join(DATA_DIR, 'overrides.d')
+)
+
 # Output blacklist path
 BLACKLIST_OUTPUT_PATH = os.getenv(
     'BLACKLIST_OUTPUT_PATH',

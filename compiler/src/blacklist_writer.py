@@ -19,10 +19,11 @@ class BlacklistWriter:
 
         return self._padding_size
 
-    def __init__(self, domain_list, redirect_ip, output_path):
+    def __init__(self, domain_list, overrides, output_path, redirect_ip):
         self.domain_list = domain_list
-        self.redirect_ip = redirect_ip
+        self.overrides = overrides
         self.output_path = output_path
+        self.redirect_ip = redirect_ip
 
     def export_to_file(self):
         content = self.get_blacklist_content()
@@ -30,6 +31,9 @@ class BlacklistWriter:
 
     def get_blacklist_content(self):
         content_lines = self.headers[:]
+        content_lines.append('')
+
+        content_lines.extend(self.overrides)
         content_lines.append('')
 
         for domain_name in self.domain_list:
@@ -57,6 +61,6 @@ class BlacklistWriter:
         print('Created "blacklist_file" file: "{}"'.format(file_name))
 
 
-def write_to_file(domains, path):
-    writer = BlacklistWriter(domains, '/%IPV4%/', path)
+def write_to_file(domains, overrides, path):
+    writer = BlacklistWriter(domains, overrides, path, '/%IPV4%/')
     writer.export_to_file()
