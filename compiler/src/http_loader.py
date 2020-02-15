@@ -1,5 +1,6 @@
 import validators
 import requests
+from retry import retry
 from requests_futures.sessions import FuturesSession
 
 import extractor
@@ -12,6 +13,7 @@ def get_urls_from_file(path):
     return urls
 
 
+@retry(tries=5, delay=2)
 def fetch(url):
     print('Started downloading from : {}'.format(url))
     response = requests.get(url)
@@ -23,8 +25,11 @@ def fetch(url):
 def fetch_urls(urls):
     contents = []
     for url in urls:
-        content = fetch(url)
-        contents.append(content)
+        try:
+            content = fetch(url)
+            contents.append(content)
+        except:
+            print(f'unable to fetch domains from: {url}')
     return contents
 
 

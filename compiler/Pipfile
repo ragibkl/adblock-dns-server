@@ -10,6 +10,7 @@ pylint = "*"
 requests = "*"
 validators = "*"
 requests-futures = "*"
+retry = "*"
 
 [requires]
 python_version = "3.7"
