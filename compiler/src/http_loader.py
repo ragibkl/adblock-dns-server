@@ -1,7 +1,6 @@
 import validators
 import requests
 from retry import retry
-from requests_futures.sessions import FuturesSession
 
 import extractor
 
@@ -30,19 +29,6 @@ def fetch_urls(urls):
             contents.append(content)
         except:
             print(f'unable to fetch domains from: {url}')
-    return contents
-
-
-def fetch_urls_parallel(urls):
-    session = FuturesSession()
-    futures = [ session.get(url) for url in urls ]
-    contents = []
-    for f in futures:
-        response = f.result()
-        print('Completed downloading from : {}'.format(response.url))
-        content = str(response.content, 'UTF-8')
-        contents.append(content)
-
     return contents
 
 
