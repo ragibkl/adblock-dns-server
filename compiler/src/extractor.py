@@ -4,6 +4,13 @@ MIN_LENGTH = 5
 MAX_LENGTH = 240
 
 
+def clean_comment(text):
+    index = text.find('#')
+    if index == -1:
+        return text
+    return text[:index].strip()
+
+
 def clean_whitespace(text):
     return text.replace('\r', '').replace('\t', ' ')
 
@@ -19,6 +26,12 @@ def is_correct_length(line):
     return True
 
 
+def is_ip_address(text):
+    if validators.ip_address.ipv4(text):
+        return True
+    return validators.ip_address.ipv6(text)
+
+
 def decode(domain):
     try:
         return domain.encode('idna').decode('ascii')
@@ -28,11 +41,13 @@ def decode(domain):
 
 
 def extract_domain(text):
-    if is_comment(text):
-        return None
+    text = clean_comment(text)
 
     names = [x for x in text.split() if is_correct_length(x)]
     for name in names:
+        if is_ip_address(name):
+            continue
+
         name_idn = decode(name)
         if not name_idn:
             continue
