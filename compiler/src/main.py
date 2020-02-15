@@ -35,6 +35,9 @@ def main():
         path_overrides = file_loader.load_overrides_for_file(path)
         overrides.extend(list(path_overrides))
 
+    override_domains = extractor.extract_domains('\n'.join(overrides))
+    whitelist_domains.extend(override_domains)
+
     domains = extractor.dedup_domains(domains)
     domains = extractor.exclude_whitelist_domains(domains, whitelist_domains)
     domains = extractor.sort_domains(domains)
