@@ -1,0 +1,5 @@
+www.youtube.com             CNAME   restrictmoderate.youtube.com.
+m.youtube.com               CNAME   restrictmoderate.youtube.com.
+youtubei.googleapis.com     CNAME   restrictmoderate.youtube.com.
+youtube.googleapis.com      CNAME   restrictmoderate.youtube.com.
+www.youtube-nocookie.com    CNAME   restrictmoderate.youtube.com.
