@@ -15,10 +15,6 @@ def clean_whitespace(text):
     return text.replace('\r', '').replace('\t', ' ')
 
 
-def is_comment(line):
-    return line.startswith('#')
-
-
 def is_correct_length(line):
     length = len(line)
     if length < MIN_LENGTH or length > MAX_LENGTH:
