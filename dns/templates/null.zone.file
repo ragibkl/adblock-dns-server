@@ -8,5 +8,6 @@ $TTL    86400       ; one day
 )
         NS      /%FQDN%/.
         A       /%IPV4%/
+        AAAA    /%IPV6%/
 *   IN  A       /%IPV4%/
 *   IN  AAAA    /%IPV6%/

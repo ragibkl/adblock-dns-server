@@ -6,4 +6,5 @@
 // organization
 //include "/etc/bind/zones.rfc1918";
 
+zone "null-zone.null" {type master; file "/etc/bind/null.zone.file"; allow-query {any;}; };
 zone "/%ZONE_NAME%/" {type master; file "/%ZONE_PATH%/"; allow-query {none;}; };
