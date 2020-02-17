@@ -19,11 +19,10 @@ class BlacklistWriter:
 
         return self._padding_size
 
-    def __init__(self, domain_list, overrides, output_path, redirect_ip):
+    def __init__(self, domain_list, overrides, output_path):
         self.domain_list = domain_list
         self.overrides = overrides
         self.output_path = output_path
-        self.redirect_ip = redirect_ip
 
     def export_to_file(self):
         content = self.get_blacklist_content()
@@ -44,12 +43,8 @@ class BlacklistWriter:
         return '\n'.join(content_lines)
 
     def get_formatted_domain_string(self, domain_name):
-        redirect_ip = self.redirect_ip
-        formatted_string = '{domain_name} A {redirect_ip}'.format(
-            domain_name=domain_name.ljust(self.padding_size),
-            redirect_ip=redirect_ip
-        )
-        return formatted_string
+        justified_domain = domain_name.ljust(self.padding_size)
+        return f'{justified_domain} CNAME    null.null-zone.null.'
 
     def write_to_file(self, content):
         file_name = self.output_path
@@ -62,5 +57,5 @@ class BlacklistWriter:
 
 
 def write_to_file(domains, overrides, path):
-    writer = BlacklistWriter(domains, overrides, path, '/%IPV4%/')
+    writer = BlacklistWriter(domains, overrides, path)
     writer.export_to_file()
