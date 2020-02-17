@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 TAG=${1:-latest}
-touch templates/blacklist.zone
+touch output.d/blacklist.zone
 
 docker pull ragibkl/adblock_compiler:$TAG
 docker run -ti --rm \
