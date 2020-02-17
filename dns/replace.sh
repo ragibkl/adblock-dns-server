@@ -31,8 +31,3 @@ cat templates/null.zone.file | \
     sed s,'/%IPV4%/',"${IPV4}",g | \
     sed s,'/%IPV6%/',"${IPV6}",g > \
     config/null.zone.file
-
-cat templates/blacklist.zone | \
-    sed s,'/%IPV4%/',"${IPV4}",g | \
-    sed s,'/%IPV6%/',"${IPV6}",g > \
-    config/blacklist.zone
