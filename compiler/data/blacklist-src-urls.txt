@@ -12,7 +12,7 @@ https://pgl.yoyo.org/as/serverlist.php?showintro=0;hostformat=hosts
 https://raw.githubusercontent.com/badmojr/1Hosts/master/Pro/hosts.txt
 https://raw.githubusercontent.com/Clefspeare13/pornhosts/master/127.0.0.1/hosts
 https://raw.githubusercontent.com/EnergizedProtection/block/master/porn/formats/hosts
-https://raw.githubusercontent.com/EnergizedProtection/block/master/ultimate/formats/hosts
+https://raw.githubusercontent.com/EnergizedProtection/block/master/blu/formats/hosts
 https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-LeEco-Extension.txt
 https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Xiaomi-Extension.txt
 https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds.txt
