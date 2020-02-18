@@ -7,12 +7,17 @@ https://280blocker.net/files/280blocker_domain.txt
 https://getadhell.com/standard-package.txt
 https://gitlab.com/curben/urlhaus-filter/raw/master/urlhaus-filter-hosts-online.txt
 https://gitlab.com/Kurobeats/phishing_hosts/-/raw/master/hosts
+https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt
+https://hostfiles.frogeye.fr/multiparty-trackers-hosts.txt
+https://hosts-file.net/grm.txt
 https://oooo.b-cdn.net/blahdns/adsblock.txt
 https://pgl.yoyo.org/as/serverlist.php?showintro=0;hostformat=hosts
+https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt
 https://raw.githubusercontent.com/badmojr/1Hosts/master/Pro/hosts.txt
+https://raw.githubusercontent.com/bigdargon/hostsVN/master/hosts
 https://raw.githubusercontent.com/Clefspeare13/pornhosts/master/127.0.0.1/hosts
-https://raw.githubusercontent.com/EnergizedProtection/block/master/porn/formats/hosts
 https://raw.githubusercontent.com/EnergizedProtection/block/master/blu/formats/hosts
+https://raw.githubusercontent.com/EnergizedProtection/block/master/porn/formats/hosts
 https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-LeEco-Extension.txt
 https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Xiaomi-Extension.txt
 https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds.txt
@@ -21,3 +26,4 @@ https://raw.githubusercontent.com/Spam404/lists/master/main-blacklist.txt
 https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts
 https://sebsauvage.net/hosts/hosts
 https://someonewhocares.org/hosts/zero/hosts
+https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt
