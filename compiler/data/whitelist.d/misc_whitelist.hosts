@@ -1,4 +1,4 @@
-# whitelist
+# misc whitelist
 127.0.0.1 cdn.reverso.net
 127.0.0.1 display.360totalsecurity.com
 127.0.0.1 static.ts.360.com
@@ -32,5 +32,3 @@
 127.0.0.1 players.brightcove.net.edgekey.net
 127.0.0.1 9gag.com
 127.0.0.1 rlog.9gag.com
-127.0.0.1 www.blogger.com
-127.0.0.1 resources.blogblog.com
