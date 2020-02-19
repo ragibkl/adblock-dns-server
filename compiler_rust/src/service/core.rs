@@ -7,3 +7,8 @@ pub trait Loader {
 pub trait Parser {
     fn parse(&self) -> Result<String, Box<dyn Error>>;
 }
+
+pub struct ExtractTask {
+    loader: LoadAndParse,
+    parse: Parser,
+}
