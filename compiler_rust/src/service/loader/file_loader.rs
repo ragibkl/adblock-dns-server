@@ -1,7 +1,7 @@
 use std::error::Error;
 use std::fs;
 
-use crate::lib::core::Loader;
+use crate::service::core::Loader;
 
 pub struct FileLoader {
     pub path: String,

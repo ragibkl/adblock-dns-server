@@ -1,0 +1,7 @@
+[
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "http://adaway.org/hosts.txt"
+    }
+]

@@ -1,7 +1,7 @@
 use std::error::Error;
 extern crate reqwest;
 
-use crate::lib::core::Loader;
+use crate::service::core::Loader;
 
 pub struct HttpLoader {
     pub url: String,
