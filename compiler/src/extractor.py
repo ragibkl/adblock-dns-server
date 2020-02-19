@@ -1,4 +1,5 @@
 import validators
+from timing_utils import timing
 
 MIN_LENGTH = 5
 MAX_LENGTH = 240
@@ -55,20 +56,25 @@ def extract_domain(text):
     return None
 
 
+@timing
 def extract_domains(text):
     content = clean_whitespace(text)
     domains = [ extract_domain(line) for line in content.splitlines() ]
     return filter(None, domains)
 
 
+@timing
 def dedup_domains(domains):
     return list(set(domains))
 
 
+@timing
 def exclude_whitelist_domains(domains, whitelist):
-    return [d for d in domains if d not in whitelist]
+    exclusion_list = set([decode(d) for d in whitelist])
+    return [d for d in domains if d not in exclusion_list]
 
 
+@timing
 def sort_domains(domains):
     def get_sort_key(domain):
         return '.'.join(reversed(domain.split('.')))
