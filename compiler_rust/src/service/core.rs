@@ -5,10 +5,18 @@ pub trait Loader {
 }
 
 pub trait Parser {
-    fn parse(&self) -> Result<String, Box<dyn Error>>;
+    fn parse(&self, content: String) -> Vec<String>;
 }
 
 pub struct ExtractTask {
-    loader: LoadAndParse,
-    parse: Parser,
+    loader: Box<dyn Loader>,
+    parser: Box<dyn Parser>,
+}
+
+impl ExtractTask {
+    pub fn load_and_parse(&self) -> Vec<String> {
+        let content = self.loader.load().unwrap();
+        let domains = self.parser.parse(content);
+        domains
+    }
 }
