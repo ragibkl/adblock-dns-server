@@ -4,9 +4,9 @@ use std::fs;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct SourceConfig {
-    kind: String,
-    format: String,
-    path: String,
+    pub kind: String,
+    pub format: String,
+    pub path: String,
 }
 
 pub struct AppConfig {
@@ -14,8 +14,8 @@ pub struct AppConfig {
 }
 
 impl AppConfig {
-    pub fn new() -> Config {
-        Config {
+    pub fn new() -> AppConfig {
+        AppConfig {
             http_blacklist_path: "data/blacklist-src-urls.json".to_string(),
         }
     }
