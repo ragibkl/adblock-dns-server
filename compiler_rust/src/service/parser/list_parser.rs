@@ -9,8 +9,7 @@ use crate::service::core::Parser;
 
 fn extract_domain(text: String) -> Option<String> {
     lazy_static! {
-        static ref RE: Regex =
-            Regex::new(r"(127\.0\.0\.1|0\.0\.0\.0)\s+(?P<domain>.{2,256}\.[a-z]{2,6})").unwrap();
+        static ref RE: Regex = Regex::new(r"(?P<domain>.{2,256}\.[a-z]{2,6})").unwrap();
     }
 
     RE.captures(&text)
@@ -19,15 +18,15 @@ fn extract_domain(text: String) -> Option<String> {
         .map(|d| d.as_str().trim().to_string())
 }
 
-pub struct HostParser;
+pub struct ListParser;
 
-impl HostParser {
-    pub fn new() -> HostParser {
-        HostParser {}
+impl ListParser {
+    pub fn new() -> ListParser {
+        ListParser {}
     }
 }
 
-impl Parser for HostParser {
+impl Parser for ListParser {
     fn parse(&self, content: String) -> Vec<String> {
         let lines = content
             .lines()
@@ -47,21 +46,25 @@ mod tests {
 
     #[test]
     fn it_extract_domain() {
-        let input = "127.0.0.1 abc.example.com".to_string();
+        let input = "abc.example.com".to_string();
         let output = extract_domain(input);
         let expected = "abc.example.com".to_string();
-
         assert_eq!(output, Some(expected));
+
+        let input = "".to_string();
+        let output = extract_domain(input);
+        assert_eq!(output, None);
     }
 
     #[test]
     fn it_works() {
-        let parser = HostParser::new();
+        let parser = ListParser::new();
         let input = "
-            127.0.0.1  abc.example.com
-            0.0.0.0  abc.example.com\r
-            127.0.0.1 abc.example.com
-            0.0.0.0 abc.example.com\r
+            # This is a comment
+            abc.example.com # this should work
+            def.example.com\r
+
+            ghi.example.com\r
         "
         .to_string();
 
@@ -69,9 +72,8 @@ mod tests {
 
         let expected = vec![
             "abc.example.com".to_string(),
-            "abc.example.com".to_string(),
-            "abc.example.com".to_string(),
-            "abc.example.com".to_string(),
+            "def.example.com".to_string(),
+            "ghi.example.com".to_string(),
         ];
         assert_eq!(output, expected);
     }
