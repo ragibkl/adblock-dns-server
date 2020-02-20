@@ -1,9 +1,9 @@
+#[macro_use]
+extern crate lazy_static;
 pub mod service;
 
-use service::core::*;
-use service::loader::get_loader;
-
 use service::config::AppConfig;
+use service::extractor::ExtractTask;
 
 pub fn load_config() -> AppConfig {
     AppConfig::new()
@@ -11,12 +11,10 @@ pub fn load_config() -> AppConfig {
 
 pub fn run(config: AppConfig) {
     let urls = config.get_blacklist_urls();
-    let loaders: Vec<Box<dyn Loader>> = urls
-        .iter()
-        .map(|u| get_loader(u))
-        .filter(|l| l.is_some())
-        .map(|l| l.unwrap())
-        .collect();
+    let tasks: Vec<ExtractTask> = urls.iter().map(|u| ExtractTask::from_config(u)).collect();
 
-    // println!("{:?}", loaders);
+    for t in tasks {
+        let d = t.load_and_parse();
+        println!("{:?}", d);
+    }
 }

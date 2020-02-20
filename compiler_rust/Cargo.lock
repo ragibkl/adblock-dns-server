@@ -107,6 +107,7 @@ name = "compiler_rust"
 version = "0.1.0"
 dependencies = [
  "addr",
+ "lazy_static",
  "regex",
  "reqwest",
  "serde",

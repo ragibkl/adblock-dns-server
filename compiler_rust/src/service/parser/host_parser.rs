@@ -12,10 +12,7 @@ fn remove_comments(text: String) -> String {
 }
 
 fn replace_whitespace(text: String) -> String {
-    text.replace("\t", " ")
-        .replace("\r", "")
-        .trim()
-        .to_string()
+    text.replace("\t", " ").replace("\r", "").trim().to_string()
 }
 
 fn clean_text(text: String) -> String {
@@ -25,9 +22,12 @@ fn clean_text(text: String) -> String {
 }
 
 fn extract_domain(text: String) -> Option<String> {
-    let re = Regex::new(r"(127\.0\.0\.1|0\.0\.0\.0)\s+(?P<domain>.{2,256}\.[a-z]{2,6})").unwrap();
+    lazy_static! {
+        static ref RE: Regex =
+            Regex::new(r"(127\.0\.0\.1|0\.0\.0\.0)\s+(?P<domain>.{2,256}\.[a-z]{2,6})").unwrap();
+    }
 
-    re.captures(&text)
+    RE.captures(&text)
         .and_then(|cap| cap.name("domain"))
         .and_then(|d| d.as_str().parse::<DomainName>().ok())
         .map(|d| d.as_str().trim().to_string())
@@ -36,7 +36,7 @@ fn extract_domain(text: String) -> Option<String> {
 pub struct HostParser;
 
 impl HostParser {
-    fn new() -> HostParser {
+    pub fn new() -> HostParser {
         HostParser {}
     }
 }

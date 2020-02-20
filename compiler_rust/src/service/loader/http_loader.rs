@@ -10,8 +10,6 @@ pub struct HttpLoader {
 impl Loader for HttpLoader {
     fn load(&self) -> Result<String, Box<dyn Error>> {
         let contents = reqwest::blocking::get(&self.url)?.text()?;
-        println!("{}", contents);
-
         Ok(contents)
     }
 }
