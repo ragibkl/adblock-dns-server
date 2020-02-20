@@ -51,6 +51,11 @@ mod tests {
         let expected = "abc.example.com".to_string();
         assert_eq!(output, Some(expected));
 
+        let input = "Bücher.example.com".to_string();
+        let output = extract_domain(input);
+        let expected = "xn--bcher-kva.example.com".to_string();
+        assert_eq!(output, Some(expected));
+
         let input = "".to_string();
         let output = extract_domain(input);
         assert_eq!(output, None);

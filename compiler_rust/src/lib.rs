@@ -10,11 +10,13 @@ pub fn load_config() -> AppConfig {
 }
 
 pub fn run(config: AppConfig) {
-    let urls = config.get_blacklist_urls();
+    let urls = config.get_blacklist_srcs();
     let tasks: Vec<ExtractTask> = urls.iter().map(|u| ExtractTask::from_config(u)).collect();
 
+    let mut domains: Vec<String> = Vec::new();
     for t in tasks {
         let d = t.load_and_parse();
-        println!("{:?}", d);
+        domains.extend(d);
     }
+    println!("{:?}", domains);
 }

@@ -10,18 +10,18 @@ pub struct SourceConfig {
 }
 
 pub struct AppConfig {
-    http_blacklist_path: String,
+    blacklist_src_path: String,
 }
 
 impl AppConfig {
     pub fn new() -> AppConfig {
         AppConfig {
-            http_blacklist_path: "data/blacklist-src-urls.json".to_string(),
+            blacklist_src_path: "data/blacklist-src-urls.json".to_string(),
         }
     }
 
-    pub fn get_blacklist_urls(&self) -> Vec<SourceConfig> {
-        let file_content: String = fs::read_to_string(&self.http_blacklist_path)
+    pub fn get_blacklist_srcs(&self) -> Vec<SourceConfig> {
+        let file_content: String = fs::read_to_string(&self.blacklist_src_path)
             .unwrap()
             .parse()
             .unwrap();
