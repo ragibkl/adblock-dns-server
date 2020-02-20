@@ -6,7 +6,11 @@ fn remove_comments(text: String) -> String {
 }
 
 fn replace_whitespace(text: String) -> String {
-    text.replace("\t", " ").replace("\r", "").replace("  ", " ").trim()
+    text.replace("\t", " ")
+        .replace("\r", "")
+        .replace("  ", " ")
+        .trim()
+        .to_string()
 }
 
 fn clean_text(text: String) -> String {
@@ -15,21 +19,31 @@ fn clean_text(text: String) -> String {
     text
 }
 
+fn extract_domain(text: String) -> Option<String> {
+    None
+}
+
 pub struct HostParser;
 
 impl HostParser {
     fn new() -> HostParser {
-        HostParser{}
+        HostParser {}
     }
 }
 
 impl Parser for HostParser {
     fn parse(&self, content: String) -> Vec<String> {
-        // let lines = content.sp
-        vec![]
+        let lines = content
+            .lines()
+            .map(|l| l.to_string())
+            .map(|l| clean_text(l))
+            .map(|l| extract_domain(l))
+            .filter(|l| l.is_some())
+            .map(|l| l.unwrap());
+
+        lines.collect()
     }
 }
-
 
 #[cfg(test)]
 mod tests {
@@ -45,11 +59,21 @@ mod tests {
     }
 
     #[test]
+    fn it_replaces_whitespace() {
+        let input = "127.0.0.1\tabc.example.com".to_string();
+        let output = replace_whitespace(input);
+        let expected = "127.0.0.1 abc.example.com".to_string();
+
+        assert_eq!(output, expected);
+    }
+
+    #[test]
     fn it_works() {
         let parser = HostParser::new();
         let input = "
             127.0.0.1 abc.example.com
-        ".to_string();
+        "
+        .to_string();
 
         let output = parser.parse(input);
 
