@@ -1,4 +1,4 @@
-# whitelist
+# misc whitelist
 127.0.0.1 cdn.reverso.net
 127.0.0.1 display.360totalsecurity.com
 127.0.0.1 static.ts.360.com
@@ -28,9 +28,8 @@
 127.0.0.1 mega.nz
 127.0.0.1 g.api.mega.co.nz
 127.0.0.1 lu.api.mega.co.nz
+127.0.0.1 eu.static.mega.co.nz
 127.0.0.1 players.brightcove.net
 127.0.0.1 players.brightcove.net.edgekey.net
 127.0.0.1 9gag.com
 127.0.0.1 rlog.9gag.com
-127.0.0.1 www.blogger.com
-127.0.0.1 resources.blogblog.com
