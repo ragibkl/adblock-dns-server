@@ -16,7 +16,7 @@ pub fn load_config() -> AppConfig {
     AppConfig::new()
 }
 
-pub fn run(config: AppConfig) {
+pub async fn run(config: AppConfig) {
     let urls = config.get_blacklist_srcs();
     let sets: Vec<HashSet<String>> = urls
         .par_iter()

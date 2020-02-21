@@ -1,6 +1,7 @@
 use compiler_rust::{load_config, run};
 
-fn main() {
+#[tokio::main]
+async fn main() {
     let config = load_config();
-    run(config);
+    run(config).await;
 }
