@@ -33,5 +33,5 @@ pub fn run(config: AppConfig) {
 
     let domains: Vec<String> = domain_set.into_iter().collect();
     let content = hosts_writer::build_content(domains);
-    hosts_writer::write_to_file(&config.get_output_path(), content);
+    hosts_writer::write_to_file(&config.get_output_path(), &content);
 }

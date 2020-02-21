@@ -19,7 +19,7 @@ pub fn build_content(domains: Vec<String>) -> String {
     lines.join("\n")
 }
 
-pub fn write_to_file(path: &str, content: String) {
+pub fn write_to_file(path: &str, content: &str) {
     let mut f = File::create(path).unwrap();
     f.write_all(content.as_bytes()).unwrap();
     f.sync_all().unwrap();
