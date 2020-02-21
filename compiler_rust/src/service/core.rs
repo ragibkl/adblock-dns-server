@@ -1,7 +1,5 @@
-use std::error::Error;
-
 pub trait Loader {
-    fn load(&self) -> Result<String, Box<dyn Error>>;
+    fn load(&self) -> Result<String, ()>;
 }
 
 pub trait Parser {

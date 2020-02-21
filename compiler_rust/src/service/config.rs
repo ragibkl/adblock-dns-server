@@ -12,6 +12,7 @@ pub struct SourceConfig {
 pub struct AppConfig {
     blacklist_src_path: String,
     whitelist_src_path: String,
+    output_path: String,
 }
 
 impl AppConfig {
@@ -19,6 +20,7 @@ impl AppConfig {
         AppConfig {
             blacklist_src_path: "data/blacklist-src-urls.json".to_string(),
             whitelist_src_path: "data/whitelist-src-urls.json".to_string(),
+            output_path: "data/output.d/blacklist.zone".to_string(),
         }
     }
 
@@ -36,5 +38,9 @@ impl AppConfig {
             .parse()
             .unwrap();
         serde_json::from_str(&file_content).unwrap()
+    }
+
+    pub fn get_output_path(&self) -> String {
+        self.output_path.clone()
     }
 }

@@ -2,6 +2,7 @@ use crate::service::config::SourceConfig;
 use crate::service::core::*;
 use crate::service::loader::HttpLoader;
 use crate::service::parser::HostParser;
+use crate::service::parser::ListParser;
 
 pub struct ExtractTask {
     loader: Box<dyn Loader>,
@@ -16,19 +17,25 @@ impl ExtractTask {
             },
             _ => panic!("invalid kind"),
         };
-        let parser = match config.format.as_str() {
-            "hosts" => HostParser::new(),
+        let parser: Box<dyn Parser> = match config.format.as_str() {
+            "hosts" => Box::new(HostParser::new()),
+            "domains" => Box::new(ListParser::new()),
             _ => panic!("invalid format"),
         };
         ExtractTask {
             loader: Box::new(loader),
-            parser: Box::new(parser),
+            parser,
         }
     }
 
     pub fn load_and_parse(&self) -> Vec<String> {
-        let content = self.loader.load().unwrap();
-        let domains = self.parser.parse(content);
-        domains
+        let res = self.loader.load();
+        match res {
+            Ok(content) => self.parser.parse(content),
+            _ => {
+                println!("error loading content");
+                Vec::new()
+            }
+        }
     }
 }
