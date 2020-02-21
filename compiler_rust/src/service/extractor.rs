@@ -31,7 +31,7 @@ impl ExtractTask {
     pub fn load_and_parse(&self) -> Vec<String> {
         let res = self.loader.load();
         match res {
-            Ok(content) => self.parser.parse(content),
+            Ok(content) => self.parser.parse(&content),
             _ => {
                 println!("error loading content");
                 Vec::new()

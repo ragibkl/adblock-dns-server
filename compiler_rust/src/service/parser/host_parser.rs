@@ -7,7 +7,7 @@ use regex::Regex;
 use super::parser_utils::clean_text;
 use crate::service::core::Parser;
 
-fn extract_domain(text: String) -> Option<String> {
+fn extract_domain(text: &str) -> Option<String> {
     lazy_static! {
         static ref RE: Regex =
             Regex::new(r"(127\.0\.0\.1|0\.0\.0\.0)\s+(?P<domain>.{2,256}\.[a-z]{2,6})").unwrap();
@@ -28,12 +28,12 @@ impl HostParser {
 }
 
 impl Parser for HostParser {
-    fn parse(&self, content: String) -> Vec<String> {
+    fn parse(&self, content: &str) -> Vec<String> {
         let lines = content
             .lines()
             .map(|l| l.to_string())
-            .map(|l| clean_text(l))
-            .map(|l| extract_domain(l))
+            .map(|l| clean_text(&l))
+            .map(|l| extract_domain(&l))
             .filter(|l| l.is_some())
             .map(|l| l.unwrap());
 
@@ -47,7 +47,7 @@ mod tests {
 
     #[test]
     fn it_extract_domain() {
-        let input = "127.0.0.1 abc.example.com".to_string();
+        let input = "127.0.0.1 abc.example.com";
         let output = extract_domain(input);
         let expected = "abc.example.com".to_string();
 
@@ -62,8 +62,7 @@ mod tests {
             0.0.0.0  abc.example.com\r
             127.0.0.1 abc.example.com
             0.0.0.0 abc.example.com\r
-        "
-        .to_string();
+        ";
 
         let output = parser.parse(input);
 

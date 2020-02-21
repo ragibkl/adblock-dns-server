@@ -3,5 +3,5 @@ pub trait Loader {
 }
 
 pub trait Parser {
-    fn parse(&self, content: String) -> Vec<String>;
+    fn parse(&self, content: &str) -> Vec<String>;
 }

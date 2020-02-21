@@ -7,7 +7,7 @@ use regex::Regex;
 use super::parser_utils::clean_text;
 use crate::service::core::Parser;
 
-fn extract_domain(text: String) -> Option<String> {
+fn extract_domain(text: &str) -> Option<String> {
     lazy_static! {
         static ref RE: Regex = Regex::new(r"(?P<domain>.{2,256}\.[a-z]{2,6})").unwrap();
     }
@@ -27,12 +27,12 @@ impl ListParser {
 }
 
 impl Parser for ListParser {
-    fn parse(&self, content: String) -> Vec<String> {
+    fn parse(&self, content: &str) -> Vec<String> {
         let lines = content
             .lines()
             .map(|l| l.to_string())
-            .map(|l| clean_text(l))
-            .map(|l| extract_domain(l))
+            .map(|l| clean_text(&l))
+            .map(|l| extract_domain(&l))
             .filter(|l| l.is_some())
             .map(|l| l.unwrap());
 
@@ -46,17 +46,17 @@ mod tests {
 
     #[test]
     fn it_extract_domain() {
-        let input = "abc.example.com".to_string();
+        let input = "abc.example.com";
         let output = extract_domain(input);
         let expected = "abc.example.com".to_string();
         assert_eq!(output, Some(expected));
 
-        let input = "Bücher.example.com".to_string();
+        let input = "Bücher.example.com";
         let output = extract_domain(input);
         let expected = "xn--bcher-kva.example.com".to_string();
         assert_eq!(output, Some(expected));
 
-        let input = "".to_string();
+        let input = "";
         let output = extract_domain(input);
         assert_eq!(output, None);
     }
@@ -70,8 +70,7 @@ mod tests {
             def.example.com\r
 
             ghi.example.com\r
-        "
-        .to_string();
+        ";
 
         let output = parser.parse(input);
 
