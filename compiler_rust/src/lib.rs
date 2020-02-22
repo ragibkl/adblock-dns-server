@@ -1,13 +1,11 @@
 #[macro_use]
 extern crate lazy_static;
+extern crate async_std;
 extern crate rayon;
 
 use std::collections::HashSet;
 
-use rayon::prelude::*;
-
 pub mod service;
-
 use service::config::AppConfig;
 use service::extractor::ExtractTask;
 use service::hosts_writer;
@@ -18,16 +16,20 @@ pub fn load_config() -> AppConfig {
 
 pub async fn run(config: AppConfig) {
     let urls = config.get_blacklist_srcs();
-    let sets: Vec<HashSet<String>> = urls
-        .par_iter()
-        .map(|u| {
-            let t = ExtractTask::from_config(u);
-            t.load_and_parse().into_iter().collect()
-        })
-        .collect();
+
+    let mut handles = Vec::new();
+    for u in urls {
+        let handle = async_std::task::spawn(async move {
+            let _u = u;
+            let t = ExtractTask::from_config(&_u);
+            t.load_and_parse().await.into_iter().collect::<HashSet<_>>()
+        });
+        handles.push(handle);
+    }
 
     let mut domain_set = HashSet::new();
-    for s in sets {
+    for h in handles {
+        let s = h.await;
         domain_set.extend(s);
     }
 

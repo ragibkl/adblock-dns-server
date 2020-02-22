@@ -1,13 +1,16 @@
 extern crate reqwest;
 
 use crate::service::core::Loader;
+use async_trait::async_trait;
 
 pub struct HttpLoader {
     pub url: String,
 }
 
+#[async_trait]
 impl Loader for HttpLoader {
-    fn load(&self) -> Result<String, ()> {
+    async fn load(self) -> Result<String, ()> {
+        println!("Start fetch from: {}", &self.url);
         for _i in 0..5 {
             let response = reqwest::blocking::get(&self.url);
 
