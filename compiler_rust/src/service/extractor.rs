@@ -1,49 +1,39 @@
-// use std::sync::{Arc,Mutex};
-
+use std::sync::Arc;
 use tokio::sync::Mutex;
 
 use crate::service::config::SourceConfig;
 use crate::service::core::*;
-use crate::service::loader::HttpLoader;
-use crate::service::parser::HostParser;
-use crate::service::parser::ListParser;
-
-enum LoaderEnum {
-    Http(String),
-    File(String),
-}
+use crate::service::loader::{FileLoader, HttpLoader};
+use crate::service::parser::{HostParser, ListParser};
 
 pub struct ExtractTask {
-    loader: LoaderEnum,
+    loader: Arc<dyn Loader>,
     parser: Mutex<Box<dyn Parser + Send>>,
 }
 
 impl ExtractTask {
     pub fn from_config(config: &SourceConfig) -> ExtractTask {
-        let loader: LoaderEnum = match config.kind.as_str() {
-            "http" => LoaderEnum::Http(config.path.clone()),
+        let loader: Arc<dyn Loader> = match config.kind.as_str() {
+            "http" => Arc::new(HttpLoader{ url: config.path.clone() }),
+            "file" => Arc::new(FileLoader{ path: config.path.clone() }),
             _ => panic!("invalid kind"),
         };
+
         let parser: Mutex<Box<dyn Parser + Send>> = match config.format.as_str() {
             "hosts" => Mutex::new(Box::new(HostParser::new())),
             "domains" => Mutex::new(Box::new(ListParser::new())),
             _ => panic!("invalid format"),
         };
+
         ExtractTask {
             loader: loader,
             parser: parser,
         }
     }
 
-    pub async fn load_and_parse(self) -> Vec<String> {
-        let res = match self.loader {
-            LoaderEnum::Http(url) => {
-                let l = HttpLoader { url: url.clone() };
-                l.load()
-            }
-            _ => panic!("invalid kind"),
-        }
-        .await;
+    pub async fn load_and_parse(&self) -> Vec<String> {
+        let loader = Arc::clone(&self.loader);
+        let res = loader.load().await;
 
         match res {
             Ok(content) => self.parser.lock().await.parse(&content),

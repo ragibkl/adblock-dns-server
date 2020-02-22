@@ -9,8 +9,9 @@ pub struct HttpLoader {
 
 #[async_trait]
 impl Loader for HttpLoader {
-    async fn load(self) -> Result<String, ()> {
+    async fn load(&self) -> Result<String, ()> {
         println!("Start fetch from: {}", &self.url);
+
         for _i in 0..5 {
             let response = reqwest::get(&self.url).await;
             if let Some(r) = response.ok() {
@@ -21,6 +22,7 @@ impl Loader for HttpLoader {
                 }
             }
         }
+
         println!("Cannot fetch from: {}", &self.url);
         Err(())
     }

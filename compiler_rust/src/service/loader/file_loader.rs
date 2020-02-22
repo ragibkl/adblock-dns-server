@@ -9,7 +9,7 @@ pub struct FileLoader {
 
 #[async_trait]
 impl Loader for FileLoader {
-    async fn load(self) -> Result<String, ()> {
+    async fn load(&self) -> Result<String, ()> {
         let contents = fs::read_to_string(&self.path).map_err(|_e| ())?;
         println!("{}", contents);
 
