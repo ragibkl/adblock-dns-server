@@ -19,7 +19,7 @@ pub async fn run(config: AppConfig) {
 
     let mut handles = Vec::new();
     for u in urls {
-        let handle = async_std::task::spawn(async move {
+        let handle = tokio::spawn(async move {
             let _u = u;
             let t = ExtractTask::from_config(&_u);
             t.load_and_parse().await.into_iter().collect::<HashSet<_>>()
@@ -30,7 +30,9 @@ pub async fn run(config: AppConfig) {
     let mut domain_set = HashSet::new();
     for h in handles {
         let s = h.await;
-        domain_set.extend(s);
+        if let Some(s) = s.ok() {
+            domain_set.extend(s);
+        }
     }
 
     let domains: Vec<String> = domain_set.into_iter().collect();
