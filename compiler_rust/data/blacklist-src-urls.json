@@ -143,5 +143,45 @@
         "kind": "http",
         "format": "hosts",
         "path": "https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt"
+    },
+    {
+        "kind": "file",
+        "format": "hosts",
+        "path": "data/blacklist.d/ads_custom.hosts"
+    },
+    {
+        "kind": "file",
+        "format": "hosts",
+        "path": "data/blacklist.d/porn_custom.hosts"
+    },
+    {
+        "kind": "file",
+        "format": "hosts",
+        "path": "data/blacklist.d/porn_reddit.hosts"
+    },
+    {
+        "kind": "file",
+        "format": "hosts",
+        "path": "data/blacklist.d/rlwpx_advertising.hosts"
+    },
+    {
+        "kind": "file",
+        "format": "hosts",
+        "path": "data/blacklist.d/rlwpx_malware.hosts"
+    },
+    {
+        "kind": "file",
+        "format": "hosts",
+        "path": "data/blacklist.d/rlwpx_misc.hosts"
+    },
+    {
+        "kind": "file",
+        "format": "hosts",
+        "path": "data/blacklist.d/rlwpx_porn.hosts"
+    },
+    {
+        "kind": "file",
+        "format": "hosts",
+        "path": "data/blacklist.d/rlwpx_trackers.hosts"
     }
 ]

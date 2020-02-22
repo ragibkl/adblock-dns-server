@@ -10,16 +10,15 @@ pub struct HttpLoader {
 #[async_trait]
 impl Loader for HttpLoader {
     async fn load(&self) -> Result<String, ()> {
-        println!("Start fetch from: {}", &self.url);
-
-        for i in 0..5 {
+        for i in 0..3 {
+            println!("Start fetch from: {}", &self.url);
             let response = reqwest::get(&self.url).await;
             if let Some(r) = response.ok() {
-                println!("Done fetch from: {}, retries: {}", &self.url, i + 1);
-
                 if let Some(text) = r.text().await.ok() {
+                    println!("Done fetch from: {}", &self.url);
                     return Ok(text);
                 }
+                println!("Retry fetch from: {}, retries: {}", &self.url, i + 1);
             }
         }
 

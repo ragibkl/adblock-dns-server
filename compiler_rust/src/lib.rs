@@ -6,7 +6,7 @@ extern crate rayon;
 use std::collections::HashSet;
 
 pub mod service;
-use service::config::AppConfig;
+use service::config::{AppConfig, SourceConfig};
 use service::extractor::ExtractTask;
 use service::hosts_writer;
 
@@ -14,9 +14,7 @@ pub fn load_config() -> AppConfig {
     AppConfig::new()
 }
 
-pub async fn run(config: AppConfig) {
-    let urls = config.get_blacklist_srcs();
-
+async fn fetch_list(urls: Vec<SourceConfig>) -> HashSet<String> {
     let mut handles = Vec::new();
     for u in urls {
         let handle = tokio::spawn(async move {
@@ -36,7 +34,17 @@ pub async fn run(config: AppConfig) {
     }
     println!("Done merging set");
 
-    let domains: Vec<String> = domain_set.into_iter().collect();
+    domain_set
+}
+
+pub async fn run(config: AppConfig) {
+    let blacklist_set = fetch_list(config.get_blacklist_srcs()).await;
+    let whitelist_set = fetch_list(config.get_whitelist_srcs()).await;
+
+    let domains: Vec<String> = blacklist_set
+        .difference(&whitelist_set)
+        .map(|s| s.clone())
+        .collect();
     let content = hosts_writer::build_content(domains);
     hosts_writer::write_to_file(&config.get_output_path(), &content);
 }
