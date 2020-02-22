@@ -1,6 +1,4 @@
 use std::sync::Arc;
-use tokio::sync::Mutex;
-
 use crate::service::config::SourceConfig;
 use crate::service::core::*;
 use crate::service::loader::{FileLoader, HttpLoader};
@@ -8,7 +6,7 @@ use crate::service::parser::{HostParser, ListParser};
 
 pub struct ExtractTask {
     loader: Arc<dyn Loader>,
-    parser: Mutex<Box<dyn Parser + Send>>,
+    parser: Arc<dyn Parser>,
 }
 
 impl ExtractTask {
@@ -19,9 +17,9 @@ impl ExtractTask {
             _ => panic!("invalid kind"),
         };
 
-        let parser: Mutex<Box<dyn Parser + Send>> = match config.format.as_str() {
-            "hosts" => Mutex::new(Box::new(HostParser::new())),
-            "domains" => Mutex::new(Box::new(ListParser::new())),
+        let parser: Arc<dyn Parser> = match config.format.as_str() {
+            "hosts" => Arc::new(HostParser::new()),
+            "domains" => Arc::new(ListParser::new()),
             _ => panic!("invalid format"),
         };
 
@@ -33,10 +31,11 @@ impl ExtractTask {
 
     pub async fn load_and_parse(&self) -> Vec<String> {
         let loader = Arc::clone(&self.loader);
+        let parser = Arc::clone(&self.parser);
         let res = loader.load().await;
 
         match res {
-            Ok(content) => self.parser.lock().await.parse(&content),
+            Ok(content) => parser.parse(&content),
             _ => {
                 println!("error loading content");
                 Vec::new()

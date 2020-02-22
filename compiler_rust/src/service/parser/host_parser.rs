@@ -31,13 +31,14 @@ impl Parser for HostParser {
     fn parse(&self, content: &str) -> Vec<String> {
         let lines = content
             .lines()
-            .map(|l| l.to_string())
-            .map(|l| clean_text(&l))
+            .map(clean_text)
             .map(|l| extract_domain(&l))
             .filter(|l| l.is_some())
-            .map(|l| l.unwrap());
+            .map(|l| l.unwrap())
+            .collect::<Vec<_>>();
 
-        lines.collect()
+        println!("[HostParser] - Done parsing {} domains", lines.len());
+        lines
     }
 }
 
