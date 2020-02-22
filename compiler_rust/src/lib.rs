@@ -20,13 +20,13 @@ pub async fn run(config: AppConfig) {
     let mut handles = Vec::new();
     for u in urls {
         let handle = tokio::spawn(async move {
-            let _u = u;
-            let t = ExtractTask::from_config(&_u);
+            let t = ExtractTask::from_config(&u);
             t.load_and_parse().await.into_iter().collect::<HashSet<_>>()
         });
         handles.push(handle);
     }
 
+    println!("Start merging set");
     let mut domain_set = HashSet::new();
     for h in handles {
         let s = h.await;
@@ -34,6 +34,7 @@ pub async fn run(config: AppConfig) {
             domain_set.extend(s);
         }
     }
+    println!("Done merging set");
 
     let domains: Vec<String> = domain_set.into_iter().collect();
     let content = hosts_writer::build_content(domains);

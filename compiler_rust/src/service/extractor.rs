@@ -1,8 +1,8 @@
-use std::sync::Arc;
 use crate::service::config::SourceConfig;
 use crate::service::core::*;
 use crate::service::loader::{FileLoader, HttpLoader};
 use crate::service::parser::{HostParser, ListParser};
+use std::sync::Arc;
 
 pub struct ExtractTask {
     loader: Arc<dyn Loader>,
@@ -12,8 +12,12 @@ pub struct ExtractTask {
 impl ExtractTask {
     pub fn from_config(config: &SourceConfig) -> ExtractTask {
         let loader: Arc<dyn Loader> = match config.kind.as_str() {
-            "http" => Arc::new(HttpLoader{ url: config.path.clone() }),
-            "file" => Arc::new(FileLoader{ path: config.path.clone() }),
+            "http" => Arc::new(HttpLoader {
+                url: config.path.clone(),
+            }),
+            "file" => Arc::new(FileLoader {
+                path: config.path.clone(),
+            }),
             _ => panic!("invalid kind"),
         };
 
