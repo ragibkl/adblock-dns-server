@@ -1,7 +1,7 @@
 use std::fs::File;
 use std::io::prelude::*;
 
-pub fn build_content(domains: Vec<String>) -> String {
+pub fn build_content(domains: Vec<String>, overrides: Vec<String>) -> String {
     let mut lines: Vec<String> = vec![
         "$TTL 1H",
         "@               SOA     LOCALHOST. named-mgr.example.com (1 1h 15m 30d 2h)",
@@ -15,6 +15,7 @@ pub fn build_content(domains: Vec<String>) -> String {
         .iter()
         .map(|s| format!("{} CNAME null.null-zone.null.", s));
 
+    lines.extend(overrides);
     lines.extend(domain_lines);
     lines.join("\n")
 }
@@ -40,7 +41,7 @@ mod tests {
         .map(|s| s.to_string())
         .collect();
 
-        let output = build_content(input);
+        let output = build_content(input, Vec::new());
         let expected = "
 $TTL 1H
 @               SOA     LOCALHOST. named-mgr.example.com (1 1h 15m 30d 2h)

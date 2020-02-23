@@ -40,11 +40,13 @@ async fn fetch_list(urls: Vec<SourceConfig>) -> HashSet<String> {
 pub async fn run(config: AppConfig) {
     let blacklist_set = fetch_list(config.get_blacklist_srcs()).await;
     let whitelist_set = fetch_list(config.get_whitelist_srcs()).await;
+    let overrides_set = fetch_list(config.get_overrides_srcs()).await;
 
     let domains: Vec<String> = blacklist_set
         .difference(&whitelist_set)
         .map(|s| s.clone())
         .collect();
-    let content = hosts_writer::build_content(domains);
+    let content =
+        hosts_writer::build_content(domains, overrides_set.into_iter().collect::<Vec<_>>());
     hosts_writer::write_to_file(&config.get_output_path(), &content);
 }

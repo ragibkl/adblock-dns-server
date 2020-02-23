@@ -1,7 +1,7 @@
 use crate::service::config::SourceConfig;
 use crate::service::core::*;
 use crate::service::loader::{FileLoader, HttpLoader};
-use crate::service::parser::{HostParser, ListParser};
+use crate::service::parser::{CnameParser, HostParser, ListParser, ZoneParser};
 use std::sync::Arc;
 
 pub struct ExtractTask {
@@ -24,6 +24,8 @@ impl ExtractTask {
         let parser: Arc<dyn Parser> = match config.format.as_str() {
             "hosts" => Arc::new(HostParser::new()),
             "domains" => Arc::new(ListParser::new()),
+            "cname" => Arc::new(CnameParser::new()),
+            "zone" => Arc::new(ZoneParser::new()),
             _ => panic!("invalid format"),
         };
 

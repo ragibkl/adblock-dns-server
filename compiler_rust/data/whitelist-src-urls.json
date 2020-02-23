@@ -38,5 +38,20 @@
         "kind": "file",
         "format": "hosts",
         "path": "data/whitelist.d/windows_update_nsatc_net.hosts"
+    },
+    {
+        "kind": "file",
+        "format": "zone",
+        "path": "data/overrides.d/bing-safesearch.zone"
+    },
+    {
+        "kind": "file",
+        "format": "zone",
+        "path": "data/overrides.d/duckduckgo-safesearch.zone"
+    },
+    {
+        "kind": "file",
+        "format": "zone",
+        "path": "data/overrides.d/google-safesearch.zone"
     }
 ]
