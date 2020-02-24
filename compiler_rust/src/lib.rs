@@ -41,9 +41,9 @@ pub async fn run(config: AppConfig) {
     let whitelist_urls = config.get_whitelist_srcs();
     let overrides_urls = config.get_overrides_srcs();
 
-    let blacklist_handle = tokio::spawn(async move { fetch_list(blacklist_urls).await });
-    let whitelist_handle = tokio::spawn(async move { fetch_list(whitelist_urls).await });
-    let overrides_handle = tokio::spawn(async move { fetch_list(overrides_urls).await });
+    let blacklist_handle = tokio::spawn(fetch_list(blacklist_urls));
+    let whitelist_handle = tokio::spawn(fetch_list(whitelist_urls));
+    let overrides_handle = tokio::spawn(fetch_list(overrides_urls));
 
     let blacklist_set = blacklist_handle.await.unwrap();
     let whitelist_set = whitelist_handle.await.unwrap();
