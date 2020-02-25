@@ -13,17 +13,10 @@ fi
 
 echo "TAG=$TAG"
 
-# cd $WORKDIR/adblock_http
-# ./scripts/build.sh $TAG
-# ./scripts/push.sh $TAG
-
-cd $WORKDIR/compiler
-./scripts/build.sh $TAG
-./scripts/push.sh $TAG
-
-sleep 10
+cd $WORKDIR/compiler_rust
+cargo run --release
 
 cd $WORKDIR/dns
-./scripts/compile.sh $TAG
+cp $WORKDIR/compiler_rust/data/output.d/blacklist.zone $WORKDIR/dns/output.d/blacklist.zone
 ./scripts/build.sh $TAG
 ./scripts/push.sh $TAG
