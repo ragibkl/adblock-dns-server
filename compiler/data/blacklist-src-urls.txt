@@ -1,5 +1,4 @@
 http://adaway.org/hosts.txt
-http://hosts-file.net/ad_servers.txt
 http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext
 http://sbc.io/hosts/hosts
 http://winhelp2002.mvps.org/hosts.txt
@@ -9,6 +8,7 @@ https://gitlab.com/curben/urlhaus-filter/raw/master/urlhaus-filter-hosts-online.
 https://gitlab.com/Kurobeats/phishing_hosts/-/raw/master/hosts
 https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt
 https://hostfiles.frogeye.fr/multiparty-trackers-hosts.txt
+https://hosts-file.net/ad_servers.txt
 https://hosts-file.net/grm.txt
 https://oooo.b-cdn.net/blahdns/adsblock.txt
 https://pgl.yoyo.org/as/serverlist.php?showintro=0;hostformat=hosts
