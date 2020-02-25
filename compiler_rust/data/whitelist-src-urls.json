@@ -53,5 +53,15 @@
         "kind": "file",
         "format": "zone",
         "path": "data/overrides.d/google-safesearch.zone"
+    },
+    {
+        "kind": "http",
+        "format": "domains",
+        "path": "https://raw.githubusercontent.com/raghavdua1995/DNSlock-PiHole-whitelist/master/whitelist.list"
+    },
+    {
+        "kind": "http",
+        "format": "domains",
+        "path": "https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt"
     }
 ]
