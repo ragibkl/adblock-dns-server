@@ -13,6 +13,10 @@ fi
 
 echo "TAG=$TAG"
 
+cd $WORKDIR/adblock_http
+./scripts/build.sh $TAG
+./scripts/push.sh $TAG
+
 cd $WORKDIR/compiler_rust
 cargo run --release
 
