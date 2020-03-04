@@ -1,10 +1,57 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!DOCTYPE html>
 <html>
+
 <head>
-<title>BLOCKED</title>
-<link rel="icon" href="/blocked.png">
+  <title>Access Denied</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      display: flex;
+      position: fixed;
+      margin: 0;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    h1, h2, h3, h4, p {
+      font-family: serif;
+      text-align: justify;
+    }
+
+    .title {
+      text-align: center;
+    }
+
+    .container {
+      padding-left: 10%;
+      padding-right: 10%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      align-self: stretch;
+    }
+
+    .spacer {
+      flex: 1
+    }
+  </style>
 </head>
-<body bgcolor="lavender" text="red">
-<center><img src="/blocked.png" width=32 height=32><br><code><b>[ BLOCKED ]</b></code></center>
+
+<body>
+  <div class="spacer"></div>
+  <div class="container">
+    <h1 class="title">Access Denied</h1>
+
+    <p>Access to this website has been denied</p>
+    <p>Please contact your network administrator</p>
+  </div>
+  <div class="spacer"></div>
+  <div class="spacer"></div>
 </body>
+
 </html>
