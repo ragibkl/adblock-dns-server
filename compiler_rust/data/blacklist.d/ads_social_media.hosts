@@ -989,10 +989,6 @@
 127.0.0.1 xx-fbcdn-shv-04-prn2.fbcdn.net
 127.0.0.1 z-1-scontent-sjc2-1.xx.fbcdn.net
 127.0.0.1 z-1-scontent.xx.fbcdn.net
-127.0.0.1 z-m.c10r.facebook.com
-127.0.0.1 z-m.facebook.com
-127.0.0.1 zh-cn.facebook.com
-127.0.0.1 zh-tw.facebook.com
 
 # Twitter
 127.0.0.1 syndication.twitter.com
@@ -1043,7 +1039,6 @@
 127.0.0.1 www4.twitter.com
 
 # Instagram
-127.0.0.1 api.instagram.com
 127.0.0.1 black.ish.instagram.com
 127.0.0.1 instagram-shv-01-ams2.fbcdn.net
 127.0.0.1 instagram-shv-01-ams3.fbcdn.net
