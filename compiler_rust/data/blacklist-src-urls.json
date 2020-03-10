@@ -147,11 +147,6 @@
     {
         "kind": "file",
         "format": "hosts",
-        "path": "data/blacklist.d/ads_social_media.hosts"
-    },
-    {
-        "kind": "file",
-        "format": "hosts",
         "path": "data/blacklist.d/ads_custom.hosts"
     },
     {
