@@ -1,5 +1,5 @@
 [package]
-name = "compiler_rust"
+name = "compiler"
 version = "0.1.0"
 authors = ["Ragib Badaruddin <ragib@example.com>"]
 edition = "2018"
