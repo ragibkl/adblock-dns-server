@@ -1,4 +1,4 @@
-use compiler_rust::{load_config, run};
+use compiler::{load_config, run};
 
 #[tokio::main]
 async fn main() {
