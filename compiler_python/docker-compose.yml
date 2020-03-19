@@ -1,8 +1,0 @@
-version: '3'
-
-services:
-  compiler:
-    image: python:3-alpine
-    volumes:
-      - ./:/app
-    workdir: /app
