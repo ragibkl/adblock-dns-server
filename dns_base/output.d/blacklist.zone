@@ -1,0 +1,6 @@
+$TTL 1H
+@               SOA     LOCALHOST. named-mgr.example.com (1 1h 15m 30d 2h)
+                NS      LOCALHOST.
+
+zedo.com CNAME null.null-zone.null.
+doubleclick.net CNAME null.null-zone.null.

@@ -1,0 +1,12 @@
+# whitelist
+127.0.0.1 android.clients.google.com
+127.0.0.1 clients2.google.com
+127.0.0.1 clients4.google.com
+127.0.0.1 googleapis.l.google.com
+127.0.0.1 gstaticadssl.l.google.com
+127.0.0.1 reminders-pa.googleapis.com firestore.googleapis.com
+127.0.0.1 s.youtube.com
+127.0.0.1 video-stats.l.google.com
+127.0.0.1 i.ytimg.com
+127.0.0.1 apis.google.com
+127.0.0.1 plus.l.google.com
