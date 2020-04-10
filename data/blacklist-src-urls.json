@@ -145,6 +145,21 @@
         "path": "https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt"
     },
     {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://pastebin.com/raw/UP3s7pEB"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/infinitytec/blocklists/master/scams-and-phishing.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/durablenapkin/scamblocklist/master/hosts.txt"
+    },
+    {
         "kind": "file",
         "format": "hosts",
         "path": "data/blacklist.d/ads_custom.hosts"
