@@ -8,9 +8,11 @@ COPY src src
 
 RUN cargo install --path .
 
-FROM rust:slim
-COPY --from=builder /usr/local/cargo/bin/compiler /usr/local/bin/compiler
+FROM ubuntu:18.04
 
 WORKDIR /
+
+RUN apt-get update && apt-get -y install ca-certificates libssl-dev && rm -rf /var/lib/apt/lists/*
+COPY --from=builder /usr/local/cargo/bin/compiler /usr/local/bin/compiler
 
 CMD ["compiler"]

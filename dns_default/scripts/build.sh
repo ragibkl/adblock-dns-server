@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-TAG=${1:-default}
-
 # compile blacklist
 touch output.d/blacklist.zone
 docker pull ragibkl/adblock_compiler:rust
@@ -12,7 +10,9 @@ docker run \
     ragibkl/adblock_compiler:rust
 
 # build image
-docker build --pull -t ragibkl/adblock_dns:$TAG .
+docker build --pull -t ragibkl/adblock_dns:default .
+docker tag ragibkl/adblock_dns:default ragibkl/adblock_dns:latest
 
 # push image
-docker push ragibkl/adblock_dns:$TAG
+docker push ragibkl/adblock_dns:default
+docker push ragibkl/adblock_dns:latest

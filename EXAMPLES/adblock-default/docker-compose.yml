@@ -2,7 +2,7 @@ version: '3'
 
 services:
   adblock_dns:
-    image: ragibkl/adblock_dns
+    image: ragibkl/adblock_dns:default
     restart: always
     ports:
       - 53:53/tcp
