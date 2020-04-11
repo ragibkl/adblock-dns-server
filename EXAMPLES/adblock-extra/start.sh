@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cp sample.env .env -n
+cp -n sample.env .env
 docker-compose up -d
