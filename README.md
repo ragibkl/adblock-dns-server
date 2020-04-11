@@ -77,16 +77,14 @@ Follow these steps to get this project up and running.
 
 The above instructions will run the `adblock-dns-server` using the precompiled adblock list. In order to add additional ads-domains to the blacklist, or filter some in a whitelist, you need to compile a custom blacklist.
 
-1. from the top of this project folder, cd into the `adblock-extra` folder.
+1. you can modify the contents under `data/` folder. Feel free to add/remove additional domains and http sources as needed.
+
+2. from the top of this project folder, cd into the `adblock-extra` folder.
     ```
     cd EXAMPLES/adblock-extra
     ```
 
-2. you can modify the contents of the following files. Feel free to add/remove additional domains as needed:
-    - `data/blacklist.d/extra_blacklist.hosts`
-    - `data/whitelist.d/extra_whitelist.hosts`
-
-3. run the compile script. This will output the compiled blacklist file at `data/output.d/blacklist.zone`
+3. run the compile script. This will output the compiled blacklist file at `EXAMPLES/adblock-extra/data/output.d/blacklist.zone`
     ```
     ./compile.sh
     ```
