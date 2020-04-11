@@ -11,9 +11,8 @@ docker run \
 
 # build image
 docker build --pull -t ragibkl/adblock_dns:default .
+docker tag ragibkl/adblock_dns:default ragibkl/adblock_dns:latest
 
 # push image
 docker push ragibkl/adblock_dns:default
-
-docker tag ragibkl/adblock_dns:default ragibkl/adblock_dns:latest
 docker push ragibkl/adblock_dns:latest
