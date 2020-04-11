@@ -173,5 +173,10 @@
         "kind": "file",
         "format": "hosts",
         "path": "data/blacklist.d/porn_reddit.hosts"
+    },
+    {
+        "kind": "file",
+        "format": "hosts",
+        "path": "data/blacklist.d/__extra_blacklist.hosts"
     }
 ]

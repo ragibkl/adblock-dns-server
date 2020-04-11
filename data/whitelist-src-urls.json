@@ -41,6 +41,11 @@
     },
     {
         "kind": "file",
+        "format": "hosts",
+        "path": "data/whitelist.d/__extra_whitelist.hosts"
+    },
+    {
+        "kind": "file",
         "format": "zone",
         "path": "data/overrides.d/bing-safesearch.zone"
     },
