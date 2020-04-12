@@ -9,6 +9,6 @@ build:
     - tags
     - branches
   script:
-    - apt-get update && apt-get install -y add git bash
+    - apk add bash
     - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - bash scripts/ci-build.sh
