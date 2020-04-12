@@ -11,19 +11,9 @@ then
     TAG=$BRANCH
 fi
 
+echo "WORKDIR=$WORKDIR"
+echo "BRANCH=$BRANCH"
 echo "TAG=$TAG"
 
-# cd $WORKDIR/adblock_http
-# ./scripts/build.sh $TAG
-# ./scripts/push.sh $TAG
-
-cd $WORKDIR/compiler
-./scripts/build.sh $TAG
-./scripts/push.sh $TAG
-
-sleep 10
-
-cd $WORKDIR/dns
-./scripts/compile.sh $TAG
-./scripts/build.sh $TAG
-./scripts/push.sh $TAG
+cd $WORKDIR/dns_default
+./scripts/ci-build.sh
