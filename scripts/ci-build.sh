@@ -1,21 +1,19 @@
 #!/bin/bash
 
-cd dns_default
+WORKDIR=$(pwd)
+BRANCH=$(git describe --tags --exact-match 2> /dev/null \
+  || git symbolic-ref -q --short HEAD \
+  || git rev-parse --short HEAD)
 
-# compile blacklist
-touch output.d/blacklist.zone
-docker pull ragibkl/adblock_compiler:rust
-docker run \
-    --rm \
-    -e TERM="xterm" \
-    -v $PWD/../data/:/data/ \
-    -v $PWD/output.d/blacklist.zone:/data/output.d/blacklist.zone \
-    ragibkl/adblock_compiler:rust
+TAG=latest
+if [ "$BRANCH" != master ]
+then
+    TAG=$BRANCH
+fi
 
-# build image
-docker build --pull -t ragibkl/adblock_dns:ci-build .
-# docker tag ragibkl/adblock_dns:default ragibkl/adblock_dns:latest
+echo "WORKDIR=$WORKDIR"
+echo "BRANCH=$BRANCH"
+echo "TAG=$TAG"
 
-# push image
-docker push ragibkl/adblock_dns:ci-build
-# docker push ragibkl/adblock_dns:latest
+cd $WORKDIR/dns_default
+./scripts/ci-build.sh
