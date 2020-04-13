@@ -13,6 +13,8 @@ services:
       options:
         max-size: 1m
         max-file: "20"
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
 
   adblock_http:
     image: ragibkl/adblock_http
@@ -25,3 +27,12 @@ services:
       options:
         max-size: 1m
         max-file: "20"
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+
+  watchtower:
+    image: v2tec/watchtower
+    command: --cleanup --label-enable
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
