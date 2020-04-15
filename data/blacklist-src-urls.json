@@ -147,6 +147,11 @@
     {
         "kind": "http",
         "format": "hosts",
+        "path": "https://www.github.developerdan.com/hosts/lists/tracking-aggressive-extended.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
         "path": "https://pastebin.com/raw/UP3s7pEB"
     },
     {
@@ -158,6 +163,31 @@
         "kind": "http",
         "format": "hosts",
         "path": "https://raw.githubusercontent.com/durablenapkin/scamblocklist/master/hosts.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/NanoMeow/UltimateMirror/master/archive/hphosts.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/mtxadmin/ublock/master/hosts.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://hostsmobile.oisd.nl/"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/DataMaster-2501/DataMaster-Android-AdBlock-Hosts/master/hosts"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/kowith337/PersonalFilterListCollection/master/hosts/hosts_leftover.txt"
     },
     {
         "kind": "file",
