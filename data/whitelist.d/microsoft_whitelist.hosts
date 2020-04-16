@@ -4,7 +4,6 @@
 127.0.0.1 c.s-microsoft.com
 127.0.0.1 cert.mgt.xboxlive.com
 127.0.0.1 client-s.gateway.messenger.live.com
-127.0.0.1 client-s.gateway.messenger.live.com
 127.0.0.1 clientconfig.passport.net
 127.0.0.1 ctldl.windowsupdate.com
 127.0.0.1 def-vef.xboxlive.com
@@ -51,7 +50,6 @@
 127.0.0.1 windowsupdate.microsoft.com
 127.0.0.1 wustat.windows.com
 127.0.0.1 www.fe2.update.microsoft.com
-127.0.0.1 www.msftncsi.com
 127.0.0.1 www.msftncsi.com
 127.0.0.1 www.xboxlive.com
 127.0.0.1 xbox.ipv6.microsoft.com
