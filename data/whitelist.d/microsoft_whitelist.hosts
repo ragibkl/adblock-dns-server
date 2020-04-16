@@ -13,12 +13,14 @@
 127.0.0.1 dl.delivery.mp.microsoft.com
 127.0.0.1 download.windowsupdate.com
 127.0.0.1 eds.xboxlive.com
+127.0.0.1 fe-by01p-msa.trafficmanager.net
 127.0.0.1 fe2.update.microsoft.com
 127.0.0.1 g.live.com
 127.0.0.1 geo-prod.do.dsp.mp.microsoft.com
 127.0.0.1 go.microsoft.com
 127.0.0.1 help.ui.xboxlive.com
 127.0.0.1 i.s-microsoft.com
+127.0.0.1 lgin.msa.trafficmanager.net
 127.0.0.1 licensing.xboxlive.com
 127.0.0.1 login.live.com
 127.0.0.1 login.microsoftonline.com
@@ -57,5 +59,3 @@
 127.0.0.1 xflight.xboxlive.com
 127.0.0.1 xkms.xboxlive.com
 127.0.0.1 xsts.auth.xboxlive.com
-127.0.0.1 lgin.msa.trafficmanager.net
-127.0.0.1 fe-by01p-msa.trafficmanager.net
