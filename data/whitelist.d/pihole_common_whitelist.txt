@@ -1,0 +1,294 @@
+# source: https://github.com/silv3rr/pihole-scripts/blob/master/pihole-whitelist.txt
+# 20180719
+# https://discourse.pi-hole.net/t/commonly-whitelisted-domains/212
+
+# Google (Maps, Youtube, etc)
+clients4.google.com
+clients2.google.com
+
+# YouTube history
+s.youtube.com
+video-stats.l.google.com
+
+# Google Play
+android.clients.google.com
+
+# Microsoft (Windows, Office, Skype, etc)
+# Windows uses this to verify connectivity to Internet
+www.msftncsi.com
+
+# Microsoft Web Pages (Outlook, Office365, Live, Microsoft.com)
+outlook.office365.com
+products.office.com
+c.s-microsoft.com
+i.s-microsoft.com
+login.live.com
+
+# Backup bitlocker recovery key to Microsoft account
+g.live.com
+
+# Windows Store
+dl.delivery.mp.microsoft.com
+geo-prod.do.dsp.mp.microsoft.com
+displaycatalog.mp.microsoft.com
+
+# Xbox Live
+# This domain is used for sign-ins, creating new accounts, and recovering existing Microsoft accounts on your (confirmed by Microsoft)
+clientconfig.passport.net
+
+# This domain is used for Xbox Live Achievements (confirmed by Microsoft)
+v10.events.data.microsoft.com
+
+# There are several domains discovered initially on Reddit 189 and /r/xboxone 118, which were also confirmed by Microsoft as being required by Xbox Live for full functionality.
+xbox.ipv6.microsoft.com
+device.auth.xboxlive.com
+www.msftncsi.com
+title.mgt.xboxlive.com
+xsts.auth.xboxlive.com
+title.auth.xboxlive.com
+ctldl.windowsupdate.com
+attestation.xboxlive.com
+xboxexperiencesprod.experimentation.xboxlive.com
+xflight.xboxlive.com
+cert.mgt.xboxlive.com
+xkms.xbolive.com
+def-vef.xboxlive.com
+notify.xboxlive.com
+help.ui.xboxlive.com
+licensing.xboxlive.com
+eds.xboxlive.com
+www.xboxlive.com
+v10.vortex-win.data.microsoft.com
+settings-win.data.microsoft.com
+
+# Skype
+s.gateway.messenger.live.com
+ui.skype.com
+pricelist.skype.com
+apps.skype.com
+m.hotmail.com
+s.gateway.messenger.live.com
+sa.symcb.com
+s1.symcb.com
+s2.symcb.com
+s3.symcb.com
+s4.symcb.com
+s5.symcb.com
+
+# Microsoft Office
+# Reddit link - r/pihole - MS Office issues 147
+officeclient.microsoft.com
+
+# Jackbox.tv
+www.google-analytics.com
+ssl.google-analytics.com
+
+# Spotify
+# The Spotify app for iOS will stop functioning unless it’s web service counterpart is whitelisted.
+spclient.wg.spotify.com
+apresolve.spotify.com
+
+# Target's Weekly Ads
+weeklyad.target.com
+m.weeklyad.target.com
+weeklyad.target.com.edgesuite.net
+
+# Facebook
+creative.ak.fbcdn.net
+external-lhr0-1.xx.fbcdn.net
+external-lhr1-1.xx.fbcdn.net
+external-lhr10-1.xx.fbcdn.net
+external-lhr2-1.xx.fbcdn.net
+external-lhr3-1.xx.fbcdn.net
+external-lhr4-1.xx.fbcdn.net
+external-lhr5-1.xx.fbcdn.net
+external-lhr6-1.xx.fbcdn.net
+external-lhr7-1.xx.fbcdn.net
+external-lhr8-1.xx.fbcdn.net
+external-lhr9-1.xx.fbcdn.net
+fbcdn-creative-a.akamaihd.net
+scontent-lhr3-1.xx.fbcdn.net
+scontent.xx.fbcdn.net
+scontent.fgdl5-1.fna.fbcdn.net
+graph.facebook.com
+connect.facebook.com
+cdn.fbsbx.com
+
+# DirectTV
+directvnow.com
+directvapplications.hb.omtrdc.net
+s.zkcdn.net
+js.maxmind.com
+
+# Bild DE
+ec-ns.sascdn.com
+
+# Plex Domains
+plex.tv
+tvdb2.plex.tv
+pubsub.plex.bz
+proxy.plex.bz
+proxy02.pop.ord.plex.bz
+cpms.spop10.ams.plex.bz
+meta-db-worker02.pop.ric.plex.bz
+meta.plex.bz
+tvthemes.plexapp.com.cdn.cloudflare.net
+tvthemes.plexapp.com
+106c06cd218b007d-b1e8a1331f68446599e96a4b46a050f5.ams.plex.services
+meta.plex.tv
+cpms35.spop10.ams.plex.bz
+proxy.plex.tv
+metrics.plex.tv
+pubsub.plex.tv
+status.plex.tv
+www.plex.tv
+node.plexapp.com
+nine.plugins.plexapp.com
+staging.plex.tv
+app.plex.tv
+o1.email.plex.tv
+o2.sg0.plex.tv
+dashboard.plex.tv
+
+# Domains used by Plex
+gravatar.com # custom login pictures
+thetvdb.com # metadata for tv series
+themoviedb.com # metadata for movies
+
+# Sonarr
+services.sonarr.tv
+skyhook.sonarr.tv
+download.sonarr.tv
+apt.sonarr.tv
+forums.sonarr.tv
+# Placehold.it (Image placeholders often used during web design. Not sure why this is even blocked in the first place.)
+placehold.it
+placeholdit.imgix.net
+
+# Dropbox
+# dl.dropboxusercontent.com ns1.dropbox.com ns2.dropbox.com
+
+# Fox News
+widget-cdn.rpxnow.com
+
+# Images on Marketwatch.com 104
+s.marketwatch.com
+
+# Apple Music
+itunes.apple.com
+
+# GoDaddy webmail buttons
+imagesak.secureserver.net
+
+# Google Chrome (to update on ubuntu)
+dl.google.com
+
+# Apple ID
+appleid.apple.com
+
+# SnapChat
+# Does anyone have a source on this? I am blocking the first two and the Android app seems to work just fine.
+app-analytics.snapchat.com
+sc-analytics.appspot.com
+cf-st.sc-cdn.net
+
+# WatchESPN
+fpdownload.adobe.com
+entitlement.auth.adobe.com
+livepassdl.conviva.com
+
+# NVIDIA GeForce Experience
+# GFE requires this 61 to download driver updates (or events.gfe.nvidia.com 17, but that is also used for telemetry).
+gfwsl.geforce.com
+
+# Videos not playing in times.com 16 and nydailynews.com 9
+delivery.vidible.tv
+img.vidible.tv
+videos.vidible.tv
+edge.api.brightcove.com
+cdn.vidible.tv
+
+# Bing Maps Platform
+dev.virtualearth.net
+ecn.dev.virtualearth.net
+t0.ssl.ak.dynamic.tiles.virtualearth.net
+t0.ssl.ak.tiles.virtualearth.net
+
+# Google Play Android updates
+android.clients.google.com
+
+# Moto phones OS updates
+appspot-preview.l.google.com
+
+# Captive-portal tests
+# These domains are checked by the operating systems when connecting via wifi, and if they don’t get the response they expect, they may try to open a wifi login page or similar as they believe they are located behind a captive portal.
+
+# Android/Chrome
+connectivitycheck.android.com
+android.clients.google.com
+clients3.google.com
+connectivitycheck.gstatic.com
+
+# Windows/Microsoft
+msftncsi.com
+www.msftncsi.com
+ipv6.msftncsi.com
+
+# iOS/Apple
+# (note that this does not cover all domains used older iOS versions)
+captive.apple.com
+gsp1.apple.com
+www.apple.com
+www.appleiphonecell.com
+
+# Grand Theft Auto V Online PC
+# Since March blocking Rockstar telemetry seems to crash GTAOnline.
+# Unblocking the domain fixed crashing for people at GTA Forums.
+prod.telemetry.ros.rockstargames.com
+
+# https://firebog.net/
+
+# Amazon Web Services (Kowabit)
+s3.amazonaws.com
+
+# Google Content (Andy Short)
+clients2.google.com
+clients3.google.com
+clients4.google.com
+clients5.google.com
+
+# Link Shortners (Openphish, Hostsfile.org)
+www.bit.ly
+bit.ly
+ow.ly
+j.mp
+goo.gl
+
+# Microsoft Connectivity Checker (Mahakala)
+msftncsi.com
+www.msftncsi.com
+
+# EA / Origin (Mahakala, Andy Short, Cameleon & others)
+ea.com
+cdn.optimizely.com # (Used by Origin for content delivery)
+
+# Blocked by Mahakala
+res.cloudinary.com # (Used by Facebook for image uploads)
+gravatar.com
+rover.ebay.com
+imgs.xkcd.com
+
+# Blocked by Andy Short
+netflix.com
+
+# alluremedia.com.au (Used by Gizmodo sites)
+tomshardware.com
+
+# Blocked by Reddestdream
+ocsp.apple.com # (Used by Apple devices for certificate validation)
+
+# Blocked by various lists
+s.shopify.com
+keystone.mwbsys.com # (Malwarebytes server)
+dl.dropbox.com
+api.ipify.org
