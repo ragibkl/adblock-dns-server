@@ -2,6 +2,7 @@
 127.0.0.1 api.facebook.com
 127.0.0.1 api.instagram.com
 127.0.0.1 b-api.facebook.com
+127.0.0.1 b-graph.accountkit.com
 127.0.0.1 b-graph.facebook.com
 127.0.0.1 bigzipfiles.facebook.com
 127.0.0.1 cdn.fbsbx.com
@@ -26,6 +27,7 @@
 127.0.0.1 fbcdn-creative-a.akamaihd.net
 127.0.0.1 fr-fr.facebook.com
 127.0.0.1 graph.facebook.com
+127.0.0.1 graph.fbpigeon.com
 127.0.0.1 graph.instagram.com
 127.0.0.1 i.instagram.com
 127.0.0.1 instagram.c10r.facebook.com
@@ -44,5 +46,7 @@
 127.0.0.1 www.facebook.com
 127.0.0.1 z-m.c10r.facebook.com
 127.0.0.1 z-m.facebook.com
+127.0.0.1 z-p3-sonar.fdar1-1.fna.fbcdn.net
+127.0.0.1 z-p3-video.fszb1-1.fna.fbcdn.net
 127.0.0.1 zh-cn.facebook.com
 127.0.0.1 zh-tw.facebook.com
