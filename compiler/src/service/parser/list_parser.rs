@@ -9,7 +9,7 @@ use crate::service::core::Parser;
 
 fn extract_domain(text: &str) -> Option<String> {
     lazy_static! {
-        static ref RE: Regex = Regex::new(r"(?P<domain>.{2,256}\.[a-z]{2,6})").unwrap();
+        static ref RE: Regex = Regex::new(r"(?P<domain>.{2,200}\.[a-z]{2,6})").unwrap();
     }
 
     RE.captures(&text)
