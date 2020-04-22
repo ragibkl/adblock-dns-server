@@ -15,5 +15,8 @@ echo "WORKDIR=$WORKDIR"
 echo "BRANCH=$BRANCH"
 echo "TAG=$TAG"
 
+cd $WORKDIR/compiler
+./scripts/build.sh
+
 cd $WORKDIR/dns_default
 ./scripts/ci-build.sh
