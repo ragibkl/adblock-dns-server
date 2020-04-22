@@ -46,6 +46,11 @@
     },
     {
         "kind": "file",
+        "format": "domains",
+        "path": "data/whitelist.d/fbcdn_whitelist.txt"
+    },
+    {
+        "kind": "file",
         "format": "hosts",
         "path": "data/whitelist.d/__extra_whitelist.hosts"
     },
