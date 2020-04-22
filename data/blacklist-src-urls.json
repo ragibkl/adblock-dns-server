@@ -1,0 +1,107 @@
+[
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://gist.githubusercontent.com/sgeto/36bd4b93fc23db9936be06fa8c6a5dc3/raw/6ec2966dd7960f5bb58f29db4f8aed25e0f92e8f/lphosts"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardDNS.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/DataMaster-2501/DataMaster-Android-AdBlock-Hosts/master/hosts"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileSpyware.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/Sinfonietta/hostfiles/master/pornography-hosts"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/Clefspeare13/pornhosts/master/127.0.0.1/hosts"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/badmojr/1Hosts/master/complete/hosts.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/mkb2091/blockconvert/master/output/hosts.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/dnswarden/blocklist/master/blacklist-formats/hosts"
+    },
+    {
+        "kind": "http",
+        "format": "domains",
+        "path": "https://oooo.b-cdn.net/blahdns/adsblock.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/bongochong/CombinedPrivacyBlockLists/master/newhosts-final-Dual.hosts"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://hostfiles.frogeye.fr/multiparty-only-trackers-hosts.txt "
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts "
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/Th3M3/blocklists/master/malware.list"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/infinitytec/blocklists/master/scams-and-phishing.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://www.github.developerdan.com/hosts/lists/amp-hosts-extended.txt"
+    },
+    {
+        "kind": "file",
+        "format": "hosts",
+        "path": "data/blacklist.d/ads_custom.hosts"
+    },
+    {
+        "kind": "file",
+        "format": "hosts",
+        "path": "data/blacklist.d/porn_custom.hosts"
+    },
+    {
+        "kind": "file",
+        "format": "hosts",
+        "path": "data/blacklist.d/porn_reddit.hosts"
+    },
+    {
+        "kind": "file",
+        "format": "hosts",
+        "path": "data/blacklist.d/__extra_blacklist.hosts"
+    }
+]
