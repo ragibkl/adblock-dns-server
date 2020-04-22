@@ -15,8 +15,10 @@ echo "WORKDIR=$WORKDIR"
 echo "BRANCH=$BRANCH"
 echo "TAG=$TAG"
 
-cd $WORKDIR/compiler
-./scripts/build.sh
+# build the adblock_compiler:rust image
+# cd $WORKDIR/compiler
+# ./scripts/build.sh
 
+# build the adblock_dns:default
 cd $WORKDIR/dns_default
 ./scripts/ci-build.sh
