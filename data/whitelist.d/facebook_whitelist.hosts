@@ -33,8 +33,10 @@
 127.0.0.1 instagram.c10r.facebook.com
 127.0.0.1 l.facebook.com
 127.0.0.1 lithium.facebook.com
+127.0.0.1 mad.xx.fbcdn.net
 127.0.0.1 mqtt.c10r.facebook.com
 127.0.0.1 nl-be.facebook.com
+127.0.0.1 nz-m-scontent-mad.xx.fbcdn.net
 127.0.0.1 portal.fb.com
 127.0.0.1 scontent-lhr3-1.xx.fbcdn.net
 127.0.0.1 scontent.fgdl5-1.fna.fbcdn.net
@@ -45,6 +47,7 @@
 127.0.0.1 upload.facebook.com
 127.0.0.1 video.xx.fbcdn.net
 127.0.0.1 www.facebook.com
+127.0.0.1 z-m-external-mad1-1.xx.fbcdn.net
 127.0.0.1 z-m.c10r.facebook.com
 127.0.0.1 z-m.facebook.com
 127.0.0.1 z-p3-sonar.fdar1-1.fna.fbcdn.net
