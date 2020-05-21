@@ -1,4 +1,5 @@
 # whitelist
+127.0.0.1 a-0003.a-msedge.net
 127.0.0.1 apps.skype.com
 127.0.0.1 attestation.xboxlive.com
 127.0.0.1 c.s-microsoft.com
