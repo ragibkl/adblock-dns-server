@@ -225,6 +225,26 @@
         "path": "https://www.github.developerdan.com/hosts/lists/amp-hosts-extended.txt"
     },
     {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://hblock.molinero.dev/hosts"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://hosts.nfz.moe/full/hosts"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/Yhonay/antipopads/master/hosts"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/jawz101/MobileAdTrackers/master/hosts"
+    },
+    {
         "kind": "file",
         "format": "hosts",
         "path": "data/blacklist.d/ads_custom.hosts"
