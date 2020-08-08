@@ -222,11 +222,6 @@
     {
         "kind": "http",
         "format": "hosts",
-        "path": "https://www.github.developerdan.com/hosts/lists/amp-hosts-extended.txt"
-    },
-    {
-        "kind": "http",
-        "format": "hosts",
         "path": "https://hblock.molinero.dev/hosts"
     },
     {
