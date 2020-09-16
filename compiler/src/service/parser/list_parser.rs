@@ -82,4 +82,29 @@ mod tests {
         ];
         assert_eq!(output, expected);
     }
+
+    #[test]
+    fn it_still_works() {
+        let parser = ListParser::new();
+        let input = "
+            Malvertising list by Disconnect
+            # License: GPLv3
+            # Contact: support [at] disconnect.me
+
+            malware-check.disconnect.me
+            101order.com
+            123found.com
+            140proof.com
+        ";
+
+        let output = parser.parse(input);
+
+        let expected = vec![
+            "malware-check.disconnect.me".to_string(),
+            "101order.com".to_string(),
+            "123found.com".to_string(),
+            "140proof.com".to_string(),
+        ];
+        assert_eq!(output, expected);
+    }
 }
