@@ -7,16 +7,6 @@
     {
         "kind": "http",
         "format": "hosts",
-        "path": "https://hosts-file.net/ad_servers.txt"
-    },
-    {
-        "kind": "http",
-        "format": "hosts",
-        "path": "http://sbc.io/hosts/hosts"
-    },
-    {
-        "kind": "http",
-        "format": "hosts",
         "path": "http://winhelp2002.mvps.org/hosts.txt"
     },
     {
@@ -43,6 +33,11 @@
         "kind": "http",
         "format": "hosts",
         "path": "https://raw.githubusercontent.com/EnergizedProtection/block/master/porn/formats/hosts"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
     },
     {
         "kind": "http",
