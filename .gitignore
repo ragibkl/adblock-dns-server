@@ -12,3 +12,6 @@
 
 # VsCode
 .vscode
+
+# temp folder
+temp/
