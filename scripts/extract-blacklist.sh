@@ -6,3 +6,5 @@ docker run --rm -ti \
     --entrypoint=cp \
     ragibkl/adblock_dns \
     /etc/bind/blacklist.zone /temp_data/.
+
+wc -l temp/blacklist.zone
