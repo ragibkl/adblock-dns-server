@@ -105,6 +105,36 @@
         "path": "https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt"
     },
     {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/Goooler/1024_hosts/master/hosts"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/bongochong/CombinedPrivacyBlockLists/master/newhosts-final-Dual.hosts"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/hosts"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://gitlab.com/intr0/iVOID.GitLab.io/raw/master/iVOID.hosts"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/mtxadmin/ublock/master/hosts.txt"
+    },
+    {
         "kind": "file",
         "format": "hosts",
         "path": "data/blacklist.d/ads_custom.hosts"
