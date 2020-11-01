@@ -15,7 +15,8 @@ function filter (ip, data) {
 router.get('/', async ctx => {
   const { ip } = ctx.request
   const data = await readFileAsync('/logs/rpz_log.txt', 'utf8')
-  ctx.body = filter(ip, data)
+  const filteredData = filter(ip, data)
+  ctx.body = `ip = ${ip}\n\n${filteredData}`
 })
 
 module.exports = router
