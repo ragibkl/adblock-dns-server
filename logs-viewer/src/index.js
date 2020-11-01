@@ -7,4 +7,4 @@ app
   .use(router.routes())
   .use(router.allowedMethods())
 
-app.listen(8080, '0.0.0.0')
+app.listen(8080)
