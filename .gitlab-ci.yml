@@ -6,8 +6,8 @@ services:
 build:
   stage: build
   only:
-    - tags
-    - branches
+    refs:
+      - master
   script:
     - apk add bash git
     - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
