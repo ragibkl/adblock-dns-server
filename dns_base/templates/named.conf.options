@@ -42,3 +42,16 @@ options {
 	prefetch 10;
 	response-policy { zone "/%ZONE_NAME%/"; };
 };
+
+logging {
+	channel rpz_log {
+		file "/logs/rpz_log.txt" versions 3 size 1m;
+		print-time yes;
+		print-category yes;
+		print-severity yes;
+		severity info;
+	};
+
+	category default { default_stderr; };
+	category rpz { rpz_log; default_stderr; };
+};
