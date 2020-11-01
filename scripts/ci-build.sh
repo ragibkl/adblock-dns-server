@@ -19,6 +19,14 @@ echo "TAG=$TAG"
 # cd $WORKDIR/compiler
 # ./scripts/build.sh
 
-# build the adblock_dns:default
+# build the adblock_dns:base image
+# cd $WORKDIR/dns_base
+# ./scripts/build.sh
+
+# build the adblock_dns:default image
 cd $WORKDIR/dns_default
 ./scripts/ci-build.sh
+
+# build the adblock_logs_viewer:latest image
+cd $WORKDIR/logs-viewer
+./scripts/build.sh
