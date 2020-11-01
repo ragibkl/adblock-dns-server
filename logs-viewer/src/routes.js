@@ -5,10 +5,18 @@ const pify = require('pify')
 const readFileAsync = pify(fs.readFile)
 const router = new Router()
 
+function getPattern (ip = '') {
+  if (ip.startsWith('::ffff:')) {
+    return ip.replace('::ffff:', '')
+  }
+  return ip
+}
+
 function filter (ip, data) {
+  const pattern = getPattern(ip)
   return data
     .split('\n')
-    .filter(v => v.includes(`${ip}#`))
+    .filter(v => v.includes(`${pattern}#`))
     .join('\n')
 }
 
