@@ -13,6 +13,8 @@ services:
       options:
         max-size: 1m
         max-file: "20"
+    volumes:
+      - logs:/logs
 
   adblock_http:
     image: ragibkl/adblock_http
@@ -25,3 +27,17 @@ services:
       options:
         max-size: 1m
         max-file: "20"
+
+  logs_viewer:
+    image: node
+    user: node
+    working_dir: /app
+    volumes:
+      - ./logs-viewer:/app
+      - logs:/logs
+    ports:
+      - 8080:8080
+    command: "yarn start"
+
+volumes:
+  logs:
