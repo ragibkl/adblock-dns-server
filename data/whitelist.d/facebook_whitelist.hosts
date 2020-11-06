@@ -4,6 +4,7 @@
 127.0.0.1 b-api.facebook.com
 127.0.0.1 b-graph.accountkit.com
 127.0.0.1 b-graph.facebook.com
+127.0.0.1 beacons.gcp.gvt2.com
 127.0.0.1 bigzipfiles.facebook.com
 127.0.0.1 cdn.fbsbx.com
 127.0.0.1 connect.facebook.com
@@ -33,6 +34,7 @@
 127.0.0.1 instagram.c10r.facebook.com
 127.0.0.1 l.facebook.com
 127.0.0.1 lithium.facebook.com
+127.0.0.1 mqtt-mini.facebook.com
 127.0.0.1 mqtt.c10r.facebook.com
 127.0.0.1 nl-be.facebook.com
 127.0.0.1 portal.fb.com
