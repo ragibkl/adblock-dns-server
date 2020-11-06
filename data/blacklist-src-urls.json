@@ -80,6 +80,81 @@
         "path": "https://raw.githubusercontent.com/mtxadmin/ublock/master/hosts.txt"
     },
     {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://block.energized.pro/unified/formats/hosts.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://block.energized.pro/extensions/regional/formats/hosts-ipv6.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://block.energized.pro/extensions/ips/formats/list.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://block.energized.pro/porn/formats/hosts.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://blokada.org/blocklists/ddgtrackerradar/standard/hosts.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "http://sbc.io/hosts/alternates/fakenews-gambling-porn/hosts"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileAds.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileSpyware.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardApps.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardDNS.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacySpecific.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacy3rdParty.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-YouTube-AdBlock.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Spotify-AdBlock.txt"
+    },
+    {
+        "kind": "http",
+        "format": "hosts",
+        "path": "https://raw.githubusercontent.com/dnswarden/blocklist/master/blacklist-formats/hosts"
+    },
+    {
         "kind": "file",
         "format": "hosts",
         "path": "data/blacklist.d/ads_custom.hosts"
