@@ -27,16 +27,6 @@
     {
         "kind": "http",
         "format": "hosts",
-        "path": "https://raw.githubusercontent.com/EnergizedProtection/block/master/blu/formats/hosts"
-    },
-    {
-        "kind": "http",
-        "format": "hosts",
-        "path": "https://raw.githubusercontent.com/EnergizedProtection/block/master/porn/formats/hosts"
-    },
-    {
-        "kind": "http",
-        "format": "hosts",
         "path": "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
     },
     {
@@ -51,16 +41,6 @@
     },
     {
         "kind": "http",
-        "format": "domains",
-        "path": "https://mirror1.malwaredomains.com/files/justdomains"
-    },
-    {
-        "kind": "http",
-        "format": "domains",
-        "path": "https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt"
-    },
-    {
-        "kind": "http",
         "format": "hosts",
         "path": "http://sysctl.org/cameleon/hosts"
     },
@@ -68,31 +48,6 @@
         "kind": "http",
         "format": "domains",
         "path": "https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt"
-    },
-    {
-        "kind": "http",
-        "format": "domains",
-        "path": "https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt"
-    },
-    {
-        "kind": "http",
-        "format": "domains",
-        "path": "https://justdomains.github.io/blocklists/lists/easylist-justdomains.txt"
-    },
-    {
-        "kind": "http",
-        "format": "domains",
-        "path": "https://justdomains.github.io/blocklists/lists/easyprivacy-justdomains.txt"
-    },
-    {
-        "kind": "http",
-        "format": "domains",
-        "path": "https://justdomains.github.io/blocklists/lists/adguarddns-justdomains.txt"
-    },
-    {
-        "kind": "http",
-        "format": "domains",
-        "path": "https://justdomains.github.io/blocklists/lists/nocoin-justdomains.txt"
     },
     {
         "kind": "http",
@@ -107,22 +62,12 @@
     {
         "kind": "http",
         "format": "hosts",
-        "path": "https://raw.githubusercontent.com/Goooler/1024_hosts/master/hosts"
-    },
-    {
-        "kind": "http",
-        "format": "hosts",
         "path": "https://raw.githubusercontent.com/bongochong/CombinedPrivacyBlockLists/master/newhosts-final-Dual.hosts"
     },
     {
         "kind": "http",
         "format": "hosts",
         "path": "https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt"
-    },
-    {
-        "kind": "http",
-        "format": "hosts",
-        "path": "https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/hosts"
     },
     {
         "kind": "http",
