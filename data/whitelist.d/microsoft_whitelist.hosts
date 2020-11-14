@@ -25,6 +25,7 @@
 127.0.0.1 login.live.com
 127.0.0.1 login.microsoftonline.com
 127.0.0.1 m.hotmail.com
+127.0.0.1 microsoft.com
 127.0.0.1 mobile.pipe.aria.microsoft.com
 127.0.0.1 notify.xboxlive.com
 127.0.0.1 ntservicepack.microsoft.com
@@ -40,6 +41,7 @@
 127.0.0.1 s5.symcb.com
 127.0.0.1 sa.symcb.com
 127.0.0.1 settings-win.data.microsoft.com
+127.0.0.1 settings-win.data.microsoft.com
 127.0.0.1 stats.update.microsoft.com
 127.0.0.1 statsfe2.update.microsoft.com
 127.0.0.1 title.auth.xboxlive.com
@@ -48,6 +50,7 @@
 127.0.0.1 v10.events.data.microsoft.com
 127.0.0.1 v10.vortex-win.data.microsoft.com
 127.0.0.1 v20.events.data.microsoft.com
+127.0.0.1 watson.telemetry.microsoft.com
 127.0.0.1 windowsupdate.microsoft.com
 127.0.0.1 wustat.windows.com
 127.0.0.1 www.fe2.update.microsoft.com
