@@ -21,13 +21,13 @@ options {
 	// you will need to update your keys.  See https://www.isc.org/bind-keys
 	//========================================================================
 	rate-limit {
-		responses-per-second	5; //15
-		referrals-per-second    5; //15
-		nodata-per-second       5; //15
-		nxdomains-per-second    5; //15
+		responses-per-second    15;
+		referrals-per-second    15;
+		nodata-per-second       15;
+		nxdomains-per-second    15;
 		errors-per-second       15;
-		all-per-second          15; //40
-		window		        	10;
+		all-per-second          60;
+		window                  15;
 		log-only                no;
 		qps-scale               250;
 		ipv4-prefix-length      32; // every IP
