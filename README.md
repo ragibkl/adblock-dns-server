@@ -45,6 +45,51 @@ You also need to be able to ssh into the server securely. Some basic server hard
 
 Your server also needs to have [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed.
 
+### Checking if the port is available
+
+A DNS server typically listens and handles DNS queries on TCP/UDP ports 53. Run the following commands on your server as root.
+
+```shell
+sudo lsof -i:53
+# no result
+```
+
+If you see an empty prompt, it means that the port is open. Feel free to skip the next section.
+
+#### Disabling systemd-resolve
+
+On some modern Linux distros running `systemd`, there is a locally running dns service called `systemd-resolved` that listens on port `53`. By default, this service handles any outgoing DNS results and caches them locally for performance.
+
+```shell
+sudo lsof -i:53
+COMMAND   PID            USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+systemd-r 967 systemd-resolve   16u  IPv4  34553      0t0  UDP localhost:domain
+systemd-r 967 systemd-resolve   17u  IPv4  34554      0t0  TCP localhost:domain (LISTEN)
+```
+
+If you see something similar to the above prompt it means that `systemd-resolved` is running and needs to be disabled. There are plenty of guides on the internet on how to do this for specific Linux distros. The following should work for `Ubuntu Server 20.04`.
+
+1. Disable and stop the systemd-resolved service:
+
+```shell
+sudo systemctl disable systemd-resolved.service
+sudo systemctl stop systemd-resolved
+```
+
+2. Edit the file: `/etc/resolv.conf`, maybe replacing with google dns
+
+```shell
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+```
+
+3. Test that the port is open
+
+```shell
+sudo lsof -i:53
+# no result
+```
+
 ## Running the server
 
 ### Quickstart
