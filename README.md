@@ -157,6 +157,8 @@ cd EXAMPLES/adblock-extra
 
 ## Testing the server
 
+Now that we have spin up our Adblock DNS Server, it is time for us to run a few tests to make sure that it is behaving as expected.
+
 ```shell
 # tests dns lookup against Google's dns server
 # should return regular/valid response
