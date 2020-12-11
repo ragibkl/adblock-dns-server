@@ -27,12 +27,23 @@ The default DNS server comes preloaded with a blocklist that has been compiled f
 
 However, I also provide the tools and scripts necessary if you would like to customize your own block list.
 
-## Requirements
+## Getting Started
 
-To run this project, make sure your system/server has the following packages installed:
+### Server Requirements
 
-- docker
-- docker-compose
+To run this project, I recommend that you get a Linux VPS server with a publicly reachable static IP address. There are plenty of providers out there, so just pick your favourite. Using a VPS makes it easy spin up a new server with Linux installed, and to start over in case you misconfigured something. Having a static and public IP address also allows you to share this DNS server among friends and families when you wish.
+
+It is also possible to run this project on a local network, either using a computer running Linux, or a virtual machine. If you are not willing to spend the money on a VPS just yet, or you are still experimenting, a virtual machine works fine.
+
+The default dns server in this project has a blocklist of about 1.5 million sites. It can take close to 2 GiB of RAM to run without a hiccup. I recommend that you provide your server with at least that amount for a smooth operation.
+
+### System Requirements
+
+In any case, the server that you are preparing should run a Linux server OS. I recommend going for the latest LTS edeition of your favourite Linux distro. I usually go for the latest Ubuntu Server LTS edition available.
+
+You also need to be able to ssh into the server securely. Some basic server hardening steps won't hurt as well.
+
+Your server also needs to have [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed.
 
 ## Running the server
 
