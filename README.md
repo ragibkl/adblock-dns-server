@@ -1,12 +1,31 @@
 # Adblock DNS Server
 
-Adblocking DNS server using bind and nginx services. The services are run inside docker containers.
+Adblock DNS server using bind and nginx, running in Docker.
 
 ## Overview
 
-This project is created to help block Ads, at the DNS resolution level.
-Using this project, you can quickly bring up a caching DNS server that also redirects Ads to a null webserver.
-If you use this DNS server on your devices/wifi-router instead of your ISP's or other regular DNS servers (Google, OpenDNS), Ads wil be blocked.
+A DNS server helps to resolve domain names on the internet into their appropriate ip addresses. It is the foundation of how the internet works. Some well known public DNS serves are as follows:
+
+- Google:
+  - 8.8.8.8
+  - 8.8.4.4
+- CloudFlare
+  - 1.1.1.1
+  - 1.0.0.1
+
+By default, all internet connected devices and networks are configured to point at some DNS servers or other. This is usually based on the default config of the device, or network's ISP.
+
+An Adblock DNS server works just like a regular DNS server, but with some additional custom rules to block Ads. On top of its regular functionality, an Adblock DNS server will resolve domains for known Ads services, into null webservers or an unrouteable IP address. The same custom rules can also be used to block known user tracking servers, malware sites and porn sites.
+
+There are plenty of free publicly available Adblock DNS on the internet such as AdGuard, NextDNS, etc. I also host my own [Bancuh Adblock DNS](https://blog.bancuh.com/adblock-dns/) service for free for public use.
+
+However, there are situations where a person might want to host their own private dns server, and have more control over its behavior. For example, you may want to host your own Adblock DNS Server as closely to your location as possible, for best performance.
+
+This project helps you to quickly spin up your own Adblock DNS Server using a few simple commands. This project is also used to run my **Bancuh Adblock DNS** service.
+
+The default DNS server comes preloaded with a blocklist that has been compiled from multiple sources of adblock dns host files. The sources list has been revised several times based on user feedback.
+
+However, I also provide the tools and scripts necessary if you would like to customize your own block list.
 
 ## Requirements
 
