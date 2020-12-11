@@ -92,42 +92,70 @@ sudo lsof -i:53
 
 ## Running the server
 
-### Quickstart
+### Downloading this project
 
-Follow these steps to get this project up and running.
+Clone this project. Then, cd into the cloned project folder.
 
-1. clone this project. Then, cd into the cloned project folder.
-
-```
+```shell
 git clone https://github.com/ragibkl/adblock-dns-server.git
 cd adblock-dns-server
 ```
 
-2. copy the sample `.env` file, and edit the values according to your server settings
+### Running with preloaded blocklist
 
-```
-cp sample.env .env
-nano .env
-```
+1. cd into the `default` folder. Run the start script. The server may take a few minutes to spin up.
 
-If you are running this locally on your computer, you can leave the default values as is. This will redirect all ads traffic to your computer, and they will return empty.
-
-If you are running this on a local network, or a public server, you should place the ipv4/ipv6 addresses of your server. This will redirect all ads to your server, with empty result.
-
-```
-# .env file - running locally
-FQDN=dns.localhost.localdomain  # optional: fdqn of your server
-IPV4=127.0.0.1                  # ipv4 address of your server
-IPv6=::1                        # ipv6 address of your server
-```
-
-3. run the start script to start the dns server. The server may take a few minutes to spin up.
-
-```
+```shell
+cd EXAMPLES/adblock-default
 ./start.sh
 ```
 
-4. do a quick test
+2. It should also setup a `.env` file with some default values.
+
+```shell
+# file: EXAMPLES/adblock-default/.env
+FQDN=dns.localhost.localdomain
+IPV4=0.0.0.0
+IPv6=::
+FORWARDER_1=8.8.8.8
+FORWARDER_2=8.8.4.4
+```
+
+**IPV4/IPV6** - the default values here will route ads to null unreachable IPs. If you change them to the IP addresses of your servers, it will instead redirect to the default http server, which will show a tasteful blocked page.
+
+**FORWARDER_1/2** - the default values here will direct regular dns requests to Google's DNS servers. You can change them to your own favourite DNS providers.
+
+If you changed any of the values above, please re-run the start script.
+
+3. Test that your setup works. See the [testing](#testing-the-server) section below.
+
+4. Stopping the service
+
+```shell
+./stop.sh
+```
+
+### Running with a customized blocklist
+
+The above instructions will run the `adblock-dns-server` using the precompiled adblock list. In order to add additional ads-domains to the blacklist, or filter some in a whitelist, you need to compile a custom blocklist.
+
+1. you can modify the contents under `data/` folder. Feel free to add/remove additional domains and http sources as needed.
+
+2. from the top of this project folder, cd into the `adblock-extra` folder.
+
+```
+cd EXAMPLES/adblock-extra
+```
+
+3. run the compile script. This will output the compiled blacklist file at `EXAMPLES/adblock-extra/data/output.d/blacklist.zone`
+
+```
+./compile.sh
+```
+
+4. the env variable config, start and stop steps are the same as before
+
+## Testing the server
 
 ```shell
 # tests dns lookup against Google's dns server
@@ -150,32 +178,6 @@ Non-authoritative answer:
 Name:	zedo.com
 Address: X.X.X.X
 ```
-
-5. stopping the dns server
-
-```
-./stop.sh
-```
-
-### How to add additional domains to the blacklist and whitelist
-
-The above instructions will run the `adblock-dns-server` using the precompiled adblock list. In order to add additional ads-domains to the blacklist, or filter some in a whitelist, you need to compile a custom blacklist.
-
-1. you can modify the contents under `data/` folder. Feel free to add/remove additional domains and http sources as needed.
-
-2. from the top of this project folder, cd into the `adblock-extra` folder.
-
-```
-cd EXAMPLES/adblock-extra
-```
-
-3. run the compile script. This will output the compiled blacklist file at `EXAMPLES/adblock-extra/data/output.d/blacklist.zone`
-
-```
-./compile.sh
-```
-
-4. the env variable config, start and stop steps are the same as before
 
 ## Configuring your device
 
