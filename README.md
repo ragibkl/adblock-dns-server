@@ -2,10 +2,11 @@
 
 Adblock DNS server using bind and nginx, running in Docker.
 
-## Overview
+## Introduction
 
-A DNS server helps to resolve domain names on the internet into their appropriate ip addresses. It is the foundation of how the internet works. Some well known public DNS serves are as follows:
+A DNS server helps to resolve domain names on the internet into their appropriate ip addresses. When your web browser or apps need to fetch some info from a web service over the internet, it first makes a DNS query to find the ip address of that web service. Next it will use that ip address to connect to the server that is hosting the service. It is the foundation of how the internet works. 
 
+Some well known public DNS serves are as follows:
 - Google:
   - 8.8.8.8
   - 8.8.4.4
@@ -15,7 +16,7 @@ A DNS server helps to resolve domain names on the internet into their appropriat
 
 By default, all internet connected devices and networks are configured to point at some DNS servers or other. This is usually based on the default config of the device, or network's ISP.
 
-An Adblock DNS server works just like a regular DNS server, but with some additional custom rules to block Ads. On top of its regular functionality, an Adblock DNS server will resolve domains for known Ads services, into null webservers or an unrouteable IP address. The same custom rules can also be used to block known user tracking servers, malware sites and porn sites.
+An Adblock DNS server works just like a regular DNS server, but with some additional custom rules to block Ads. On top of its regular functionality, an Adblock DNS server will resolve domains for known Ads services, into null webservers or an unrouteable IP address. Without a valid ip address, your web browser and apps cannot connect to the servers hosting the Ads service. Ads would effectively be blocked. The same custom rules can also be used to block known user tracking servers, malware sites and sites for adult contents.
 
 There are plenty of free publicly available Adblock DNS on the internet such as AdGuard, NextDNS, etc. I also host my own [Bancuh Adblock DNS](https://blog.bancuh.com/adblock-dns/) service for free for public use.
 
@@ -39,7 +40,7 @@ The default dns server in this project has a blocklist of about 1.5 million site
 
 ### System Requirements
 
-In any case, the server that you are preparing should run a Linux server OS. I recommend going for the latest LTS edeition of your favourite Linux distro. I usually go for the latest Ubuntu Server LTS edition available.
+In any case, the server that you are preparing should run a Linux server OS. I recommend going for the latest LTS edition of your favourite Linux distro. I usually go for the latest Ubuntu Server LTS edition available.
 
 You also need to be able to ssh into the server securely. Some basic server hardening steps won't hurt as well.
 
