@@ -4,16 +4,15 @@ extern crate async_std;
 
 use std::collections::HashSet;
 
+pub mod configuration;
 pub mod service;
-use service::config::{AppConfig, SourceConfig};
+
+pub use configuration::load_config;
+use configuration::{AppConfig, Source};
 use service::extractor::ExtractTask;
 use service::hosts_writer;
 
-pub fn load_config() -> AppConfig {
-    AppConfig::new()
-}
-
-async fn fetch_list(urls: Vec<SourceConfig>) -> HashSet<String> {
+async fn fetch_list(urls: Vec<Source>) -> HashSet<String> {
     let mut handles = Vec::new();
     for u in urls {
         let handle = tokio::spawn(async move {
@@ -37,9 +36,9 @@ async fn fetch_list(urls: Vec<SourceConfig>) -> HashSet<String> {
 }
 
 pub async fn run(config: AppConfig) {
-    let blacklist_urls = config.get_blacklist_srcs();
-    let whitelist_urls = config.get_whitelist_srcs();
-    let overrides_urls = config.get_overrides_srcs();
+    let blacklist_urls = config.blacklist;
+    let whitelist_urls = config.whitelist;
+    let overrides_urls = config.overrides;
 
     let blacklist_handle = tokio::spawn(fetch_list(blacklist_urls));
     let whitelist_handle = tokio::spawn(fetch_list(whitelist_urls));
@@ -55,5 +54,5 @@ pub async fn run(config: AppConfig) {
     let overrides_set = overrides_handle.await.unwrap();
     let overrides_list = overrides_set.into_iter().collect::<Vec<_>>();
     let content = hosts_writer::build_content(domains, overrides_list);
-    hosts_writer::write_to_file(&config.get_output_path(), &content);
+    hosts_writer::write_to_file(&config.output_path, &content);
 }

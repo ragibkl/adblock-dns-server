@@ -1,4 +1,4 @@
-use crate::service::config::SourceConfig;
+use crate::configuration::Source;
 use crate::service::core::*;
 use crate::service::loader::{FileLoader, HttpLoader};
 use crate::service::parser::{CnameParser, HostParser, ListParser, ZoneParser};
@@ -10,7 +10,7 @@ pub struct ExtractTask {
 }
 
 impl ExtractTask {
-    pub fn from_config(config: &SourceConfig) -> ExtractTask {
+    pub fn from_config(config: &Source) -> ExtractTask {
         let loader: Arc<dyn Loader> = match config.kind.as_str() {
             "http" => Arc::new(HttpLoader {
                 url: config.path.clone(),
