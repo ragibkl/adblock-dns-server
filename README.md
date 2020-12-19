@@ -4,9 +4,10 @@ Adblock DNS server using bind and nginx, running in Docker.
 
 ## Introduction
 
-A DNS server helps to resolve domain names on the internet into their appropriate ip addresses. When your web browser or apps need to fetch some info from a web service over the internet, it first makes a DNS query to find the ip address of that web service. Next it will use that ip address to connect to the server that is hosting the service. It is the foundation of how the internet works. 
+A DNS server helps to resolve domain names on the internet into their appropriate ip addresses. When your web browser or apps need to fetch some info from a web service over the internet, it first makes a DNS query to find the ip address of that web service. Next it will use that ip address to connect to the server that is hosting the service. It is the foundation of how the internet works.
 
 Some well known public DNS serves are as follows:
+
 - Google:
   - 8.8.8.8
   - 8.8.4.4
@@ -40,15 +41,17 @@ The default dns server in this project has a blocklist of about 1.5 million site
 
 ### System Requirements
 
-In any case, the server that you are preparing should run a Linux server OS. I recommend going for the latest LTS edition of your favourite Linux distro. I usually go for the latest Ubuntu Server LTS edition available.
+The server that you are preparing should run a Linux server OS. I recommend going for the latest LTS edition of your favourite Linux distro. I usually go for the latest Ubuntu Server LTS edition available.
 
 You also need to be able to ssh into the server securely. Some basic server hardening steps won't hurt as well.
 
 Your server also needs to have [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed.
 
-### Checking if the port is available
+### Checking if the network port is available
 
-A DNS server typically listens and handles DNS queries on TCP/UDP ports 53. Run the following commands on your server as root.
+A DNS server typically listens and handles DNS queries on TCP/UDP ports 53. Before proceeding any further, we need to ensure that the ports that we need are available for use, and not being occupied by a different process running on the server.
+
+Run the following commands on your server as root.
 
 ```shell
 sudo lsof -i:53
@@ -73,7 +76,7 @@ If you see something similar to the above prompt it means that `systemd-resolved
 1. Disable and stop the systemd-resolved service:
 
 ```shell
-sudo systemctl disable systemd-resolved.service
+sudo systemctl disable systemd-resolved
 sudo systemctl stop systemd-resolved
 ```
 
