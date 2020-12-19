@@ -1,0 +1,172 @@
+output_path: data/output.d/blacklist.zone
+
+blacklist:
+  - kind: http
+    format: hosts
+    path: https://adaway.org/hosts.txt
+  - kind: http
+    format: hosts
+    path: http://winhelp2002.mvps.org/hosts.txt
+  - kind: http
+    format: hosts
+    path: https://sebsauvage.net/hosts/hosts
+  - kind: http
+    format: hosts
+    path: https://someonewhocares.org/hosts/zero/hosts
+  - kind: http
+    format: domains
+    path: https://oooo.b-cdn.net/blahdns/adsblock.txt
+  - kind: http
+    format: hosts
+    path: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+  - kind: http
+    format: hosts
+    path: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts
+  - kind: http
+    format: hosts
+    path: https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext
+  - kind: http
+    format: hosts
+    path: http://sysctl.org/cameleon/hosts
+  - kind: http
+    format: domains
+    path: https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
+  - kind: http
+    format: domains
+    path: https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt
+  - kind: http
+    format: hosts
+    path: https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt
+  - kind: http
+    format: hosts
+    path: https://raw.githubusercontent.com/bongochong/CombinedPrivacyBlockLists/master/newhosts-final-Dual.hosts
+  - kind: http
+    format: hosts
+    path: https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt
+  - kind: http
+    format: hosts
+    path: https://gitlab.com/intr0/iVOID.GitLab.io/raw/master/iVOID.hosts
+  - kind: http
+    format: hosts
+    path: https://raw.githubusercontent.com/mtxadmin/ublock/master/hosts.txt
+  - kind: http
+    format: hosts
+    path: https://block.energized.pro/unified/formats/hosts.txt
+  - kind: http
+    format: hosts
+    path: https://block.energized.pro/extensions/regional/formats/hosts-ipv6.txt
+  - kind: http
+    format: hosts
+    path: https://block.energized.pro/extensions/ips/formats/list.txt
+  - kind: http
+    format: hosts
+    path: https://block.energized.pro/porn/formats/hosts.txt
+  - kind: http
+    format: hosts
+    path: https://blokada.org/blocklists/ddgtrackerradar/standard/hosts.txt
+  - kind: http
+    format: hosts
+    path: http://sbc.io/hosts/alternates/fakenews-gambling-porn/hosts
+  - kind: http
+    format: hosts
+    path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileAds.txt
+  - kind: http
+    format: hosts
+    path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileSpyware.txt
+  - kind: http
+    format: hosts
+    path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardApps.txt
+  - kind: http
+    format: hosts
+    path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardDNS.txt
+  - kind: http
+    format: hosts
+    path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacySpecific.txt
+  - kind: http
+    format: hosts
+    path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacy3rdParty.txt
+  - kind: http
+    format: hosts
+    path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-YouTube-AdBlock.txt
+  - kind: http
+    format: hosts
+    path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Spotify-AdBlock.txt
+  - kind: http
+    format: hosts
+    path: https://raw.githubusercontent.com/dnswarden/blocklist/master/blacklist-formats/hosts
+  - kind: file
+    format: hosts
+    path: data/blacklist.d/ads_custom.hosts
+  - kind: file
+    format: hosts
+    path: data/blacklist.d/porn_custom.hosts
+  - kind: file
+    format: hosts
+    path: data/blacklist.d/porn_reddit.hosts
+  - kind: file
+    format: hosts
+    path: data/blacklist.d/__extra_blacklist.hosts
+
+whitelist:
+  - kind: file
+    format: hosts
+    path: data/whitelist.d/blogspot_whitelist.hosts
+  - kind: file
+    format: hosts
+    path: data/whitelist.d/facebook_whitelist.hosts
+  - kind: file
+    format: hosts
+    path: data/whitelist.d/google_whitelist.hosts
+  - kind: file
+    format: hosts
+    path: data/whitelist.d/microsoft_nsatc_net.hosts
+  - kind: file
+    format: hosts
+    path: data/whitelist.d/microsoft_whitelist.hosts
+  - kind: file
+    format: hosts
+    path: data/whitelist.d/misc_whitelist.hosts
+  - kind: file
+    format: hosts
+    path: data/whitelist.d/statuspage_whitelist.hosts
+  - kind: file
+    format: hosts
+    path: data/whitelist.d/windows_update_nsatc_net.hosts
+  - kind: file
+    format: domains
+    path: data/whitelist.d/pihole_common_whitelist.txt
+  - kind: file
+    format: domains
+    path: data/whitelist.d/fbcdn_whitelist.txt
+  - kind: file
+    format: hosts
+    path: data/whitelist.d/__extra_whitelist.hosts
+  - kind: file
+    format: zone
+    path: data/overrides.d/bing-safesearch.zone
+  - kind: file
+    format: zone
+    path: data/overrides.d/duckduckgo-safesearch.zone
+  - kind: file
+    format: zone
+    path: data/overrides.d/google-safesearch.zone
+  - kind: http
+    format: domains
+    path: https://raw.githubusercontent.com/raghavdua1995/DNSlock-PiHole-whitelist/master/whitelist.list
+  - kind: http
+    format: domains
+    path: https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
+  - kind: http
+    format: domains
+    path: https://raw.githubusercontent.com/notracking/hosts-blocklists-scripts/master/hostnames.whitelist.txt
+
+overrides:
+  - kind: file
+    format: cname
+    path: data/overrides.d/bing-safesearch.zone
+  - kind: file
+    format: cname
+    path: data/overrides.d/duckduckgo-safesearch.zone
+  - kind: file
+    format: cname
+    path: data/overrides.d/google-safesearch.zone
