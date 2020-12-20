@@ -1,6 +1,5 @@
 #[derive(serde::Deserialize, Debug, Clone)]
 pub struct Source {
-    pub kind: String,
     pub format: String,
     pub path: String,
 }

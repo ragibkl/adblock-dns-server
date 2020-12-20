@@ -27,7 +27,7 @@ impl ExtractTask {
 
     pub async fn load_and_parse(&self) -> Vec<String> {
         let parser = Arc::clone(&self.parser);
-        let res = load_content(&self.source.kind, &self.source.path).await;
+        let res = load_content(&self.source.path).await;
 
         match res {
             Ok(content) => parser.parse(&content),
