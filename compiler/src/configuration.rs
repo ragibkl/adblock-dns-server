@@ -1,11 +1,11 @@
-#[derive(serde::Deserialize, Debug)]
+#[derive(serde::Deserialize, Debug, Clone)]
 pub struct Source {
     pub kind: String,
     pub format: String,
     pub path: String,
 }
 
-#[derive(serde::Deserialize, Debug)]
+#[derive(serde::Deserialize, Debug, Clone)]
 pub struct AppConfig {
     pub output_path: String,
     pub blacklist: Vec<Source>,

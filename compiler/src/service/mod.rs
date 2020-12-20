@@ -1,3 +1,4 @@
+pub mod blacklist;
 pub mod core;
 pub mod extractor;
 pub mod hosts_writer;
