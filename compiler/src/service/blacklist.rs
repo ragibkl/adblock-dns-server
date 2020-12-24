@@ -2,7 +2,7 @@ use crate::configuration::AppConfig;
 use crate::service::loader::load_content;
 use crate::service::parser::{parse_domains, parse_hosts};
 
-async fn parse(format: &str, content: &str) -> Vec<String> {
+fn parse(format: &str, content: &str) -> Vec<String> {
     match format {
         "hosts" => parse_hosts(content),
         "domains" => parse_domains(content),
@@ -18,7 +18,7 @@ pub async fn extract_blacklist(config: AppConfig) -> Vec<String> {
 
         let task = tokio::spawn(async move {
             let content = load_content(&path).await.unwrap_or_default();
-            parse(&format, content.as_str()).await
+            parse(&format, content.as_str())
         });
 
         handles.push(task);
