@@ -6,7 +6,7 @@ use regex::Regex;
 
 use super::common::parse;
 
-fn extract_hosts(text: &str) -> Option<String> {
+fn extract(text: &str) -> Option<String> {
     lazy_static! {
         static ref RE: Regex = Regex::new(
             r"(?P<domain>.{2,200}\.[a-z]{2,6})\s+(CNAME|cname)\s+(?P<alias>.{2,200}\.[a-z]{2,6})\."
@@ -36,7 +36,7 @@ fn extract_hosts(text: &str) -> Option<String> {
 }
 
 pub fn parse_cnames(content: &str) -> Vec<String> {
-    let lines = parse(content, extract_hosts);
+    let lines = parse(content, extract);
     println!("[parse_hosts] - Done parsing {} domains", lines.len());
     lines
 }
@@ -48,7 +48,7 @@ mod tests {
     #[test]
     fn it_extract_domain() {
         let input = "www.bing.com    CNAME   strict.bing.com.";
-        let output = extract_hosts(input);
+        let output = extract(input);
         let expected = "www.bing.com CNAME strict.bing.com.".to_string();
 
         assert_eq!(output, Some(expected));
@@ -56,7 +56,6 @@ mod tests {
 
     #[test]
     fn it_works() {
-        // let parser = CnameParser::new();
         let input = "
             www.bing.com    cname   strict.bing.com.
 

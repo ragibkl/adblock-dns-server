@@ -6,7 +6,7 @@ use regex::Regex;
 
 use super::common::parse;
 
-fn extract_hosts(text: &str) -> Option<String> {
+fn extract(text: &str) -> Option<String> {
     lazy_static! {
         static ref RE: Regex = Regex::new(r"(?P<domain>.{2,200}\.[a-z]{2,6})").unwrap();
     }
@@ -18,7 +18,7 @@ fn extract_hosts(text: &str) -> Option<String> {
 }
 
 pub fn parse_domains(content: &str) -> Vec<String> {
-    let lines = parse(content, extract_hosts);
+    let lines = parse(content, extract);
     println!("[parse_hosts] - Done parsing {} domains", lines.len());
     lines
 }
@@ -30,17 +30,17 @@ mod tests {
     #[test]
     fn it_extract_domain() {
         let input = "abc.example.com";
-        let output = extract_hosts(input);
+        let output = extract(input);
         let expected = "abc.example.com".to_string();
         assert_eq!(output, Some(expected));
 
         let input = "Bücher.example.com";
-        let output = extract_hosts(input);
+        let output = extract(input);
         let expected = "xn--bcher-kva.example.com".to_string();
         assert_eq!(output, Some(expected));
 
         let input = "";
-        let output = extract_hosts(input);
+        let output = extract(input);
         assert_eq!(output, None);
     }
 
