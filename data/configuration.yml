@@ -10,7 +10,7 @@ blacklist:
   - format: hosts
     path: https://someonewhocares.org/hosts/zero/hosts
   - format: domains
-    path: https://oooo.b-cdn.net/blahdns/adsblock.txt
+    path: https://oooo.b-cdn.net/blahdns/blahdns_hosts.txt
   - format: hosts
     path: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
   - format: hosts
@@ -37,11 +37,11 @@ blacklist:
     path: https://block.energized.pro/unified/formats/hosts.txt
   - format: hosts
     path: https://block.energized.pro/extensions/regional/formats/hosts-ipv6.txt
-  - format: hosts
-    path: https://block.energized.pro/extensions/ips/formats/list.txt
+  # - format: hosts
+  #   path: https://block.energized.pro/extensions/ips/formats/list.txt
   - format: hosts
     path: https://block.energized.pro/porn/formats/hosts.txt
-  - format: hosts
+  - format: domains
     path: https://blokada.org/blocklists/ddgtrackerradar/standard/hosts.txt
   - format: hosts
     path: http://sbc.io/hosts/alternates/fakenews-gambling-porn/hosts
