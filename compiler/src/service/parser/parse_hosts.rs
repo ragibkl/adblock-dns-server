@@ -19,9 +19,7 @@ fn extract(text: &str) -> Option<String> {
 }
 
 pub fn parse_hosts(content: &str) -> Vec<String> {
-    let lines = parse(content, extract);
-    // println!("[parse_hosts] - Done parsing {} domains", lines.len());
-    lines
+    parse(content, extract)
 }
 
 #[cfg(test)]

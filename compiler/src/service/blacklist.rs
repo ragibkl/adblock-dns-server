@@ -20,7 +20,7 @@ pub async fn extract_blacklist(config: AppConfig) -> Vec<String> {
             let content = load_content(&path).await.unwrap_or_default();
             let lines = parse(&format, content.as_str());
             println!(
-                "[blacklist] - Done parsing {} domains from {}",
+                "[parsed blacklist] - Done parsing {} domains from {}",
                 lines.len(),
                 &path
             );
