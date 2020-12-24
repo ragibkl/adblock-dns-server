@@ -18,7 +18,13 @@ pub async fn extract_blacklist(config: AppConfig) -> Vec<String> {
 
         let task = tokio::spawn(async move {
             let content = load_content(&path).await.unwrap_or_default();
-            parse(&format, content.as_str())
+            let lines = parse(&format, content.as_str());
+            println!(
+                "[blacklist] - Done parsing {} domains from {}",
+                lines.len(),
+                &path
+            );
+            lines
         });
 
         handles.push(task);

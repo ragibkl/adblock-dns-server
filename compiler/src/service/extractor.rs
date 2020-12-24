@@ -27,7 +27,15 @@ impl ExtractTask {
         let res = load_content(&self.source.path).await;
 
         match res {
-            Ok(content) => parse(&self.source.format, &content),
+            Ok(content) => {
+                let lines = parse(&self.source.format, &content);
+                println!(
+                    "[parsed extractor] - Done parsing {} domains from {}",
+                    lines.len(),
+                    &self.source.path
+                );
+                lines
+            }
             _ => {
                 println!("error loading content");
                 Vec::new()
