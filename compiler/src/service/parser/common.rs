@@ -13,6 +13,19 @@ pub fn clean_text(text: &str) -> String {
     text
 }
 
+pub fn parse<T: Fn(&str) -> Option<String>>(content: &str, extract: T) -> Vec<String> {
+    let lines = content
+        .lines()
+        .map(clean_text)
+        .map(|l| extract(&l))
+        .filter(|l| l.is_some())
+        .map(|l| l.unwrap())
+        .collect::<Vec<_>>();
+
+    println!("[HostParser] - Done parsing {} domains", lines.len());
+    lines
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

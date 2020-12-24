@@ -4,7 +4,7 @@ extern crate regex;
 use addr::DomainName;
 use regex::Regex;
 
-use super::parser_utils::clean_text;
+use super::common::clean_text;
 use crate::service::core::Parser;
 
 fn extract_domain(text: &str) -> Option<String> {
