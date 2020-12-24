@@ -4,10 +4,9 @@ extern crate regex;
 use addr::DomainName;
 use regex::Regex;
 
-use super::parser_utils::clean_text;
-use crate::service::core::Parser;
+use super::common::parse;
 
-fn extract_domain(text: &str) -> Option<String> {
+fn extract(text: &str) -> Option<String> {
     lazy_static! {
         static ref RE: Regex = Regex::new(
             r"(?P<domain>.{2,256}\.[a-z]{2,6})\s+(CNAME|cname)\s+(.{2,256}\.[a-z]{2,6})\."
@@ -21,27 +20,8 @@ fn extract_domain(text: &str) -> Option<String> {
         .map(|d| d.as_str().trim().to_string())
 }
 
-pub struct ZoneParser;
-
-impl ZoneParser {
-    pub fn new() -> ZoneParser {
-        ZoneParser {}
-    }
-}
-
-impl Parser for ZoneParser {
-    fn parse(&self, content: &str) -> Vec<String> {
-        let lines = content
-            .lines()
-            .map(clean_text)
-            .map(|l| extract_domain(&l))
-            .filter(|l| l.is_some())
-            .map(|l| l.unwrap())
-            .collect::<Vec<_>>();
-
-        println!("[HostParser] - Done parsing {} domains", lines.len());
-        lines
-    }
+pub fn parse_zones(content: &str) -> Vec<String> {
+    parse(content, extract)
 }
 
 #[cfg(test)]
@@ -51,7 +31,7 @@ mod tests {
     #[test]
     fn it_extract_domain() {
         let input = "www.bing.com    CNAME   strict.bing.com.";
-        let output = extract_domain(input);
+        let output = extract(input);
         let expected = "www.bing.com".to_string();
 
         assert_eq!(output, Some(expected));
@@ -59,7 +39,6 @@ mod tests {
 
     #[test]
     fn it_works() {
-        let parser = ZoneParser::new();
         let input = "
             www.bing.com    cname   strict.bing.com.
 
@@ -69,7 +48,7 @@ mod tests {
             google.com.my    CNAME   forcesafesearch.google.com.
             www.google.com.my    CNAME   forcesafesearch.google.com.
         ";
-        let output = parser.parse(input);
+        let output = parse_zones(input);
         let expected = vec![
             "www.bing.com".to_string(),
             "duckduckgo.com".to_string(),

@@ -1,14 +1,16 @@
 #[macro_use]
 extern crate lazy_static;
-extern crate async_std;
 
 use std::collections::HashSet;
+use std::iter::FromIterator;
 
 pub mod configuration;
 pub mod service;
 
 pub use configuration::load_config;
 use configuration::{AppConfig, Source};
+
+use service::blacklist::extract_blacklist;
 use service::extractor::ExtractTask;
 use service::hosts_writer;
 
@@ -36,15 +38,15 @@ async fn fetch_list(urls: Vec<Source>) -> HashSet<String> {
 }
 
 pub async fn run(config: AppConfig) {
-    let blacklist_urls = config.blacklist;
-    let whitelist_urls = config.whitelist;
-    let overrides_urls = config.overrides;
+    let whitelist_urls = config.whitelist.clone();
+    let overrides_urls = config.overrides.clone();
 
-    let blacklist_handle = tokio::spawn(fetch_list(blacklist_urls));
+    let blacklist_handle = tokio::spawn(extract_blacklist(config.clone()));
     let whitelist_handle = tokio::spawn(fetch_list(whitelist_urls));
     let overrides_handle = tokio::spawn(fetch_list(overrides_urls));
 
-    let blacklist_set = blacklist_handle.await.unwrap();
+    let blacklists = blacklist_handle.await.unwrap();
+    let blacklist_set = HashSet::from_iter(blacklists);
     let whitelist_set = whitelist_handle.await.unwrap();
     let domains: Vec<String> = blacklist_set
         .difference(&whitelist_set)

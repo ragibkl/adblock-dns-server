@@ -1,5 +1,7 @@
-mod file_loader;
-mod http_loader;
+mod file;
+mod http;
+mod load_content;
 
-pub use file_loader::FileLoader;
-pub use http_loader::HttpLoader;
+pub use file::load_file;
+pub use http::load_http;
+pub use load_content::load_content;
