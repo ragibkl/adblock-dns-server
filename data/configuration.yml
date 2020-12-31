@@ -41,8 +41,8 @@ blacklist:
   #   path: https://block.energized.pro/extensions/ips/formats/list.txt
   - format: hosts
     path: https://block.energized.pro/porn/formats/hosts.txt
-  - format: domains
-    path: https://blokada.org/blocklists/ddgtrackerradar/standard/hosts.txt
+  # - format: domains
+  #   path: https://blokada.org/blocklists/ddgtrackerradar/standard/hosts.txt
   - format: hosts
     path: http://sbc.io/hosts/alternates/fakenews-gambling-porn/hosts
   - format: hosts
