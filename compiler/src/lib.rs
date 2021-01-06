@@ -1,19 +1,20 @@
 #[macro_use]
 extern crate lazy_static;
-extern crate async_std;
 
 use std::collections::HashSet;
+use std::iter::FromIterator;
 
+pub mod configuration;
 pub mod service;
-use service::config::{AppConfig, SourceConfig};
+
+pub use configuration::load_config;
+use configuration::{AppConfig, Source};
+
+use service::blacklist::extract_blacklist;
 use service::extractor::ExtractTask;
 use service::hosts_writer;
 
-pub fn load_config() -> AppConfig {
-    AppConfig::new()
-}
-
-async fn fetch_list(urls: Vec<SourceConfig>) -> HashSet<String> {
+async fn fetch_list(urls: Vec<Source>) -> HashSet<String> {
     let mut handles = Vec::new();
     for u in urls {
         let handle = tokio::spawn(async move {
@@ -37,15 +38,15 @@ async fn fetch_list(urls: Vec<SourceConfig>) -> HashSet<String> {
 }
 
 pub async fn run(config: AppConfig) {
-    let blacklist_urls = config.get_blacklist_srcs();
-    let whitelist_urls = config.get_whitelist_srcs();
-    let overrides_urls = config.get_overrides_srcs();
+    let whitelist_urls = config.whitelist.clone();
+    let overrides_urls = config.overrides.clone();
 
-    let blacklist_handle = tokio::spawn(fetch_list(blacklist_urls));
+    let blacklist_handle = tokio::spawn(extract_blacklist(config.clone()));
     let whitelist_handle = tokio::spawn(fetch_list(whitelist_urls));
     let overrides_handle = tokio::spawn(fetch_list(overrides_urls));
 
-    let blacklist_set = blacklist_handle.await.unwrap();
+    let blacklists = blacklist_handle.await.unwrap();
+    let blacklist_set = HashSet::from_iter(blacklists);
     let whitelist_set = whitelist_handle.await.unwrap();
     let domains: Vec<String> = blacklist_set
         .difference(&whitelist_set)
@@ -55,5 +56,5 @@ pub async fn run(config: AppConfig) {
     let overrides_set = overrides_handle.await.unwrap();
     let overrides_list = overrides_set.into_iter().collect::<Vec<_>>();
     let content = hosts_writer::build_content(domains, overrides_list);
-    hosts_writer::write_to_file(&config.get_output_path(), &content);
+    hosts_writer::write_to_file(&config.output_path, &content);
 }

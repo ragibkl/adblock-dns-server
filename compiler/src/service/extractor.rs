@@ -1,47 +1,41 @@
-use crate::service::config::SourceConfig;
-use crate::service::core::*;
-use crate::service::loader::{FileLoader, HttpLoader};
-use crate::service::parser::{CnameParser, HostParser, ListParser, ZoneParser};
-use std::sync::Arc;
+use crate::configuration::Source;
+use crate::service::loader::load_content;
+use crate::service::parser::{parse_cnames, parse_domains, parse_hosts, parse_zones};
+
+fn parse(format: &str, content: &str) -> Vec<String> {
+    match format {
+        "hosts" => parse_hosts(content),
+        "domains" => parse_domains(content),
+        "cname" => parse_cnames(content),
+        "zone" => parse_zones(content),
+        _ => panic!("invalid format"),
+    }
+}
 
 pub struct ExtractTask {
-    loader: Arc<dyn Loader>,
-    parser: Arc<dyn Parser>,
+    source: Source,
 }
 
 impl ExtractTask {
-    pub fn from_config(config: &SourceConfig) -> ExtractTask {
-        let loader: Arc<dyn Loader> = match config.kind.as_str() {
-            "http" => Arc::new(HttpLoader {
-                url: config.path.clone(),
-            }),
-            "file" => Arc::new(FileLoader {
-                path: config.path.clone(),
-            }),
-            _ => panic!("invalid kind"),
-        };
-
-        let parser: Arc<dyn Parser> = match config.format.as_str() {
-            "hosts" => Arc::new(HostParser::new()),
-            "domains" => Arc::new(ListParser::new()),
-            "cname" => Arc::new(CnameParser::new()),
-            "zone" => Arc::new(ZoneParser::new()),
-            _ => panic!("invalid format"),
-        };
-
+    pub fn from_config(source: &Source) -> ExtractTask {
         ExtractTask {
-            loader: loader,
-            parser: parser,
+            source: source.clone(),
         }
     }
 
     pub async fn load_and_parse(&self) -> Vec<String> {
-        let loader = Arc::clone(&self.loader);
-        let parser = Arc::clone(&self.parser);
-        let res = loader.load().await;
+        let res = load_content(&self.source.path).await;
 
         match res {
-            Ok(content) => parser.parse(&content),
+            Ok(content) => {
+                let lines = parse(&self.source.format, &content);
+                println!(
+                    "[parsed extractor] - Done parsing {} domains from {}",
+                    lines.len(),
+                    &self.source.path
+                );
+                lines
+            }
             _ => {
                 println!("error loading content");
                 Vec::new()

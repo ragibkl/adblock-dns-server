@@ -1,4 +1,6 @@
-pub mod config;
+pub mod blacklist;
+pub mod whitelist;
+
 pub mod core;
 pub mod extractor;
 pub mod hosts_writer;
