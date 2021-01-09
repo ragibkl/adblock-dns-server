@@ -17,7 +17,7 @@ fn parse(format: &str, content: &str) -> Vec<String> {
 
 pub async fn extract_whitelist(config: AppConfig) -> Vec<String> {
     let mut handles = Vec::new();
-    for source in &config.blacklist {
+    for source in &config.whitelist {
         let path = source.path.clone();
         let format = source.format.clone();
 
