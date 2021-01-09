@@ -74,27 +74,27 @@ blacklist:
 
 whitelist:
   - format: hosts
-    path: data/whitelist.d/blogspot_whitelist.hosts
-  - format: hosts
-    path: data/whitelist.d/facebook_whitelist.hosts
-  - format: hosts
-    path: data/whitelist.d/google_whitelist.hosts
-  - format: hosts
-    path: data/whitelist.d/microsoft_nsatc_net.hosts
-  - format: hosts
-    path: data/whitelist.d/microsoft_whitelist.hosts
-  - format: hosts
-    path: data/whitelist.d/misc_whitelist.hosts
-  - format: hosts
-    path: data/whitelist.d/statuspage_whitelist.hosts
-  - format: hosts
-    path: data/whitelist.d/windows_update_nsatc_net.hosts
+    path: data/whitelist.d/__extra_whitelist.hosts
+  - format: domains
+    path: data/whitelist.d/blogspot_whitelist.txt
+  - format: domains
+    path: data/whitelist.d/facebook_whitelist.txt
+  - format: domains
+    path: data/whitelist.d/fbcdn_whitelist.txt
+  - format: domains
+    path: data/whitelist.d/google_whitelist.txt
+  - format: domains
+    path: data/whitelist.d/microsoft_nsatc_net.txt
+  - format: domains
+    path: data/whitelist.d/microsoft_whitelist.txt
+  - format: domains
+    path: data/whitelist.d/misc_whitelist.txt
   - format: domains
     path: data/whitelist.d/pihole_common_whitelist.txt
   - format: domains
-    path: data/whitelist.d/fbcdn_whitelist.txt
-  - format: hosts
-    path: data/whitelist.d/__extra_whitelist.hosts
+    path: data/whitelist.d/statuspage_whitelist.txt
+  - format: domains
+    path: data/whitelist.d/windows_update_nsatc_net.txt
   - format: zone
     path: data/overrides.d/bing-safesearch.zone
   - format: zone

@@ -8,6 +8,7 @@ fna.fbcdn.net.huawei.net
 instagram-p3-shv-01-mad1.fbcdn.net
 s0.2mdn.nets1.2mdn.netscontent-atl3-1.xx.fbcdn.netscript.crazyegg.com
 sb.scorecardresearch.comscontent-atl3-1.xx.fbcdn.netsecure-gl.imrworldwide.comsecure-nym.adnxs.comsecure.ace.advertising.comsecure.adnxs.com
+*.xx.fbcdn.net
 scontent-a-ams.xx.fbcdn.net
 scontent-a-atl.xx.fbcdn.net
 scontent-a-cdg.xx.fbcdn.net

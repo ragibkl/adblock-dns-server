@@ -1,0 +1,18 @@
+# whitelist
+fg.v4.b1.dl.windowsupdate.com.nsatc.net
+www.au.b1.dl.windowsupdate.com.nsatc.net
+au.ds.b1.dl.windowsupdate.com.nsatc.net
+fg.ds.dl.windowsupdate.com.nsatc.net
+www.fg.v4.b1.dl.windowsupdate.com.nsatc.net
+www.wsus.ds.b1.dl.windowsupdate.com.nsatc.net
+au.v4.b1.dl.windowsupdate.com.nsatc.net
+www.au.ds.b1.dl.windowsupdate.com.nsatc.net
+bg.ds.dl.windowsupdate.com.nsatc.net
+aupl.ds.b1.dl.windowsupdate.com.nsatc.net
+aupl.v4.b1.dl.windowsupdate.com.nsatc.net
+au.b1.dl.windowsupdate.com.nsatc.net
+www.au.v4.b1.dl.windowsupdate.com.nsatc.net
+wsus.ds.b1.dl.windowsupdate.com.nsatc.net
+www.aupl.v4.b1.dl.windowsupdate.com.nsatc.net
+www.aupl.ds.b1.dl.windowsupdate.com.nsatc.net
+b1.dl.windowsupdate.com.nsatc.net

@@ -1,0 +1,6 @@
+# whitelist
+kr0djjh0jyy9.statuspage.io
+s2k7tnzlhrpw.statuspage.io
+www.cdn.statuspage.io
+cdn.statuspage.io
+www.kr0djjh0jyy9.statuspage.io
