@@ -2,7 +2,6 @@
 extern crate lazy_static;
 
 use std::collections::HashSet;
-use std::iter::FromIterator;
 
 pub mod configuration;
 pub mod service;
@@ -13,6 +12,7 @@ use configuration::{AppConfig, Source};
 use service::blacklist::extract_blacklist;
 use service::extractor::ExtractTask;
 use service::hosts_writer;
+use service::whitelist::{extract_whitelist, filter_whitelist};
 
 async fn fetch_list(urls: Vec<Source>) -> HashSet<String> {
     let mut handles = Vec::new();
@@ -38,20 +38,16 @@ async fn fetch_list(urls: Vec<Source>) -> HashSet<String> {
 }
 
 pub async fn run(config: AppConfig) {
-    let whitelist_urls = config.whitelist.clone();
     let overrides_urls = config.overrides.clone();
 
     let blacklist_handle = tokio::spawn(extract_blacklist(config.clone()));
-    let whitelist_handle = tokio::spawn(fetch_list(whitelist_urls));
+    let whitelist_handle = tokio::spawn(extract_whitelist(config.clone()));
     let overrides_handle = tokio::spawn(fetch_list(overrides_urls));
 
     let blacklists = blacklist_handle.await.unwrap();
-    let blacklist_set = HashSet::from_iter(blacklists);
-    let whitelist_set = whitelist_handle.await.unwrap();
-    let domains: Vec<String> = blacklist_set
-        .difference(&whitelist_set)
-        .map(|s| s.clone())
-        .collect();
+    let whitelists = whitelist_handle.await.unwrap();
+
+    let domains = filter_whitelist(&blacklists, &whitelists);
 
     let overrides_set = overrides_handle.await.unwrap();
     let overrides_list = overrides_set.into_iter().collect::<Vec<_>>();
