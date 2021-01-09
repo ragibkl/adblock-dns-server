@@ -92,6 +92,8 @@ whitelist:
   - format: domains
     path: data/whitelist.d/pihole_common_whitelist.txt
   - format: domains
+    path: data/whitelist.d/regex_whitelist.txt
+  - format: domains
     path: data/whitelist.d/statuspage_whitelist.txt
   - format: domains
     path: data/whitelist.d/windows_update_nsatc_net.txt
