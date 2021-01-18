@@ -1,11 +1,14 @@
 # whitelist
+3.tlu.dl.delivery.mp.microsoft.com.c.footprint.net
 a-0003.a-msedge.net
 apps.skype.com
 attestation.xboxlive.com
+au.download.windowsupdate.com.c.footprint.net
 c.s-microsoft.com
 cert.mgt.xboxlive.com
 client-s.gateway.messenger.live.com
 clientconfig.passport.net
+cs11.wpc.v0cdn.net
 ctldl.windowsupdate.com
 def-vef.xboxlive.com
 device.auth.xboxlive.com
