@@ -71,6 +71,8 @@ blacklist:
     path: data/blacklist.d/porn_reddit.hosts
   - format: hosts
     path: data/blacklist.d/__extra_blacklist.hosts
+  - format: domains
+    path: data/blacklist.d/nextdns_cname_cloaking.txt
 
 whitelist:
   - format: hosts
