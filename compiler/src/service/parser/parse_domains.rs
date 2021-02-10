@@ -13,8 +13,23 @@ fn extract(text: &str) -> Option<String> {
 
     RE.captures(&text)
         .and_then(|cap| cap.name("domain"))
-        .and_then(|d| d.as_str().parse::<DomainName>().ok())
-        .map(|d| d.as_str().trim().to_string())
+        .and_then(|d| {
+            let mut d_str = d.as_str().to_string();
+
+            let d_s = d.as_str();
+            if d_s.starts_with("*.") {
+                d_str = d_str.replace("*.", "");
+                return d_str
+                    .parse::<DomainName>()
+                    .ok()
+                    .map(|v| "*.".to_string() + v.as_str());
+            }
+
+            d_str
+                .parse::<DomainName>()
+                .ok()
+                .map(|v| v.as_str().trim().to_string())
+        })
 }
 
 pub fn parse_domains(content: &str) -> Vec<String> {
@@ -73,6 +88,7 @@ mod tests {
             101order.com
             123found.com
             140proof.com
+            *.wpc.edgecastcdn.net
         ";
 
         let output = parse_domains(input);
@@ -82,6 +98,7 @@ mod tests {
             "101order.com".to_string(),
             "123found.com".to_string(),
             "140proof.com".to_string(),
+            "*.wpc.edgecastcdn.net".to_string(),
         ];
         assert_eq!(output, expected);
     }

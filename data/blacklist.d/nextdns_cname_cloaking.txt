@@ -1,0 +1,83 @@
+# Source: https://raw.githubusercontent.com/nextdns/cname-cloaking-blocklist/master/domains
+# I took this from the source, and had to append the *. to the domains manually
+
+# NextDNS CNAME Cloaking Blocklist
+#
+# https://github.com/nextdns/cname-cloaking-blocklist
+#
+# Important: For this list to work at all, the blocking logic needs to
+# wildcard match (domain and all its multi-level subdomains) CNAMEs
+# against the domains in this list.
+
+# Eulerian
+*.eulerian.net
+eulerian.net
+
+# AT Internet (formerly XiTi)
+*.at-o.net
+at-o.net
+
+# Keyade
+*.k.keyade.com
+k.keyade.com
+
+# Adobe Experience Cloud (formerly Omniture)
+*.2o7.net
+*.data.adobedc.net
+*.sc.adobedc.net
+*.sc.omtrdc.net
+2o7.net
+data.adobedc.net
+sc.adobedc.net
+sc.omtrdc.net
+
+# Criteo
+*.dnsdelegation.io
+*.storetail.io
+dnsdelegation.io
+storetail.io
+
+# Commanders Act
+*.tagcommander.com
+tagcommander.com
+
+# Wizaly
+*.wizaly.com
+wizaly.com
+
+# TraceDock
+*.a351fec2c318c11ea9b9b0a0ae18fb0b-1529426863.eu-central-1.elb.amazonaws.com
+*.a5e652663674a11e997c60ac8a4ec150-1684524385.eu-central-1.elb.amazonaws.com
+*.a88045584548111e997c60ac8a4ec150-1610510072.eu-central-1.elb.amazonaws.com
+*.afc4d9aa2a91d11e997c60ac8a4ec150-2082092489.eu-central-1.elb.amazonaws.com
+a351fec2c318c11ea9b9b0a0ae18fb0b-1529426863.eu-central-1.elb.amazonaws.com
+a5e652663674a11e997c60ac8a4ec150-1684524385.eu-central-1.elb.amazonaws.com
+a88045584548111e997c60ac8a4ec150-1610510072.eu-central-1.elb.amazonaws.com
+afc4d9aa2a91d11e997c60ac8a4ec150-2082092489.eu-central-1.elb.amazonaws.com
+
+# Ingenious Technologies
+*.affex.org
+affex.org
+
+# intent (intent.com)
+*.partner.intentmedia.net
+partner.intentmedia.net
+
+# Webtrekk
+*.webtrekk.net
+*.wt-eu02.net
+webtrekk.net
+wt-eu02.net
+
+# Otto Group
+*.oghub.io
+oghub.io
+
+# NP6
+*.tracking.bp01.net
+tracking.bp01.net
+
+# Lead Forensics
+# Note: not directly disguising itself as first-party, but cloaking the destination behind plenty of different innocent-looking domains.
+*.ghochv3eng.trafficmanager.net
+ghochv3eng.trafficmanager.net

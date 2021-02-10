@@ -1,0 +1,4 @@
+# blogspot whitelist
+blogger.l.google.com
+www.blogger.com
+resources.blogblog.com

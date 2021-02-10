@@ -28,5 +28,5 @@ cd $WORKDIR/dns_default
 ./scripts/ci-build.sh
 
 # build the adblock_logs_viewer:latest image
-cd $WORKDIR/logs-viewer
-./scripts/build.sh
+# cd $WORKDIR/logs-viewer
+# ./scripts/build.sh
