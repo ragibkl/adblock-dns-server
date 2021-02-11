@@ -75,6 +75,8 @@ If you see something similar to the above prompt it means that `systemd-resolved
 
 1. Disable and stop the systemd-resolved service:
 
+UPDATE: see [here](https://medium.com/@niktrix/getting-rid-of-systemd-resolved-consuming-port-53-605f0234f32f) instead!!!
+
 ```shell
 sudo systemctl disable systemd-resolved
 sudo systemctl stop systemd-resolved

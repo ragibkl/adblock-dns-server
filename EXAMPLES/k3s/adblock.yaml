@@ -1,0 +1,84 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: adblock
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: adblock
+  name: adblock-dns-svc
+  labels:
+    app: adblock-dns-svc
+spec:
+  type: NodePort
+  ports:
+    - name: tcp53
+      port: 53
+      targetPort: 53
+      nodePort: 53
+      protocol: TCP
+    - name: udp53
+      port: 53
+      targetPort: 53
+      nodePort: 53
+      protocol: UDP
+  selector:
+    app: adblock-dns
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: adblock
+  name: adblock-dns
+  labels:
+    app: adblock-dns
+    keel.sh/policy: force
+    keel.sh/trigger: poll
+    keel.sh/match-tag: "true"
+  annotations:
+    keel.sh/pollSchedule: "@every 1m"
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: adblock-dns
+  template:
+    metadata:
+      name: adblock-dns
+      labels:
+        app: adblock-dns
+    spec:
+      containers:
+        - name: adblock-dns
+          image: ragibkl/adblock_dns:latest
+          imagePullPolicy: Always
+          env:
+            - name: FQDN
+              value: dns.localhost.localdomain
+            - name: IPV4
+              value: "0.0.0.0"
+            - name: IPv6
+              value: "::"
+          ports:
+            - containerPort: 53
+          livenessProbe:
+            exec:
+              command:
+                - nslookup
+                - zedo.com
+                - "127.0.0.1"
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          readinessProbe:
+            exec:
+              command:
+                - nslookup
+                - zedo.com
+                - "127.0.0.1"
+            initialDelaySeconds: 30
+            periodSeconds: 5
