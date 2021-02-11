@@ -63,6 +63,10 @@ blacklist:
     path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Spotify-AdBlock.txt
   - format: hosts
     path: https://raw.githubusercontent.com/dnswarden/blocklist/master/blacklist-formats/hosts
+  - format: domains
+    path: https://raw.githubusercontent.com/nextdns/metadata/master/parentalcontrol/bypass-methods
+  - format: domains
+    path: https://raw.githubusercontent.com/GeorgeForse/VPN-List/master/list.txt
   - format: hosts
     path: data/blacklist.d/ads_custom.hosts
   - format: hosts
