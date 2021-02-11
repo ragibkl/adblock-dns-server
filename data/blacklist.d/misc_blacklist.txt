@@ -1,6 +1,6 @@
 # VPN Providers that allows to bypass the adblock
-*.yogavpn.com
 yogavpn.com
+alhapi.com
 
 # NSFW CDN
 *.phncdn.com
