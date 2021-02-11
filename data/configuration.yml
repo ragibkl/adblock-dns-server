@@ -69,6 +69,8 @@ blacklist:
     path: https://raw.githubusercontent.com/GeorgeForse/VPN-List/master/list.txt
   - format: hosts
     path: data/blacklist.d/ads_custom.hosts
+  - format: domains
+    path: data/blacklist.d/misc_blacklist.txt
   - format: hosts
     path: data/blacklist.d/porn_custom.hosts
   - format: hosts

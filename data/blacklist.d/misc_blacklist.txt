@@ -1,0 +1,2 @@
+# VPN Providers that allows to bypass the adblock
+yogavpn.com
