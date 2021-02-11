@@ -1,4 +1,2 @@
 # regex whitelist
-*.googlevideo.com
-*.wpc.edgecastcdn.net
 *.xx.fbcdn.net

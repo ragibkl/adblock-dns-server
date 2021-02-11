@@ -102,3 +102,6 @@ www.sfr.fr
 www.tripadvisor.fr
 www.uptodown.com
 www.winamax.fr
+ps.pndsn.com
+api.mixpanel.com
+platform-lookaside.fbsbx.com
