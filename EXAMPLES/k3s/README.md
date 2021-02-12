@@ -46,9 +46,11 @@ Keel will help auto update our adblock dns server. Apply the deployment.
 kubectl apply -f 'https://sunstone.dev/keel?namespace=keel&username=admin&password=admin&tag=latest'
 ```
 
-## Install the adblock server
+# Run the adblock server
 
-Apply the deployment
+1. Before proceeding any further, open the `adblock.yaml` file, and inspect the ConfigMap section. Feel free to edit the values as you see fit.
+
+2. Apply the deployment
 ```
 kubectl apply -f adblock.yaml
 ```
