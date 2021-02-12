@@ -40,8 +40,7 @@ metadata:
     keel.sh/trigger: poll
     keel.sh/match-tag: "true"
   annotations:
-    keel.sh/pollSchedule: "@every 1m"
-
+    keel.sh/pollSchedule: "@every 5m"
 spec:
   replicas: 1
   selector:
@@ -66,19 +65,36 @@ spec:
               value: "::"
           ports:
             - containerPort: 53
+          resources:
+            limits:
+              memory: 1750Mi
+            requests:
+              memory: 1500Mi
+          startupProbe:
+            exec:
+              command:
+                - nslookup
+                - -timeout=2
+                - zedo.com
+                - "127.0.0.1"
+            failureThreshold: 30
+            periodSeconds: 10
           livenessProbe:
             exec:
               command:
                 - nslookup
+                - -timeout=2
                 - zedo.com
                 - "127.0.0.1"
-            initialDelaySeconds: 30
+            initialDelaySeconds: 5
+            failureThreshold: 3
             periodSeconds: 5
           readinessProbe:
             exec:
               command:
                 - nslookup
+                - -timeout=2
                 - zedo.com
                 - "127.0.0.1"
-            initialDelaySeconds: 30
+            initialDelaySeconds: 5
             periodSeconds: 5
