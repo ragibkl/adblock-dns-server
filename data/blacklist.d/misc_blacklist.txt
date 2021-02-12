@@ -1,2 +1,5 @@
 # VPN Providers that allows to bypass the adblock
 yogavpn.com
+alhapi.com
+alhvp.com
+alohavpn.app
