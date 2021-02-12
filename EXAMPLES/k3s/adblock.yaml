@@ -29,6 +29,19 @@ spec:
     app: adblock-dns
 
 ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: adblock-dns-env
+  namespace: adblock
+data:
+  FQDN: dns.localhost.localdomain
+  IPV4: "127.0.0.1"
+  IPv6: "::1"
+  FORWARDER_1: "8.8.8.8"
+  FORWARDER_2: "8.8.4.4"
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -56,13 +69,9 @@ spec:
         - name: adblock-dns
           image: ragibkl/adblock_dns:latest
           imagePullPolicy: Always
-          env:
-            - name: FQDN
-              value: dns.localhost.localdomain
-            - name: IPV4
-              value: "0.0.0.0"
-            - name: IPv6
-              value: "::"
+          envFrom:
+            - configMapRef:
+                name: adblock-dns-env
           ports:
             - containerPort: 53
           resources:

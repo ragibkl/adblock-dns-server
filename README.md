@@ -73,9 +73,9 @@ systemd-r 967 systemd-resolve   17u  IPv4  34554      0t0  TCP localhost:domain 
 
 If you see something similar to the above prompt it means that `systemd-resolved` is running and needs to be disabled. There are plenty of guides on the internet on how to do this for specific Linux distros. The following should work for `Ubuntu Server 20.04`.
 
-1. Disable and stop the systemd-resolved service:
+UPDATE: see [this guide](https://medium.com/@niktrix/getting-rid-of-systemd-resolved-consuming-port-53-605f0234f32f) instead!!!
 
-UPDATE: see [here](https://medium.com/@niktrix/getting-rid-of-systemd-resolved-consuming-port-53-605f0234f32f) instead!!!
+1. Disable and stop the systemd-resolved service:
 
 ```shell
 sudo systemctl disable systemd-resolved
