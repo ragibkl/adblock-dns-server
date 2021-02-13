@@ -2,7 +2,7 @@
 
 K3s is a very lightweight kubernetes distribution. We can use k3s to setup a single node kubernetes cluster, and then use this to host our adblock dns server. Learn more about k3s [here](https://k3s.io/).
 
-We will also make use of Keel. Keel will help us to automatically update the adblock dns when a new version is available.
+We will also make use of Keel. Keel will help us to automatically update the adblock dns when a new version is available. Learn more about keel [here](https://keel.sh/).
 
 # Setting up
 
@@ -43,8 +43,16 @@ systemctl restart k3s
 
 Keel will help auto update our adblock dns server. Apply the deployment.
 ```
+kubectl apply -f 'https://sunstone.dev/keel?namespace=keel'
+```
+
+If you want to see the admin dashboard of keel, use the following instead
+```
 kubectl apply -f 'https://sunstone.dev/keel?namespace=keel&username=admin&password=admin&tag=latest'
 ```
+
+The dashboard can be accessed at `http://[YOUR_SERVER_IP]:9300`
+
 
 # Run the adblock server
 

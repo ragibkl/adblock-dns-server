@@ -86,7 +86,7 @@ spec:
                 - -timeout=2
                 - zedo.com
                 - "127.0.0.1"
-            failureThreshold: 30
+            failureThreshold: 60
             periodSeconds: 10
           livenessProbe:
             exec:
