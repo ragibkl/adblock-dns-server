@@ -65,14 +65,10 @@ blacklist:
     path: https://raw.githubusercontent.com/dnswarden/blocklist/master/blacklist-formats/hosts
   - format: domains
     path: https://raw.githubusercontent.com/nextdns/metadata/master/parentalcontrol/bypass-methods
-  - format: hosts
-    path: https://raw.githubusercontent.com/ejrv/VPNs/master/vpn-ipv4.txt
-  - format: hosts
-    path: https://raw.githubusercontent.com/ejrv/VPNs/master/vpn-ipv6.txt
   - format: domains
     path: https://raw.githubusercontent.com/GeorgeForse/VPN-List/master/list.txt
   - format: domains
-    path: https://dblw.oisd.nl/
+    path: https://dbl.oisd.nl/
   - format: hosts
     path: data/blacklist.d/ads_custom.hosts
   - format: domains
