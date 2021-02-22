@@ -67,6 +67,8 @@ blacklist:
     path: https://raw.githubusercontent.com/nextdns/metadata/master/parentalcontrol/bypass-methods
   - format: domains
     path: https://raw.githubusercontent.com/GeorgeForse/VPN-List/master/list.txt
+  - format: domains
+    path: https://dbl.oisd.nl/
   - format: hosts
     path: data/blacklist.d/ads_custom.hosts
   - format: domains
