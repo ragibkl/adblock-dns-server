@@ -1,3 +1,4 @@
 # regex whitelist
 *.xx.fbcdn.net
 *.pndsn.com
+*.firebaseio.com
