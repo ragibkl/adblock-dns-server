@@ -4,6 +4,20 @@ K3s is a very lightweight kubernetes distribution. We can use k3s to setup a sin
 
 We will also make use of Keel. Keel will help us to automatically update the adblock dns when a new version is available. Learn more about keel [here](https://keel.sh/).
 
+# Current Progress
+
+At the moment, I managed to get the pod and service to be up an running. the service binds on port 53 on the host, and the pod can auto-updates without down time. However, due to k3s limitation, the service only listens to `ipv4`, and cannot bind to `ipv6`. I haven't figured out how work around this limitation.
+
+Logs are also not yet working as I haven't figured out how to export logs in this environment.
+
+- [x] dns pod up and running
+- [x] dns update with no downtime
+- [x] dns binds to port 53 on host
+- [x] dns listens to ipv4
+- [] dns listens to ipv6
+- [] dns debug logs
+- [] dns receives actual client ip
+
 # Setting up
 
 ## Disable Systemd-Resolved
