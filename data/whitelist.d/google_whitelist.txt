@@ -1,12 +1,14 @@
 # whitelist
 android.clients.google.com
+apis.google.com
 clients2.google.com
 clients4.google.com
 googleapis.l.google.com
 gstaticadssl.l.google.com
+i.ytimg.com
+plus.l.google.com
 reminders-pa.googleapis.com firestore.googleapis.com
 s.youtube.com
 video-stats.l.google.com
-i.ytimg.com
-apis.google.com
-plus.l.google.com
+yt3.ggpht.com
+yt4.ggpht.com
