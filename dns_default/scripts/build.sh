@@ -1,13 +1,7 @@
 #!/usr/bin/env bash
 
-# compile blacklist
-touch output.d/blacklist.zone
-docker pull ragibkl/adblock_compiler:rust
-docker run \
-    -ti --rm --init \
-    -v $PWD/../data/:/data/ \
-    -v $PWD/output.d/blacklist.zone:/data/output.d/blacklist.zone \
-    ragibkl/adblock_compiler:rust
+# copy data files
+cp -rf ../data/ data
 
 # build image
 docker build --pull -t ragibkl/adblock_dns:default .

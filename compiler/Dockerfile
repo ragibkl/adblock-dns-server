@@ -1,18 +1,13 @@
-FROM rust as builder
-
-WORKDIR /usr/src/app
+FROM ekidd/rust-musl-builder as builder
 
 COPY Cargo.toml Cargo.toml
 COPY Cargo.lock Cargo.lock
 COPY src src
 
-RUN cargo install --path .
+RUN cargo build --release
 
-FROM ubuntu:18.04
+FROM alpine:latest
 
 WORKDIR /
-
-RUN apt-get update && apt-get -y install ca-certificates libssl-dev && rm -rf /var/lib/apt/lists/*
-COPY --from=builder /usr/local/cargo/bin/compiler /usr/local/bin/compiler
-
+COPY --from=builder /home/rust/src/target/x86_64-unknown-linux-musl/release/compiler /usr/local/bin/compiler
 CMD ["compiler"]
