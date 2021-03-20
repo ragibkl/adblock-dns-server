@@ -2,13 +2,14 @@ version: '3'
 
 services:
   adblock_dns:
-    image: ragibkl/adblock_dns:base
+    build:
+      context: ../../
+      dockerfile: EXAMPLES/adblock-extra/Dockerfile
+    image: ragibkl/adblock_dns:custom
     restart: always
     ports:
       - 53:53/tcp
       - 53:53/udp
-    volumes:
-      - ./data/output.d/blacklist.zone:/templates/blacklist.zone
     env_file: .env
     logging:
       driver: json-file
