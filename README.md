@@ -151,10 +151,10 @@ The above instructions will run the `adblock-dns-server` using the precompiled a
 cd EXAMPLES/adblock-extra
 ```
 
-3. run the compile script. This will output the compiled blacklist file at `EXAMPLES/adblock-extra/data/output.d/blacklist.zone`
+3. run the build script. This will build a custom adblock_dns image with a custom-compiled blacklist, based on the contents under `data/` folder.
 
 ```
-./compile.sh
+./build.sh
 ```
 
 4. the env variable config, start and stop steps are the same as before
