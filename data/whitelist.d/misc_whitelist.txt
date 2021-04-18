@@ -20,6 +20,8 @@ cdn.yandex.net
 click.virt.s50.exacttarget.com
 cn.uptodown.com
 coronastatus.fr
+cs1-apr-8315.wac.edgecastcdn.net
+cs491.wac.edgecastcdn.net
 cs531.wpc.edgecastcdn.net
 deals.souq.com
 display.360totalsecurity.com
