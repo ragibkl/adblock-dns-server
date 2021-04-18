@@ -52,6 +52,7 @@ msn.com
 mywot.com
 offer.aliexpress.com
 platform-lookaside.fbsbx.com
+platform.twitter.com
 players.brightcove.net
 players.brightcove.net.edgekey.net
 pubsub-global.pubnub.com
