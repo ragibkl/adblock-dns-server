@@ -1,4 +1,5 @@
 # whitelist
+3.dl.delivery.mp.microsoft.com.c.footprint.net
 3.tlu.dl.delivery.mp.microsoft.com.c.footprint.net
 a-0003.a-msedge.net
 apps.skype.com

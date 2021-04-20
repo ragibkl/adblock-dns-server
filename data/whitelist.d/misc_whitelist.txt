@@ -78,6 +78,7 @@ static.ccm2.net
 static.prd.map.nytimes.com
 static.ts.360.com
 static01.nyt.com
+syndication.twitter.com
 travaux.ovh.net
 tripadvisor.fr
 update.iobit.com
