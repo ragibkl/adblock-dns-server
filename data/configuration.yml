@@ -17,9 +17,9 @@ blacklist:
     path: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts
   - format: hosts
     path: https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext
-  - format: hosts
-    path: http://sysctl.org/cameleon/hosts
-  # seems to be outdated, last update 2018, other than that, seems harmless
+  # - format: hosts
+  #   path: http://sysctl.org/cameleon/hosts
+  #   seems to be outdated, last update 2018
   - format: domains
     path: https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
   - format: domains
@@ -61,9 +61,9 @@ blacklist:
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacySpecific.txt
   - format: hosts
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacy3rdParty.txt
-  - format: hosts
-    path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-YouTube-AdBlock.txt
-  #   has issue were some videos are blocked and need to be reloaded to play
+  # - format: hosts
+  #   path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-YouTube-AdBlock.txt
+  #   has issue were videos are blocked and need to be reloaded to play + app still play ads
   # - format: hosts
   #   path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Spotify-AdBlock.txt
   #   false positives / breaks websites
