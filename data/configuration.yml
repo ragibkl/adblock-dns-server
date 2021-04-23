@@ -37,7 +37,8 @@ blacklist:
   #   false positives / breaks websites
   - format: hosts
     path: https://block.energized.pro/ultimate/formats/hosts.txt
-  #   unified had a lot of false positeves / issues, ultimate seems to be less aggressive and gets fixes more frequently for some reason
+  #   unified had a lot of false positeves / issues, ultimate seems to be less aggressive and gets fixes more frequently for some reason, 
+  #   and even then, it is still on the aggressive side
   - format: hosts
     path: https://block.energized.pro/extensions/regional/formats/hosts-ipv6.txt
   # - format: hosts
