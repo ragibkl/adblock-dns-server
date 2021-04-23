@@ -19,6 +19,7 @@ blacklist:
     path: https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext
   - format: hosts
     path: http://sysctl.org/cameleon/hosts
+  # seems to be outdated, last update 2018, other than that, seems harmless
   - format: domains
     path: https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
   - format: domains
@@ -31,10 +32,12 @@ blacklist:
     path: https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt
   - format: hosts
     path: https://gitlab.com/intr0/iVOID.GitLab.io/raw/master/iVOID.hosts
+  # - format: hosts
+  #   path: https://raw.githubusercontent.com/mtxadmin/ublock/master/hosts.txt
+  #   false positives / breaks websites
   - format: hosts
-    path: https://raw.githubusercontent.com/mtxadmin/ublock/master/hosts.txt
-  - format: hosts
-    path: https://block.energized.pro/unified/formats/hosts.txt
+    path: https://block.energized.pro/ultimate/formats/hosts.txt
+  #   unified had a lot of false positeves / issues, ultimate seems to be less aggressive and gets fixes more frequently for some reason
   - format: hosts
     path: https://block.energized.pro/extensions/regional/formats/hosts-ipv6.txt
   # - format: hosts
@@ -43,6 +46,7 @@ blacklist:
     path: https://block.energized.pro/porn/formats/hosts.txt
   # - format: domains
   #   path: https://blokada.org/blocklists/ddgtrackerradar/standard/hosts.txt
+  #   false positives / breaks websites
   - format: hosts
     path: http://sbc.io/hosts/alternates/fakenews-gambling-porn/hosts
   - format: hosts
@@ -59,8 +63,10 @@ blacklist:
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacy3rdParty.txt
   - format: hosts
     path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-YouTube-AdBlock.txt
-  - format: hosts
-    path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Spotify-AdBlock.txt
+  #   has issue were some videos are blocked and need to be reloaded to play
+  # - format: hosts
+  #   path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Spotify-AdBlock.txt
+  #   false positives / breaks websites
   - format: hosts
     path: https://raw.githubusercontent.com/dnswarden/blocklist/master/blacklist-formats/hosts
   - format: domains
