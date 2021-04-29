@@ -20,8 +20,9 @@ blacklist:
   # - format: hosts
   #   path: http://sysctl.org/cameleon/hosts
   #   seems to be outdated, last update 2018
-  - format: domains
-    path: https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
+  # - format: domains
+  #   path: https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
+  #   outdated / deprecated
   - format: domains
     path: https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt
   - format: hosts
@@ -35,6 +36,8 @@ blacklist:
   # - format: hosts
   #   path: https://raw.githubusercontent.com/mtxadmin/ublock/master/hosts.txt
   #   false positives / breaks websites
+  - format: hosts
+    path: https://badmojr.github.io/1Hosts/Lite/hosts.txt
   - format: hosts
     path: https://block.energized.pro/ultimate/formats/hosts.txt
   #   unified had a lot of false positeves / issues, ultimate seems to be less aggressive and gets fixes more frequently for some reason, 
@@ -59,21 +62,28 @@ blacklist:
   - format: hosts
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardDNS.txt
   - format: hosts
+    path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardCNAME.txt
+  - format: hosts
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacySpecific.txt
   - format: hosts
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacy3rdParty.txt
+  - format: hosts
+    path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacyCNAME.txt
   # - format: hosts
   #   path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-YouTube-AdBlock.txt
   #   has issue were videos are blocked and need to be reloaded to play + app still play ads
   # - format: hosts
   #   path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Spotify-AdBlock.txt
   #   false positives / breaks websites
-  - format: hosts
-    path: https://raw.githubusercontent.com/dnswarden/blocklist/master/blacklist-formats/hosts
+  # - format: hosts
+  #   path: https://raw.githubusercontent.com/dnswarden/blocklist/master/blacklist-formats/hosts
+  #   outdated / discontinued
   - format: domains
     path: https://raw.githubusercontent.com/nextdns/metadata/master/parentalcontrol/bypass-methods
   - format: domains
     path: https://raw.githubusercontent.com/GeorgeForse/VPN-List/master/list.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt
   - format: domains
     path: https://dbl.oisd.nl/
   - format: hosts
