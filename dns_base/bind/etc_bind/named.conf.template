@@ -13,11 +13,11 @@ options {
 	auth-nxdomain no;
 	dnssec-validation auto;
 
-	forwarders {
-		/%FORWARDER_1%/;
-		/%FORWARDER_2%/;
-	};
-	forward only;
+	// forwarders {
+	// 	/%FORWARDER_1%/;
+	// 	/%FORWARDER_2%/;
+	// };
+	// forward only;
 
 	rate-limit {
 		responses-per-second    15;
