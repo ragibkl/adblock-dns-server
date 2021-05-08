@@ -13,7 +13,6 @@ RUN apk --update add bind
 COPY bind/config/. /etc/bind/.
 COPY bind/templates /templates
 
-COPY bind/replace.sh /replace.sh
 COPY bind/entrypoint.sh /entrypoint.sh
 
 COPY --from=builder /home/rust/src/target/x86_64-unknown-linux-musl/release/compiler /usr/local/bin/compiler
