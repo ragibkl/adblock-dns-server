@@ -1,0 +1,82 @@
+options {
+	directory "/var/bind";
+
+	listen-on { any; };
+	listen-on-v6 { any; };
+
+	allow-query { any; };
+	allow-recursion { any; };
+	allow-transfer { none; };
+	prefetch 10;
+	recursion yes;
+
+	auth-nxdomain no;
+	dnssec-validation auto;
+
+	// forwarders {
+	// 	/%FORWARDER_1%/;
+	// 	/%FORWARDER_2%/;
+	// };
+	// forward only;
+
+	rate-limit {
+		responses-per-second    15;
+		referrals-per-second    15;
+		nodata-per-second       15;
+		nxdomains-per-second    15;
+		errors-per-second       15;
+		all-per-second          60;
+		window                  15;
+		log-only                no;
+		qps-scale               250;
+		ipv4-prefix-length      32; // every IP
+		ipv6-prefix-length      64; // every home IP
+		slip                    2;
+	};
+
+	response-policy { zone "blacklist"; };
+};
+
+logging {
+	channel rpz_log {
+		file "/logs/rpz_log.txt" versions 3 size 1m;
+		print-time yes;
+		print-category yes;
+		print-severity yes;
+		severity info;
+	};
+
+	category default { default_stderr; };
+	category rpz { rpz_log; default_stderr; };
+};
+
+zone "." IN {
+	type hint;
+	file "named.ca";
+};
+
+zone "localhost" IN {
+	type master;
+	file "pri/localhost.zone";
+	allow-update { none; };
+	notify no;
+};
+
+zone "127.in-addr.arpa" IN {
+	type master;
+	file "pri/127.zone";
+	allow-update { none; };
+	notify no;
+};
+
+zone "null-zone.null" IN {
+	type master;
+	file "/etc/bind/null.zone";
+	allow-query { any; };
+};
+
+zone "blacklist" IN {
+	type master;
+	file "/etc/bind/blacklist.zone";
+	allow-query { none; };
+};
