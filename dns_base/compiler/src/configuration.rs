@@ -16,19 +16,42 @@ struct Cli {
 }
 
 #[derive(serde::Deserialize, Debug, Clone)]
-pub struct Source {
-    pub format: String,
+pub enum BlacklistFormat {
+    hosts,
+    domains,
+}
+
+#[derive(serde::Deserialize, Debug, Clone)]
+pub enum WhitelistFormat {
+    hosts,
+    domains,
+    cname,
+    zone,
+}
+
+#[derive(serde::Deserialize, Debug, Clone)]
+pub enum OverrideFormat {
+    cname,
+}
+
+#[derive(serde::Deserialize, Debug, Clone)]
+pub struct Source<T> {
+    pub format: T,
     pub path: String,
 }
+
+pub type Blacklist = Source<BlacklistFormat>;
+pub type Whitelist = Source<WhitelistFormat>;
+pub type Overrides = Source<OverrideFormat>;
 
 #[derive(serde::Deserialize, Debug, Clone)]
 pub struct AppConfig {
     pub output_path: String,
     pub workdir: std::path::PathBuf,
 
-    pub blacklist: Vec<Source>,
-    pub whitelist: Vec<Source>,
-    pub overrides: Vec<Source>,
+    pub blacklist: Vec<Blacklist>,
+    pub whitelist: Vec<Whitelist>,
+    pub overrides: Vec<Overrides>,
 }
 
 pub fn load_config() -> Result<AppConfig, config::ConfigError> {
