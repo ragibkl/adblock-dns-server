@@ -121,13 +121,9 @@ cd EXAMPLES/adblock-default
 FQDN=dns.localhost.localdomain
 IPV4=0.0.0.0
 IPv6=::
-FORWARDER_1=8.8.8.8
-FORWARDER_2=8.8.4.4
 ```
 
 **IPV4/IPV6** - the default values here will route ads to null unreachable IPs. If you change them to the IP addresses of your servers, it will instead redirect to the default http server, which will show a tasteful blocked page.
-
-**FORWARDER_1/2** - the default values here will direct regular dns requests to Google's DNS servers. You can change them to your own favourite DNS providers.
 
 If you changed any of the values above, please re-run the start script.
 
