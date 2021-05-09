@@ -1,5 +1,3 @@
-output_path: data/output.d/blacklist.zone
-
 blacklist:
   - format: hosts
     path: https://adaway.org/hosts.txt

@@ -1,5 +1,5 @@
 FROM ragibkl/adblock_dns:base
 
-COPY data data
+COPY data /data
 
-RUN compiler && mv data/output.d/blacklist.zone /etc/bind/blacklist.zone
+RUN compiler -f /data/configuration.yaml -o /etc/bind/blacklist.zone /
