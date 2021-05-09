@@ -2,6 +2,7 @@
 extern crate lazy_static;
 
 use std::collections::HashSet;
+use std::env;
 
 pub mod configuration;
 pub mod service;
@@ -38,6 +39,7 @@ async fn fetch_list(urls: Vec<Source>) -> HashSet<String> {
 }
 
 pub async fn run(config: AppConfig) {
+    env::set_current_dir(&config.workdir).unwrap();
     let overrides_urls = config.overrides.clone();
 
     let blacklist_handle = tokio::spawn(extract_blacklist(config.clone()));
