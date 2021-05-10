@@ -1,8 +1,6 @@
 #[macro_use]
 extern crate lazy_static;
 
-use std::env;
-
 pub mod configuration;
 pub mod service;
 
@@ -15,8 +13,6 @@ use service::overrides::extract_overrides;
 use service::whitelist::{extract_whitelist, filter_whitelist};
 
 pub async fn run(config: AppConfig) {
-    env::set_current_dir(&config.workdir).unwrap();
-
     let blacklist_handle = tokio::spawn(extract_blacklist(config.clone()));
     let whitelist_handle = tokio::spawn(extract_whitelist(config.clone()));
     let overrides_handle = tokio::spawn(extract_overrides(config.clone()));
