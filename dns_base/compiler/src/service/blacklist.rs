@@ -1,5 +1,5 @@
 use crate::configuration::{AppConfig, BlacklistFormat};
-use crate::service::loader::load_content;
+use crate::service::loader::{build_path, load_content};
 use crate::service::parser::{parse_domains, parse_hosts};
 
 fn parse(format: &BlacklistFormat, content: &str) -> Vec<String> {
@@ -12,7 +12,7 @@ fn parse(format: &BlacklistFormat, content: &str) -> Vec<String> {
 pub async fn extract_blacklist(config: AppConfig) -> Vec<String> {
     let mut handles = Vec::new();
     for source in &config.blacklist {
-        let path = source.path.clone();
+        let path = build_path(&config.config_dir, &source.path);
         let format = source.format.clone();
 
         let task = tokio::spawn(async move {

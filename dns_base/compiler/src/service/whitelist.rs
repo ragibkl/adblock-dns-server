@@ -1,5 +1,5 @@
 use crate::configuration::{AppConfig, WhitelistFormat};
-use crate::service::loader::load_content;
+use crate::service::loader::{build_path, load_content};
 use crate::service::parser::{parse_cnames, parse_domains, parse_hosts, parse_zones};
 
 use std::collections::HashSet;
@@ -17,7 +17,7 @@ fn parse(format: &WhitelistFormat, content: &str) -> Vec<String> {
 pub async fn extract_whitelist(config: AppConfig) -> Vec<String> {
     let mut handles = Vec::new();
     for source in &config.whitelist {
-        let path = source.path.clone();
+        let path = build_path(&config.config_dir, &source.path);
         let format = source.format.clone();
 
         let task = tokio::spawn(async move {

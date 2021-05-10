@@ -1,5 +1,5 @@
 use crate::configuration::{AppConfig, OverrideFormat};
-use crate::service::loader::load_content;
+use crate::service::loader::{build_path, load_content};
 use crate::service::parser::parse_cnames;
 
 fn parse(format: &OverrideFormat, content: &str) -> Vec<String> {
@@ -11,7 +11,7 @@ fn parse(format: &OverrideFormat, content: &str) -> Vec<String> {
 pub async fn extract_overrides(config: AppConfig) -> Vec<String> {
     let mut handles = Vec::new();
     for source in &config.overrides {
-        let path = source.path.clone();
+        let path = build_path(&config.config_dir, &source.path);
         let format = source.format.clone();
 
         let task = tokio::spawn(async move {
