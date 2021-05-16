@@ -67,12 +67,12 @@ blacklist:
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacy3rdParty.txt
   - format: hosts
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacyCNAME.txt
-  # - format: hosts
-  #   path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-YouTube-AdBlock.txt
+  - format: hosts
+    path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-YouTube-AdBlock.txt
   #   has issue were videos are blocked and need to be reloaded to play + app still play ads
-  # - format: hosts
-  #   path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Spotify-AdBlock.txt
-  #   false positives / breaks websites
+  - format: hosts
+    path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Spotify-AdBlock.txt
+  #   history of false positives / breaks websites
   # - format: hosts
   #   path: https://raw.githubusercontent.com/dnswarden/blocklist/master/blacklist-formats/hosts
   #   outdated / discontinued
