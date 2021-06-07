@@ -1,5 +1,7 @@
 use structopt::StructOpt;
 
+use crate::service::loader::load_content;
+
 #[derive(StructOpt)]
 struct Cli {
     // The path to the file to read config
@@ -50,22 +52,29 @@ pub struct AppConfig {
     pub overrides: Vec<Overrides>,
 }
 
-pub fn load_config() -> Result<AppConfig, config::ConfigError> {
-    let args = Cli::from_args();
-    let mut app_config = config::Config::default();
-
-    let parts = args.config_file.as_str().split('/');
+fn get_config_dir(config_path: &str) -> String {
+    let parts = config_path.split('/');
     let count = parts.clone().count();
-    let config_dir = parts
+    parts
         .take(count - 1)
         .map(|s| s.to_string())
         .collect::<Vec<String>>()
-        .join("/");
+        .join("/")
+}
 
+pub async fn load_config() -> Result<AppConfig, config::ConfigError> {
+    let args = Cli::from_args();
+    let config_path = args.config_file;
+
+    let config_content = load_content(&config_path).await.unwrap();
+
+    let mut app_config = config::Config::default();
     app_config
-        .merge(config::File::with_name(&args.config_file))?
-        .set("config_dir", config_dir)?
+        .merge(config::File::from_str(
+            &config_content,
+            config::FileFormat::Yaml,
+        ))?
+        .set("config_dir", get_config_dir(&config_path))?
         .set("output_path", args.output_path)?;
-
     app_config.try_into()
 }
