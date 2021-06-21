@@ -39,6 +39,7 @@ fr.aliexpress.com
 fr.uptodown.com
 freepik.cdnpk.net
 g.api.mega.co.nz
+gg.gg
 identity.netlify.com
 iobit.com
 leclercdrive.fr
@@ -64,10 +65,10 @@ rapidgator.net
 rlog.9gag.com
 rts.ch
 ru.aliexpress.com
-s.click.aliexpress.com
 s-usc1c-nss-200.firebaseio.com
 s-usc1c-nss-213.firebaseio.com
 s-usc1c-nss-238.firebaseio.com
+s.click.aliexpress.com
 sale.aliexpress.com
 secure.indeed.com
 sendgrid.com
@@ -114,4 +115,3 @@ www.sfr.fr
 www.tripadvisor.fr
 www.uptodown.com
 www.winamax.fr
-
