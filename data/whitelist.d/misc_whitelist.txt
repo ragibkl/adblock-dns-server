@@ -4,6 +4,7 @@
 9gag.com
 accueil.leclercdrive.fr
 aliexpress.com
+api.services.goto.com
 app.adjust.com
 appgallery.cloud.huawei.com
 awin.com
