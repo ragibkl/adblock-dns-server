@@ -36,12 +36,12 @@ blacklist:
   #   false positives / breaks websites
   - format: hosts
     path: https://badmojr.github.io/1Hosts/Lite/hosts.txt
-  - format: hosts
-    path: https://block.energized.pro/ultimate/formats/hosts.txt
+  # - format: hosts
+  #   path: https://block.energized.pro/ultimate/formats/hosts.txt
   #   unified had a lot of false positeves / issues, ultimate seems to be less aggressive and gets fixes more frequently for some reason, 
-  #   and even then, it is still on the aggressive side
-  - format: hosts
-    path: https://block.energized.pro/extensions/regional/formats/hosts-ipv6.txt
+  #   and even then, it is still on the aggressive side UPDATE: yep, still aggressive, please disable for now
+  # - format: hosts
+  #   path: https://block.energized.pro/extensions/regional/formats/hosts-ipv6.txt
   # - format: hosts
   #   path: https://block.energized.pro/extensions/ips/formats/list.txt
   - format: hosts
