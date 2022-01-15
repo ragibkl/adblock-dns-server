@@ -4,3 +4,9 @@ alhapi.com
 alhvp.com
 alohavpn.app
 y.freevpn.cloud
+# Missed stuff in d3ward adblock test
+ads.google.com
+googleadservices.com
+freshmarketer.com
+stats.wp.com
+data.mistat.intl.xiaomi.com
