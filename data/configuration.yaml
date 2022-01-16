@@ -76,6 +76,10 @@ blacklist:
   # - format: hosts
   #   path: https://raw.githubusercontent.com/dnswarden/blocklist/master/blacklist-formats/hosts
   #   outdated / discontinued
+  - format: hosts
+    path: https://curben.gitlab.io/malware-filter/urlhaus-filter-hosts.txt
+  - format: hosts
+    path: https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt
   - format: domains
     path: https://raw.githubusercontent.com/nextdns/metadata/master/parentalcontrol/bypass-methods
   - format: domains
