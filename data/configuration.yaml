@@ -128,6 +128,8 @@ whitelist:
     path: ./overrides.d/duckduckgo-safesearch.zone
   - format: zone
     path: ./overrides.d/google-safesearch.zone
+  - format: zone
+    path: ./overrides.d/ignore-whitelist.zone
   - format: domains
     path: https://raw.githubusercontent.com/raghavdua1995/DNSlock-PiHole-whitelist/master/whitelist.list
   - format: domains
@@ -142,3 +144,5 @@ overrides:
     path: ./overrides.d/duckduckgo-safesearch.zone
   - format: cname
     path: ./overrides.d/google-safesearch.zone
+  - format: cname
+    path: ./overrides.d/ignore-whitelist.zone
