@@ -83,6 +83,8 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/nextdns/metadata/master/parentalcontrol/bypass-methods
   - format: domains
+    path: https://raw.githubusercontent.com/nextdns/metadata/master/parentalcontrol/services/snapchat
+  - format: domains
     path: https://raw.githubusercontent.com/GeorgeForse/VPN-List/master/list.txt
   - format: domains
     path: https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt
