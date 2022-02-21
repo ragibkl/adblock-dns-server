@@ -27,7 +27,7 @@ run_certbot () {
 
 run_dnsdist () {
     echo "running dnsdist";
-    dnsdist --uid dnsdist --gid dnsdist --supervised --disable-syslog
+    dnsdist --uid dnsdist --gid dnsdist --supervised --disable-syslog;
 }
 
 PID_LIST=""
