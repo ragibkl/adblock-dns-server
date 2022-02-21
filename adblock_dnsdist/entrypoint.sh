@@ -13,21 +13,15 @@ cat /etc/dnsdist.template.conf | \
     /etc/dnsdist.conf
 
 run_certbot () {
-    echo "registering ssl cert";
-    certbot certonly --standalone \
-        --non-interactive --agree-tos \
-        -d ${DOH_DOMAIN} -m ${DOH_EMAIL};
-    echo "registering ssl cert completed";
-
     while true
     do
-        sleep 3600;
-
         echo "updating ssl cert";
         certbot certonly --standalone \
             --non-interactive --agree-tos \
             -d ${DOH_DOMAIN} -m ${DOH_EMAIL};
         echo "updating ssl cert complete";
+
+        sleep 3600;
     done
 }
 
