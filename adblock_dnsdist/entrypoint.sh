@@ -12,16 +12,29 @@ cat /etc/dnsdist.template.conf | \
     sed s,'/%IPV6%/',"${IPV6}",g > \
     /etc/dnsdist.conf
 
-run_certbot () {
+run_certbot() {
+    certbot certonly --standalone \
+        --non-interactive --agree-tos \
+        --preferred-chain="ISRG Root X1" \
+        -d ${DOH_DOMAIN} -m ${DOH_EMAIL};
+}
+
+run_certbot_init() {
+    echo "registering ssl cert";
+    run_certbot;
+    echo "registering ssl cert complete";
+}
+
+run_certbot_update () {
     while true
     do
+        sleep 3600;
+
         echo "updating ssl cert";
-        certbot certonly --standalone \
-            --non-interactive --agree-tos \
-            -d ${DOH_DOMAIN} -m ${DOH_EMAIL};
+        run_certbot;
         echo "updating ssl cert complete";
 
-        sleep 3600;
+        # TODO: should reload the ssl cert in dnsdist
     done
 }
 
@@ -30,13 +43,16 @@ run_dnsdist () {
     dnsdist --uid dnsdist --gid dnsdist --supervised --disable-syslog;
 }
 
+# Runs certbot first time
+run_certbot_init
+
 PID_LIST=""
-# Runs certbot
-run_certbot & PID_LIST="$PID_LIST $!";
 
 # Runs dnsdist
-sleep 5;
 run_dnsdist & PID_LIST="$PID_LIST $!";
+
+# Runs certbot update
+run_certbot_update & PID_LIST="$PID_LIST $!";
 
 trap "kill $PID_LIST" SIGINT;
 wait $PID_LIST;
