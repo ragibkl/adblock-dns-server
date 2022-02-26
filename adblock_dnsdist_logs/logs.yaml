@@ -1,0 +1,144 @@
+type: MESSAGE
+identity: "dns"
+version: "dnsdist 1.6.1"
+message:
+  type: CLIENT_RESPONSE
+  query_time: !!timestamp 2022-02-26 09:25:07.665010146
+  response_time: !!timestamp 2022-02-26 09:25:10.493649953
+  socket_family: INET
+  socket_protocol: UDP
+  query_address: 127.0.0.1
+  response_address: 127.0.0.1
+  query_port: 45523
+  response_port: 1253
+  response_message: |
+    ;; opcode: QUERY, status: NOERROR, id: 50897
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+    
+    ;; QUESTION SECTION:
+    ;zedo.com.	IN	 A
+    
+    ;; ANSWER SECTION:
+    zedo.com.	5	IN	CNAME	null.null-zone.null.
+    null.null-zone.null.	86400	IN	A	0.0.0.0
+    
+    ;; ADDITIONAL SECTION:
+    blacklist.	1	IN	SOA	LOCALHOST. named-mgr.example.com.blacklist. 1 3600 900 2592000 7200
+---
+type: MESSAGE
+identity: "dns"
+version: "dnsdist 1.6.1"
+message:
+  type: CLIENT_RESPONSE
+  query_time: !!timestamp 2022-02-26 09:25:10.494540501
+  response_time: !!timestamp 2022-02-26 09:25:10.494796794
+  socket_family: INET
+  socket_protocol: UDP
+  query_address: 127.0.0.1
+  response_address: 127.0.0.1
+  query_port: 42224
+  response_port: 1253
+  response_message: |
+    ;; opcode: QUERY, status: NOERROR, id: 2800
+    ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+    
+    ;; QUESTION SECTION:
+    ;null.null-zone.null.	IN	 AAAA
+    
+    ;; ANSWER SECTION:
+    null.null-zone.null.	86400	IN	AAAA	::1
+---
+type: MESSAGE
+identity: "dns"
+version: "dnsdist 1.6.1"
+message:
+  type: CLIENT_RESPONSE
+  query_time: !!timestamp 2022-02-26 09:25:14.433146724
+  response_time: !!timestamp 2022-02-26 09:25:15.202229998
+  socket_family: INET
+  socket_protocol: UDP
+  query_address: 127.0.0.1
+  response_address: 127.0.0.1
+  query_port: 59897
+  response_port: 1253
+  response_message: |
+    ;; opcode: QUERY, status: NOERROR, id: 51887
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+    
+    ;; QUESTION SECTION:
+    ;google.com.	IN	 A
+    
+    ;; ANSWER SECTION:
+    google.com.	300	IN	A	172.217.174.174
+---
+type: MESSAGE
+identity: "dns"
+version: "dnsdist 1.6.1"
+message:
+  type: CLIENT_RESPONSE
+  query_time: !!timestamp 2022-02-26 09:25:15.202688392
+  response_time: !!timestamp 2022-02-26 09:25:15.22301696
+  socket_family: INET
+  socket_protocol: UDP
+  query_address: 127.0.0.1
+  response_address: 127.0.0.1
+  query_port: 53714
+  response_port: 1253
+  response_message: |
+    ;; opcode: QUERY, status: NOERROR, id: 59504
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+    
+    ;; QUESTION SECTION:
+    ;google.com.	IN	 AAAA
+    
+    ;; ANSWER SECTION:
+    google.com.	300	IN	AAAA	2404:6800:4001:800::200e
+---
+type: MESSAGE
+identity: "dns"
+version: "dnsdist 1.6.1"
+message:
+  type: CLIENT_RESPONSE
+  query_time: !!timestamp 2022-02-26 09:26:08.914009418
+  response_time: !!timestamp 2022-02-26 09:26:11.999786894
+  socket_family: INET
+  socket_protocol: UDP
+  query_address: 127.0.0.1
+  response_address: 127.0.0.1
+  query_port: 54015
+  response_port: 1253
+  response_message: |
+    ;; opcode: QUERY, status: NOERROR, id: 26339
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 0
+    
+    ;; QUESTION SECTION:
+    ;bancuh.com.	IN	 A
+    
+    ;; ANSWER SECTION:
+    bancuh.com.	1800	IN	A	185.206.180.121
+    bancuh.com.	1800	IN	A	46.166.184.102
+---
+type: MESSAGE
+identity: "dns"
+version: "dnsdist 1.6.1"
+message:
+  type: CLIENT_RESPONSE
+  query_time: !!timestamp 2022-02-26 09:26:12.000143225
+  response_time: !!timestamp 2022-02-26 09:26:12.232351669
+  socket_family: INET
+  socket_protocol: UDP
+  query_address: 127.0.0.1
+  response_address: 127.0.0.1
+  query_port: 43570
+  response_port: 1253
+  response_message: |
+    ;; opcode: QUERY, status: NOERROR, id: 13367
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 0
+    
+    ;; QUESTION SECTION:
+    ;bancuh.com.	IN	 AAAA
+    
+    ;; ANSWER SECTION:
+    bancuh.com.	1800	IN	AAAA	2a0b:1640:1:1:1:1:ce7:cfcc
+    bancuh.com.	1800	IN	AAAA	2a00:1768:2001:63::46:102
+---

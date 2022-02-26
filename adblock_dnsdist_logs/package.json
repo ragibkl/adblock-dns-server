@@ -1,0 +1,23 @@
+{
+  "name": "logs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@koa/router": "^9.4.0",
+    "handlebars": "^4.7.7",
+    "koa": "^2.13.0",
+    "koa-views": "^8.0.0",
+    "koa-views-handlebars": "^0.1.1",
+    "pify": "^5.0.0",
+    "yaml": "^1.10.2"
+  },
+  "devDependencies": {
+    "nodemon": "*",
+    "standard": "*"
+  },
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "lint": "standard --fix"
+  }
+}
