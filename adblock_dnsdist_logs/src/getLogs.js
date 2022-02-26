@@ -34,21 +34,24 @@ async function getLogs (ctx) {
   const text = await readFileAsync(logFile, 'utf8')
   const data = yaml.parseAllDocuments(text).map(a => a.toJSON())
 
-  const queries = data.filter(Boolean).map(d => {
-    const {
-      query_address: queryAddress,
-      response_address: responseAddress,
-      response_message: responseMessage
-    } = d.message
-    const [question, answers] = extract(responseMessage)
+  const queries = data
+    .filter(Boolean)
+    .filter(d => d.message.query_address === ip)
+    .map(d => {
+      const {
+        query_address: queryAddress,
+        response_address: responseAddress,
+        response_message: responseMessage
+      } = d.message
+      const [question, answers] = extract(responseMessage)
 
-    return {
-      queryAddress,
-      responseAddress,
-      question,
-      answers
-    }
-  })
+      return {
+        queryAddress,
+        responseAddress,
+        question,
+        answers
+      }
+    })
 
   await ctx.render('views/getLogs', { ip, queries })
 }
