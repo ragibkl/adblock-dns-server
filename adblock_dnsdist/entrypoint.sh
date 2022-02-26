@@ -40,6 +40,12 @@ run_certbot_update () {
     done
 }
 
+run_dnstap () {
+    echo "running dnstap";
+    mkdir -p /var/run/dnstap/;
+    /root/go/bin/dnstap -u /var/run/dnstap/dnstap.sock -y -w /logs/logs.yaml;
+}
+
 run_dnsdist () {
     echo "running dnsdist";
     dnsdist --uid dnsdist --gid dnsdist --supervised --disable-syslog;
@@ -49,6 +55,9 @@ run_dnsdist () {
 run_certbot_init
 
 PID_LIST=""
+
+# Runs dnstap
+run_dnstap & PID_LIST="$PID_LIST $!";
 
 # Runs dnsdist
 run_dnsdist & PID_LIST="$PID_LIST $!";
