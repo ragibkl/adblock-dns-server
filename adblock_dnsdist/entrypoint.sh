@@ -34,7 +34,9 @@ run_certbot_update () {
         run_certbot;
         echo "updating ssl cert complete";
 
-        # TODO: should reload the ssl cert in dnsdist
+        echo "reloading ssl cert";
+        dnsdist -c 127.0.0.1 -k miQjUydO7fwUmSDS0hT+2pHC1VqT8vOjfexOyvHKcNA= -e "reloadAllCertificates()"
+        echo "reloading ssl cert complete";
     done
 }
 
