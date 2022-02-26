@@ -43,7 +43,9 @@ run_certbot_update () {
 run_dnstap () {
     echo "running dnstap";
     mkdir -p /var/run/dnstap/;
-    /root/go/bin/dnstap -u /var/run/dnstap/dnstap.sock -y -w /logs/logs.yaml;
+    /usr/bin/dnstap -y \
+        -u /var/run/dnstap/dnstap.sock \
+        -a -w /logs/logs.yaml;
 }
 
 run_dnsdist () {
