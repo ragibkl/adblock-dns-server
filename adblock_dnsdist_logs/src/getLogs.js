@@ -35,7 +35,11 @@ async function getLogs (ctx) {
   const data = yaml.parseAllDocuments(text).map(a => a.toJSON())
 
   const queries = data.filter(Boolean).map(d => {
-    const { query_address: queryAddress, response_address: responseAddress, response_message: responseMessage } = d.message
+    const {
+      query_address: queryAddress,
+      response_address: responseAddress,
+      response_message: responseMessage
+    } = d.message
     const [question, answers] = extract(responseMessage)
 
     return {
