@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{{title}}</title>
+</head>
+
+<body>
+  <p>ip address: {{ip}}</p>
+
+  <table>
+    <tr>
+      <th>Query</th>
+      <th>Answers</th>
+    </tr>
+    {{#each queries}}
+    <tr>
+      <td>{{this.question}}</td>
+      <td>
+        <ul>
+          {{#each this.answers}}
+          <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      </td>
+    </tr>
+    {{/each}}
+  </table>
+</body>
+
+</html>
