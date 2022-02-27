@@ -1,14 +1,14 @@
 #!/bin/sh
 
-DOH_ENABLED="${DOH_ENABLED:-false}"
-DOH_EMAIL="${DOH_EMAIL:-user@example.com}"
-DOH_DOMAIN="${DOH_DOMAIN:-dns.example.com}"
+TLS_ENABLED="${TLS_ENABLED:-false}"
+TLS_EMAIL="${TLS_EMAIL:-user@example.com}"
+TLS_DOMAIN="${TLS_DOMAIN:-dns.example.com}"
 
 run_certbot() {
     certbot certonly --standalone \
         --non-interactive --agree-tos \
         --preferred-chain="ISRG Root X1" \
-        -d ${DOH_DOMAIN} -m ${DOH_EMAIL};
+        -d ${TLS_DOMAIN} -m ${TLS_EMAIL};
 }
 
 run_certbot_init() {
@@ -48,7 +48,7 @@ run_dnsdist () {
 PID_LIST=""
 
 # Runs certbot
-if [ $DOH_ENABLED == "true" ]
+if [ $TLS_ENABLED == "true" ]
 then
     # Runs certbot first time
     run_certbot_init
