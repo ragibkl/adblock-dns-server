@@ -6,11 +6,11 @@
   "dependencies": {
     "@koa/router": "^9.4.0",
     "handlebars": "^4.7.7",
+    "js-yaml": "^4.1.0",
     "koa": "^2.13.0",
     "koa-views": "^8.0.0",
     "koa-views-handlebars": "^0.1.1",
-    "pify": "^5.0.0",
-    "yaml": "^1.10.2"
+    "pify": "^5.0.0"
   },
   "devDependencies": {
     "nodemon": "*",

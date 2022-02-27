@@ -1,6 +1,6 @@
 const fs = require('fs')
 const pify = require('pify')
-const yaml = require('yaml')
+const yaml = require('js-yaml')
 
 const { logFile } = require('./config')
 
@@ -32,7 +32,7 @@ function extract (message) {
 async function getLogs (ctx) {
   const ip = getIp(ctx)
   const text = await readFileAsync(logFile, 'utf8')
-  const data = yaml.parseAllDocuments(text).map(a => a.toJSON())
+  const data = yaml.loadAll(text)
 
   const queries = data
     .filter(Boolean)
