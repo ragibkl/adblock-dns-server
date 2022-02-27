@@ -3,14 +3,6 @@
 DOH_ENABLED="${DOH_ENABLED:-false}"
 DOH_EMAIL="${DOH_EMAIL:-user@example.com}"
 DOH_DOMAIN="${DOH_DOMAIN:-dns.example.com}"
-IPV4="${IPV4:-127.0.0.1}"
-IPV6="${IPV6:-::1}"
-
-cat /etc/dnsdist.template.conf | \
-    sed s,'/%DOH_DOMAIN%/',"${DOH_DOMAIN}",g | \
-    sed s,'/%IPV4%/',"${IPV4}",g | \
-    sed s,'/%IPV6%/',"${IPV6}",g > \
-    /etc/dnsdist.conf
 
 run_certbot() {
     certbot certonly --standalone \
@@ -53,19 +45,27 @@ run_dnsdist () {
     dnsdist --uid dnsdist --gid dnsdist --supervised --disable-syslog;
 }
 
-# Runs certbot first time
-run_certbot_init
-
 PID_LIST=""
+
+# Runs certbot
+if [ $DOH_ENABLED == "true" ]
+then
+    # Runs certbot first time
+    run_certbot_init
+
+    # Runs certbot update
+    run_certbot_update & PID_LIST="$PID_LIST $!";
+else
+    # Skips running certbot
+    echo "skip running certbot"
+fi
+
 
 # Runs dnstap
 run_dnstap & PID_LIST="$PID_LIST $!";
 
 # Runs dnsdist
 run_dnsdist & PID_LIST="$PID_LIST $!";
-
-# Runs certbot update
-run_certbot_update & PID_LIST="$PID_LIST $!";
 
 trap "kill $PID_LIST" SIGINT;
 wait $PID_LIST;
