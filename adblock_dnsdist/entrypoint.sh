@@ -40,6 +40,17 @@ run_dnstap () {
         -a -w /logs/logs.yaml;
 }
 
+run_empty_log_file () {
+    while true
+    do
+        echo "emptying log file";
+        echo "" > /logs/logs.yaml
+        echo "emptying log file complete";
+
+        sleep 600;
+    done
+}
+
 run_dnsdist () {
     echo "running dnsdist";
     dnsdist --uid dnsdist --gid dnsdist --supervised --disable-syslog;
@@ -60,9 +71,9 @@ else
     echo "skip running certbot"
 fi
 
-
 # Runs dnstap
 run_dnstap & PID_LIST="$PID_LIST $!";
+run_empty_log_file & PID_LIST="$PID_LIST $!";
 
 # Runs dnsdist
 run_dnsdist & PID_LIST="$PID_LIST $!";
