@@ -88,6 +88,10 @@ blacklist:
     path: https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt
   - format: domains
     path: https://dbl.oisd.nl/
+  - format: domains
+    path: https://raw.githubusercontent.com/farrokhi/adblock-iran/master/pihole.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/nimasaj/uBOPa/master/uBOPa_Pihole.txt
   - format: hosts
     path: ./blacklist.d/ads_custom.hosts
   - format: domains
