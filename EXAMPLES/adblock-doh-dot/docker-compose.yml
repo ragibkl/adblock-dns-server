@@ -10,6 +10,11 @@ services:
     env_file: .env
     volumes:
       - logs:/logs
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+        max-file: "20"
     labels:
       - com.centurylinklabs.watchtower.enable=true
 
@@ -21,6 +26,11 @@ services:
     volumes:
       - letsencrypt:/etc/letsencrypt
       - logs:/logs
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+        max-file: "20"
     labels:
       - com.centurylinklabs.watchtower.enable=true
 
@@ -33,6 +43,11 @@ services:
       PORT: '8080'
     volumes:
       - logs:/logs
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+        max-file: "20"
     labels:
       - com.centurylinklabs.watchtower.enable=true
 
