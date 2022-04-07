@@ -62,6 +62,7 @@ platform-lookaside.fbsbx.com
 platform.twitter.com
 players.brightcove.net
 players.brightcove.net.edgekey.net
+polink-static-contents.polarisoffice.com
 pubsub-global.pubnub.com
 r.orange.fr
 rapidgator.net
