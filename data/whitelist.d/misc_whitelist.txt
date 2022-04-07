@@ -25,6 +25,7 @@ cs1-apr-8315.wac.edgecastcdn.net
 cs41.wac.edgecastcdn.net
 cs491.wac.edgecastcdn.net
 cs531.wpc.edgecastcdn.net
+cs837.wac.edgecastcdn.net
 deals.souq.com
 display.360totalsecurity.com
 dl.airdroid.com
