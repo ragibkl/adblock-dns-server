@@ -8,8 +8,9 @@ blacklist:
     path: https://sebsauvage.net/hosts/hosts
   - format: hosts
     path: https://someonewhocares.org/hosts/zero/hosts
-  - format: domains
-    path: https://oooo.b-cdn.net/blahdns/blahdns_hosts.txt
+  # - format: domains
+  #   path: https://oooo.b-cdn.net/blahdns/blahdns_hosts.txt
+  #   contains other aggressive lists / breaks websites  
   - format: hosts
     path: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
   - format: hosts
