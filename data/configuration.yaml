@@ -76,6 +76,10 @@ blacklist:
   - format: hosts
     path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Spotify-AdBlock.txt
   #   history of false positives / breaks websites
+  - format: hosts
+    path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Samsung-AdBlock.txt
+  - format: hosts
+    path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Xiaomi-Extension.txt
   # - format: hosts
   #   path: https://raw.githubusercontent.com/dnswarden/blocklist/master/blacklist-formats/hosts
   #   outdated / discontinued
