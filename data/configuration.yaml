@@ -96,6 +96,8 @@ blacklist:
   - format: domains
     path: https://dbl.oisd.nl/
   - format: domains
+    path: https://dbl.oisd.nl/nsfw/
+  - format: domains
     path: https://raw.githubusercontent.com/farrokhi/adblock-iran/master/pihole.txt
   - format: domains
     path: https://raw.githubusercontent.com/nimasaj/uBOPa/master/uBOPa_Pihole.txt
