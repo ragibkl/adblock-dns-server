@@ -9,6 +9,8 @@ run_certbot() {
         --non-interactive --agree-tos \
         --preferred-chain="ISRG Root X1" \
         -d ${TLS_DOMAIN} -m ${TLS_EMAIL};
+
+    chmod -R a+r /etc/letsencrypt/archive
 }
 
 run_certbot_init() {
