@@ -10,7 +10,9 @@ run_certbot() {
         --preferred-chain="ISRG Root X1" \
         -d ${TLS_DOMAIN} -m ${TLS_EMAIL};
 
+    cp /etc/letsencrypt/live/${TLS_DOMAIN}/*.pem /data/certs/.
     chmod -R a+r /etc/letsencrypt/archive
+    chmod -R a+r /data/certs/
 }
 
 run_certbot_init() {
