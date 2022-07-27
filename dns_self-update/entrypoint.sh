@@ -4,6 +4,7 @@ TIMESTAMP=$(date +"%Y%m%d%H")
 FQDN="${FQDN:-localhost.localdomain}"
 IPV4="${IPV4:-127.0.0.1}"
 IPV6="${IPV6:-::1}"
+CONFIG_URL="${CONFIG_URL:-https://raw.githubusercontent.com/ragibkl/adblock-dns-server/master/data/configuration.yaml}"
 
 cat /etc/bind/null.zone.template | \
     sed s,'/%TIMESTAMP%/',"${TIMESTAMP}",g | \
@@ -25,7 +26,7 @@ update () {
     do
         echo "updating blacklist";
         compiler \
-            -f https://raw.githubusercontent.com/ragibkl/adblock-dns-server/master/data/configuration.yaml \
+            -f $CONFIG_URL \
             -o /etc/bind/blacklist.zone;
         echo "updating blacklist complete";
 
