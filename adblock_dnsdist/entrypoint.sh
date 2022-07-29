@@ -1,8 +1,8 @@
 #!/bin/sh
 
-TLS_ENABLED="${TLS_ENABLED:-false}"
-TLS_EMAIL="${TLS_EMAIL:-user@example.com}"
-TLS_DOMAIN="${TLS_DOMAIN:-dns.example.com}"
+export TLS_ENABLED="${TLS_ENABLED:-false}"
+export TLS_EMAIL="${TLS_EMAIL:-user@example.com}"
+export TLS_DOMAIN="${TLS_DOMAIN:-dns.example.com}"
 
 run_certbot() {
     certbot certonly --standalone \
@@ -16,9 +16,9 @@ run_certbot() {
 }
 
 run_certbot_init() {
-    echo "registering ssl cert";
+    echo "[certbot] registering ssl cert";
     run_certbot;
-    echo "registering ssl cert complete";
+    echo "[certbot] registering ssl cert complete";
 }
 
 run_certbot_update () {
@@ -26,18 +26,18 @@ run_certbot_update () {
     do
         sleep 3600;
 
-        echo "updating ssl cert";
+        echo "[certbot] updating ssl cert";
         run_certbot;
-        echo "updating ssl cert complete";
+        echo "[certbot] updating ssl cert complete";
 
-        echo "reloading ssl cert";
+        echo "[certbot] reloading ssl cert";
         dnsdist -c 127.0.0.1 -k miQjUydO7fwUmSDS0hT+2pHC1VqT8vOjfexOyvHKcNA= -e "reloadAllCertificates()"
-        echo "reloading ssl cert complete";
+        echo "[certbot] reloading ssl cert complete";
     done
 }
 
 run_dnstap () {
-    echo "running dnstap";
+    echo "[logs] running dnstap";
     mkdir -p /var/run/dnstap/;
     /usr/bin/dnstap -y \
         -u /var/run/dnstap/dnstap.sock \
@@ -47,16 +47,16 @@ run_dnstap () {
 run_empty_log_file () {
     while true
     do
-        echo "emptying log file";
+        echo "[logs] emptying log file";
         echo "" > /logs/logs.yaml
-        echo "emptying log file complete";
+        echo "[logs] emptying log file complete";
 
         sleep 600;
     done
 }
 
 run_dnsdist () {
-    echo "running dnsdist";
+    echo "[dnsdist] running dnsdist";
     dnsdist --uid dnsdist --gid dnsdist --supervised --disable-syslog;
 }
 
@@ -65,6 +65,7 @@ PID_LIST=""
 # Runs certbot
 if [ $TLS_ENABLED == "true" ]
 then
+    echo "[certbot] TLS_ENABLED=true - running certbot"
     # Runs certbot first time
     run_certbot_init
 
@@ -72,7 +73,7 @@ then
     run_certbot_update & PID_LIST="$PID_LIST $!";
 else
     # Skips running certbot
-    echo "skip running certbot"
+    echo "[certbot] TLS_ENABLED=false - skip running certbot"
 fi
 
 # Runs dnstap
