@@ -15,12 +15,8 @@ echo "WORKDIR=$WORKDIR"
 echo "BRANCH=$BRANCH"
 echo "TAG=$TAG"
 
-# build the adblock_dns:base image with included compiler
-# cd $WORKDIR/dns_base
-# ./scripts/build.sh
-
-# build the adblock_dns:default image
-cd $WORKDIR/dns_default
+# build the adblock_dns image
+cd $WORKDIR/adblock_dns
 ./scripts/build.sh
 
 # build the adblock_logs_viewer:latest image
