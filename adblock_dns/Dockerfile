@@ -8,7 +8,7 @@ RUN cargo build --release
 
 
 FROM alpine:latest
-RUN apk --update add bind
+RUN apk --update add bind gettext
 
 COPY bind/. /etc/bind/.
 COPY entrypoint.sh /entrypoint.sh
