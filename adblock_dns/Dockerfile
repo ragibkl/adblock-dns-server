@@ -10,8 +10,8 @@ RUN cargo build --release
 FROM alpine:latest
 RUN apk --update add bind
 
-COPY dns_base/bind/. /etc/bind/.
-COPY dns_base/entrypoint.sh /entrypoint.sh
+COPY bind/. /etc/bind/.
+COPY entrypoint.sh /entrypoint.sh
 
 COPY --from=builder /home/rust/src/target/x86_64-unknown-linux-musl/release/compiler /usr/local/bin/compiler
 
