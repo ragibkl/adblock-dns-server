@@ -156,6 +156,7 @@ The above instructions will run the `adblock-dns-server` using the default block
 CONFIG_URL=/local-data/configuration.yaml
 ...
 ```
+The reason this works is because I have conveniently mounted the `data/` folder into `/local-data/` in the container. You can check the `docker-compose.yml` file for the corresponding line.
 
 3. Rerun the start script.
 
@@ -195,7 +196,7 @@ Name:	zedo.com
 Address: 64.41.197.44
 
 # tests dns lookup against our adblock dns server
-# should return our server's IP instead
+# should return our server's IP or the null route instead
 $ nslookup zedo.com X.X.X.X
 Server:		X.X.X.X
 Address:	X.X.X.X#53
@@ -207,7 +208,9 @@ Address: X.X.X.X
 
 ## DNS Query Logs
 
-You can also see the logs of all dns requests that you make to the server. For privacy reasons, the logs viewer will only show you queries based on your current IP address. If you make any dns queries from an IP address, you can only view those queries on a web browser from the same IP address.
+You can also see the logs of all dns requests that you make to the server.
+
+For privacy reasons, the logs viewer will only show you queries based on your current IP address. If you make any dns queries from an IP address, you can only view those queries on a web browser from the same IP address. Additionally, the logs file is emptied every 10 minutes.
 
 On your web broweser, simply visit the logs endpoint on port 8080 to view your logs, i.e.: `http://X.X.X.X:8080`
 
@@ -237,4 +240,4 @@ https://blog.bancuh.com/?p=71
 
 This project could use some improvements and help in many areas, which includes, documentation, testing, code improvement, and deployment implementations.
 
-If you have any suggestions, or would like to report and problem, create a Github issue to grab my attention.
+If you have any suggestions, or would like to report a problem, create a GitHub issue to grab my attention.
