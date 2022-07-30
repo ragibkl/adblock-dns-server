@@ -3,6 +3,8 @@
 export TLS_ENABLED="${TLS_ENABLED:-false}"
 export TLS_EMAIL="${TLS_EMAIL:-user@example.com}"
 export TLS_DOMAIN="${TLS_DOMAIN:-dns.example.com}"
+export BACKEND_PORT="${BACKEND_PORT:-1153}"
+export PORT="${PORT:-53}"
 
 run_certbot() {
     certbot certonly --standalone \
