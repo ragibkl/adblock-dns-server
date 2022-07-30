@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  dns:
+    image: ragibkl/adblock_dns
+    restart: always
+    ports:
+      - 1153:53/tcp
+      - 1153:53/udp
+    env_file: .env
+    volumes:
+      - logs:/logs
+      - ../../data:/local-data/
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+        max-file: "20"
+
+  dnsdist:
+    image: ragibkl/adblock_dnsdist
+    restart: always
+    network_mode: host
+    env_file: .env
+    volumes:
+      - letsencrypt:/etc/letsencrypt
+      - logs:/logs
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+        max-file: "20"
+
+  dnsdist_logs:
+    image: ragibkl/adblock_dnsdist_logs
+    restart: always
+    network_mode: host
+    environment:
+      LOG_FILE: /logs/logs.yaml
+      PORT: "8080"
+    volumes:
+      - logs:/logs
+
+volumes:
+  logs:
+  letsencrypt:
