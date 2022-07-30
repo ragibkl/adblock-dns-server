@@ -16,9 +16,10 @@ echo "BRANCH=$BRANCH"
 echo "TAG=$TAG"
 
 # build the adblock_dns image
-cd $WORKDIR/adblock_dns
-./scripts/build.sh
+# ./adblock_dns/scripts/build.sh
 
-# build the adblock_logs_viewer:latest image
-# cd $WORKDIR/logs-viewer
-# ./scripts/build.sh
+# build the adblock_dnsdist:latest image
+# ./adblock_dnsdist/scripts/build.sh
+
+# build the adblock_dnsdist_logs:latest image
+# ./adblock_dnsdist_logs/scripts/build.sh
