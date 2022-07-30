@@ -96,8 +96,6 @@ sudo lsof -i:53
 
 ## Running the server
 
-### Downloading this project
-
 Clone this project. Then, cd into the cloned project folder.
 
 ```shell
@@ -105,29 +103,39 @@ git clone https://github.com/ragibkl/adblock-dns-server.git
 cd adblock-dns-server
 ```
 
-### Running with preloaded blocklist
+### Running the server with default config
 
 1. cd into the `default` folder. Run the start script. The server may take a few minutes to spin up.
 
 ```shell
-cd EXAMPLES/adblock-default
+cd EXAMPLES/default
 ./start.sh
 ```
 
 2. It should also setup a `.env` file with some default values.
 
 ```shell
-# file: EXAMPLES/adblock-default/.env
+# file: EXAMPLES/default/.env
+CONFIG_URL=https://raw.githubusercontent.com/ragibkl/adblock-dns-server/master/data/configuration.yaml
 FQDN=dns.localhost.localdomain
 IPV4=0.0.0.0
 IPv6=::
+TLS_DOMAIN=dns1.example.com
+TLS_EMAIL=user@example.com
+TLS_ENABLED=false
 ```
 
-**IPV4/IPV6** - the default values here will route ads to null unreachable IPs. If you change them to the IP addresses of your servers, it will instead redirect to the default http server, which will show a tasteful blocked page.
+**IPV4/IPV6** - the default values here will route ads to null unreachable IPs. If you change them to the IP addresses of your servers, it will instead redirect to the default http server, which will show a tasteful blocked page. TODO: this is not working right now
+
+**CONFIG_URL** - this value specifies the config file location where the server should load its configuration. The server uses the sources in that config file to dynamically compile the ads blocklist during server startup. The ads blocklist is refreshed and recompiled every hour automatically. The default value here points to the configuration file maintained in this repo. See section below on how to use a customized blocklist configuration.
+
+**TLS_ENABLED** - if set to `true`, the server will also enable DoH and DoT dns protocols. This requires that `TLS_DOMAIN` and `TLS_EMAIL` are set correctly
+
+**TLS_DOMAIN** - only required when `TLS_ENABLED=true`. This value should point to a public domain name record that points to the public ip of your server. We use this value to request the TLS certificates from LetsEncrypt
+
+**TLS_DOMAIN** - only required when `TLS_ENABLED=true`. This value should point to your email. LetsEncrypt uses this value to send you reports on expiring TLS certificates.
 
 If you changed any of the values above, please re-run the start script.
-
-3. Test that your setup works. See the [testing](#testing-the-server) section below.
 
 4. Stopping the service
 
@@ -135,25 +143,42 @@ If you changed any of the values above, please re-run the start script.
 ./stop.sh
 ```
 
-### Running with a customized blocklist
+### Using a customized ads blocklist configuration
 
-The above instructions will run the `adblock-dns-server` using the precompiled adblock list. In order to add additional ads-domains to the blacklist, or filter some in a whitelist, you need to compile a custom blocklist.
+The above instructions will run the `adblock-dns-server` using the default blocklist configuration. In order to add additional ads-domains to the blacklist, or filter some in a whitelist, you also have the option to use a custom config.
 
-1. you can modify the contents under `data/` folder. Feel free to add/remove additional domains and http sources as needed.
+1. Modify the contents under `data/` folder as you see fit. Feel free to add/remove additional domains and http sources as needed.
 
-2. from the top of this project folder, cd into the `adblock-extra` folder.
+2. Change the `CONFIG_URL` value to point to the local config file.
 
+```shell
+# file: EXAMPLES/default/.env
+CONFIG_URL=/local-data/configuration.yaml
+...
 ```
-cd EXAMPLES/adblock-extra
+The reason this works is because I have conveniently mounted the `data/` folder into `/local-data/` in the container. You can check the `docker-compose.yml` file for the corresponding line.
+
+3. Rerun the start script.
+
+### Enabling DoH and DoT protocols
+
+By default, the server only listens for dns requests via regular dns protocol. The server also supports listening dns requests via DoH and DoT protocols. You can make this work by the following:
+
+1. Your server needs to have a public IP address. An web request from the public Internet should be able to reach you by port 80.
+
+2. You also need to have a domain name record that points to the public IP address of your server. Something in the form of `dns1.example.com`.
+
+3. Change the config in the `.env` file as follows:
+
+```shell
+# file: EXAMPLES/default/.env
+TLS_DOMAIN=dns1.example.com # this should be the domain name that points to the public IP address of your server
+TLS_EMAIL=user@example.com # your email
+TLS_ENABLED=true # set this to true to enable DoH and DoT
+...
 ```
 
-3. run the build script. This will build a custom adblock_dns image with a custom-compiled blacklist, based on the contents under `data/` folder.
-
-```
-./build.sh
-```
-
-4. the env variable config, start and stop steps are the same as before
+3. Rerun the start script.
 
 ## Testing the server
 
@@ -171,7 +196,7 @@ Name:	zedo.com
 Address: 64.41.197.44
 
 # tests dns lookup against our adblock dns server
-# should return our server's IP instead
+# should return our server's IP or the null route instead
 $ nslookup zedo.com X.X.X.X
 Server:		X.X.X.X
 Address:	X.X.X.X#53
@@ -180,6 +205,14 @@ Non-authoritative answer:
 Name:	zedo.com
 Address: X.X.X.X
 ```
+
+## DNS Query Logs
+
+You can also see the logs of all dns requests that you make to the server.
+
+For privacy reasons, the logs viewer will only show you queries based on your current IP address. If you make any dns queries from an IP address, you can only view those queries on a web browser from the same IP address. Additionally, the logs file is emptied every 10 minutes.
+
+On your web broweser, simply visit the logs endpoint on port 8080 to view your logs, i.e.: `http://X.X.X.X:8080`
 
 ## Configuring your device
 
@@ -207,4 +240,4 @@ https://blog.bancuh.com/?p=71
 
 This project could use some improvements and help in many areas, which includes, documentation, testing, code improvement, and deployment implementations.
 
-If you have any suggestions, or would like to report and problem, create a Github issue to grab my attention.
+If you have any suggestions, or would like to report a problem, create a GitHub issue to grab my attention.

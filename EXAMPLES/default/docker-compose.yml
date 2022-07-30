@@ -7,35 +7,33 @@ services:
     ports:
       - 1153:53/tcp
       - 1153:53/udp
-    environment:
-      CONFIG_URL: /local-data/configuration.yaml
-      FQDN: dns.localhost.localdomain
-      IPV4: 0.0.0.0
-      IPv6: "::"
+    env_file: .env
+    volumes:
+      - logs:/logs
+      - ../../data:/local-data/
     logging:
       driver: json-file
       options:
         max-size: 1m
         max-file: "20"
-    volumes:
-      - ./data:/local-data
-      - logs:/logs
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
 
   dnsdist:
     image: ragibkl/adblock_dnsdist
     restart: always
     network_mode: host
-    environment:
-      TLS_ENABLED: "false"
-      BACKEND_PORT: "1153"
-      PORT: "1154"
+    env_file: .env
+    volumes:
+      - letsencrypt:/etc/letsencrypt
+      - logs:/logs
     logging:
       driver: json-file
       options:
         max-size: 1m
         max-file: "20"
-    volumes:
-      - logs:/logs
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
 
   dnsdist_logs:
     image: ragibkl/adblock_dnsdist_logs
@@ -46,6 +44,16 @@ services:
       PORT: "8080"
     volumes:
       - logs:/logs
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+
+  watchtower:
+    image: v2tec/watchtower
+    command: --cleanup --label-enable --interval 3600
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
   logs:
+  letsencrypt:

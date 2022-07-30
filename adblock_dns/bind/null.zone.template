@@ -1,13 +1,13 @@
 $TTL    86400       ; one day
 @   IN SOA localhost.localdomain. hostmaster.localhost.localdomain. (
-    /%TIMESTAMP%/      ; serial number YYMMDDHH
+    ${TIMESTAMP}      ; serial number YYMMDDHH
     28800           ; refresh   8 hours
     7200            ; retry     2 hours
     864000          ; expire    10 days
     86400           ; min ttl   1 day
 )
-        NS      /%FQDN%/.
-        A       /%IPV4%/
-        AAAA    /%IPV6%/
-*   IN  A       /%IPV4%/
-*   IN  AAAA    /%IPV6%/
+        NS      ${FQDN}.
+        A       ${IPV4}
+        AAAA    ${IPV6}
+*   IN  A       ${IPV4}
+*   IN  AAAA    ${IPV6}
