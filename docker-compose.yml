@@ -1,44 +1,39 @@
-version: '3'
+version: "3"
 
 services:
-  adblock_dns:
-    image: ragibkl/adblock_dns:default
+  dns:
+    image: ragibkl/adblock_dns
     restart: always
     ports:
-      - 53:53/tcp
-      - 53:53/udp
-    env_file: .env
+      - 1153:53/tcp
+      - 1153:53/udp
+    environment:
+      CONFIG_URL: /local-data/configuration.yaml
+      FQDN: dns.localhost.localdomain
+      IPV4: 0.0.0.0
+      IPv6: "::"
     logging:
       driver: json-file
       options:
         max-size: 1m
         max-file: "20"
     volumes:
+      - ./data:/local-data
       - logs:/logs
 
-  adblock_http:
-    image: ragibkl/adblock_http
+  dnsdist:
+    image: ragibkl/adblock_dnsdist
     restart: always
-    ports:
-      - 80:80
-      - 443:443
-    logging:
-      driver: json-file
-      options:
-        max-size: 1m
-        max-file: "20"
-
-  logs_viewer:
-    image: node
-    user: node
-    working_dir: /app
-    ports:
-      - 8080:8080
     network_mode: host
-    volumes:
-      - ./logs-viewer:/app
-      - logs:/logs
-    command: "yarn start"
+    environment:
+      TLS_ENABLED: "false"
+      BACKEND_PORT: "1153"
+      PORT: "1154"
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+        max-file: "20"
 
 volumes:
   logs:
