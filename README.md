@@ -120,20 +120,20 @@ CONFIG_URL=https://raw.githubusercontent.com/ragibkl/adblock-dns-server/master/d
 FQDN=dns.localhost.localdomain
 IPV4=0.0.0.0
 IPv6=::
+TLS_ENABLED=false
 TLS_DOMAIN=dns1.example.com
 TLS_EMAIL=user@example.com
-TLS_ENABLED=false
 ```
 
 **IPV4/IPV6** - the default values here will route ads to null unreachable IPs. If you change them to the IP addresses of your servers, it will instead redirect to the default http server, which will show a tasteful blocked page. TODO: this is not working right now
 
-**CONFIG_URL** - this value specifies the config file location where the server should load its configuration. The server uses the sources in that config file to dynamically compile the ads blocklist during server startup. The ads blocklist is refreshed and recompiled every hour automatically. The default value here points to the configuration file maintained in this repo. See section below on how to use a customized blocklist configuration.
+**CONFIG_URL** - this value specifies the config file location where the server should load its configuration. The server uses the sources in that config file to dynamically compile the ads blocklist during server startup. The ads blocklist is also refreshed and recompiled every hour automatically. The default value here points to the configuration file maintained in this repo. See section below on how to use a customized blocklist configuration.
 
-**TLS_ENABLED** - if set to `true`, the server will also enable DoH and DoT dns protocols. This requires that `TLS_DOMAIN` and `TLS_EMAIL` are set correctly
+**TLS_ENABLED** - if set to `true`, the server will also enable DoH and DoT dns protocols. This requires that `TLS_DOMAIN` and `TLS_EMAIL` to be set correctly
 
 **TLS_DOMAIN** - only required when `TLS_ENABLED=true`. This value should point to a public domain name record that points to the public ip of your server. We use this value to request the TLS certificates from LetsEncrypt
 
-**TLS_DOMAIN** - only required when `TLS_ENABLED=true`. This value should point to your email. LetsEncrypt uses this value to send you reports on expiring TLS certificates.
+**TLS_EMAIL** - only required when `TLS_ENABLED=true`. This value should point to your email. LetsEncrypt uses this value to send you reports on expiring TLS certificates.
 
 If you changed any of the values above, please re-run the start script.
 
@@ -149,14 +149,13 @@ The above instructions will run the `adblock-dns-server` using the default block
 
 1. Modify the contents under `data/` folder as you see fit. Feel free to add/remove additional domains and http sources as needed.
 
-2. Change the `CONFIG_URL` value to point to the local config file.
+2. Change the `CONFIG_URL` value to point to the local config file. This works because I have conveniently mounted the `data/` folder into `/local-data/` in the container. You can check the `docker-compose.yml` file for the corresponding line.
 
 ```shell
 # file: EXAMPLES/default/.env
 CONFIG_URL=/local-data/configuration.yaml
 ...
 ```
-The reason this works is because I have conveniently mounted the `data/` folder into `/local-data/` in the container. You can check the `docker-compose.yml` file for the corresponding line.
 
 3. Rerun the start script.
 
@@ -212,25 +211,29 @@ You can also see the logs of all dns requests that you make to the server.
 
 For privacy reasons, the logs viewer will only show you queries based on your current IP address. If you make any dns queries from an IP address, you can only view those queries on a web browser from the same IP address. Additionally, the logs file is emptied every 10 minutes.
 
-On your web broweser, simply visit the logs endpoint on port 8080 to view your logs, i.e.: `http://X.X.X.X:8080`
+On your web browser, simply visit the logs endpoint on port 8080 to view your logs, i.e.: `http://X.X.X.X:8080`.
 
 ## Configuring your device
 
 ### Short version
 
-Option 1: WiFi Router level
+#### Option 1: WiFi Router level
 
-- Affects all devices connected to said router.
-- Instructions:
-  - Go to your router admin page, under WAN settings.
-  - Edit DNS settings. Use your adblock-dns server's IP address instead of Automatic or Google's (8.8.8.8, 8.8.4.4)
+This works on all devices connected to the wifi router. This is the best approach if you want this change to apply to all devices in your network, and only have a single place to make the change.
 
-Option 2: Personal Computer level
+Go to your router admin page, under WAN settings. Edit DNS settings. Use your adblock-dns server's IP address instead of Automatic or Google's (8.8.8.8, 8.8.4.4). Go to your router LAN -> DHCP settings. Ensure that the DHCP DNS server is set to your router's IP address.
 
-- Affects single device.
-- Instructions:
-  - Go to your computer's network setting.
-  - Change DNS settings. Use your adblock-dns server's IP address instead of Automatic or Google's (8.8.8.8, 8.8.4.4)
+#### Option 2: Personal Computer level
+
+This works on a single computer.
+
+Go to your computer's network setting. Change DNS settings. Use your adblock-dns server's IP address instead of automatic or Google's (8.8.8.8, 8.8.4.4)
+
+#### Option 3: Android Private DNS
+
+Modern Android devices have a feature called Private DNS. Using this feature, your device can connect to a dns server over DoT protocol. You can use this feature if you have enabled TLS on your server.
+
+On your Android device, go to Settings -> Connection & Sharing -> Private DNS. Set private dns to Custom Domain, and set the domain to point to the domain of your DNS server.
 
 ### Detailed tutorial
 
