@@ -92,6 +92,8 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/GeorgeForse/VPN-List/master/list.txt
   - format: domains
+    path: https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/proxies
+  - format: domains
     path: https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt
   - format: domains
     path: https://dbl.oisd.nl/
