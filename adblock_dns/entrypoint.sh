@@ -7,7 +7,7 @@ export IPV6="${IPV6:-::1}"
 export CONFIG_URL="${CONFIG_URL:-https://raw.githubusercontent.com/ragibkl/adblock-dns-server/master/data/configuration.yaml}"
 
 ENV_VARS=$(printf '${%s} ' $(env | sed 's/=.*//'))
-envsubst "$ENV_VARS" < /etc/bind/null.zone.template > /etc/bind/null.zone
+envsubst "$ENV_VARS" </etc/bind/null.zone.template >/etc/bind/null.zone
 
 mkdir -p /logs
 touch /logs/rpz_log.txt
@@ -38,6 +38,6 @@ PID_LIST="$PID_LIST $!"
 run_update &
 PID_LIST="$PID_LIST $!"
 
-trap "kill $PID_LIST" SIGINT
+trap "kill $PID_LIST" SIGINT EXIT
 wait $PID_LIST
 exit 0
