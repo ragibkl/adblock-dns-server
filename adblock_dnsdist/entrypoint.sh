@@ -86,6 +86,6 @@ PID_LIST="$PID_LIST $!"
 run_dnsdist &
 PID_LIST="$PID_LIST $!"
 
-trap "kill $PID_LIST" SIGINT EXIT
+trap "kill $PID_LIST" SIGINT SIGKILL EXIT
 wait $PID_LIST
 exit 0
