@@ -2,13 +2,14 @@ name: dnsdist Docker Image CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
     paths:
-      - './adblock_dnsdist'
+      - ./adblock_dnsdist
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
     paths:
-      - './adblock_dnsdist'
+      - ./adblock_dnsdist
+      - ./github/workflows/build-dnsdist-docker-image.yml
 
 jobs:
   build:
