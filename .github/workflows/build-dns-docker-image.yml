@@ -1,4 +1,4 @@
-name: dnsdist Docker Image CI
+name: dns Docker Image CI
 
 on:
   push:
