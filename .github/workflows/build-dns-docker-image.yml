@@ -4,7 +4,8 @@ on:
   push:
     branches: ["master"]
     paths:
-      - ./adblock_dns
+      - adblock_dns/**
+      - .github/workflows/build-dns-docker-image.yml
   pull_request:
     branches: ["master"]
     paths:
