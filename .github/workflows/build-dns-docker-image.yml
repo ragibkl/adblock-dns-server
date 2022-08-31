@@ -25,5 +25,5 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push the Docker image
-        run: ./script/build.sh
+        run: ./scripts/build.sh
         working-directory: ./adblock_dns
