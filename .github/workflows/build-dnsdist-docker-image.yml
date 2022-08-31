@@ -8,8 +8,8 @@ on:
   pull_request:
     branches: ["master"]
     paths:
-      - ./adblock_dnsdist
-      - ./github/workflows/build-dnsdist-docker-image.yml
+      - adblock_dnsdist/**
+      - github/workflows/build-dnsdist-docker-image.yml
 
 jobs:
   build:
