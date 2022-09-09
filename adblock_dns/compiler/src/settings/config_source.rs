@@ -4,6 +4,8 @@ use config::{AsyncSource, ConfigError, FileFormat, Format, Map};
 
 use async_trait::async_trait;
 
+use super::cli::CliArgs;
+
 #[derive(Debug)]
 pub enum ConfigSource {
     Http { uri: String },
@@ -11,7 +13,10 @@ pub enum ConfigSource {
 }
 
 impl ConfigSource {
-    pub fn new(path: &str) -> Self {
+    pub fn new() -> Self {
+        let cli_args = CliArgs::new();
+        let path = cli_args.config_file;
+
         if path.starts_with("http") {
             Self::Http {
                 uri: path.to_string(),

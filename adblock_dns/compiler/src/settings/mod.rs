@@ -1,18 +1,19 @@
-mod cli_args;
+mod cli;
 mod config_source;
 mod configuration;
 
-use config::builder::AsyncState;
+use config::{builder::AsyncState, ConfigBuilder};
+
+use cli::CliSource;
+use config_source::ConfigSource;
 pub use configuration::*;
 
 pub async fn load_config() -> Result<AppConfig, config::ConfigError> {
-    let cli_args = cli_args::CliArgs::new();
-
-    let settings = config::ConfigBuilder::<AsyncState>::default()
-        .add_async_source(cli_args.config_source())
+    let settings = ConfigBuilder::<AsyncState>::default()
+        .set_default("output_path", "data/output.d/blacklist.zone")?
+        .add_source(CliSource::new())
+        .add_async_source(ConfigSource::new())
         .add_source(config::Environment::with_prefix("APP"))
-        .set_override("config_dir", cli_args.config_dir())?
-        .set_override("output_path", cli_args.output_path.clone())?
         .build()
         .await?;
 
