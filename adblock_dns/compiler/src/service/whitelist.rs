@@ -1,16 +1,16 @@
-use crate::configuration::{AppConfig, WhitelistFormat};
 use crate::service::loader::{build_path, load_content};
 use crate::service::parser::{parse_cnames, parse_domains, parse_hosts, parse_zones};
+use crate::settings::{AppConfig, WhitelistFormat};
 
 use std::collections::HashSet;
 use std::iter::FromIterator;
 
 fn parse(format: &WhitelistFormat, content: &str) -> Vec<String> {
     match format {
-        WhitelistFormat::hosts => parse_hosts(content),
-        WhitelistFormat::domains => parse_domains(content),
-        WhitelistFormat::cname => parse_cnames(content),
-        WhitelistFormat::zone => parse_zones(content),
+        WhitelistFormat::Hosts => parse_hosts(content),
+        WhitelistFormat::Domains => parse_domains(content),
+        WhitelistFormat::Cname => parse_cnames(content),
+        WhitelistFormat::Zone => parse_zones(content),
     }
 }
 

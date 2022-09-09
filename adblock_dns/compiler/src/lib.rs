@@ -1,11 +1,10 @@
 #[macro_use]
 extern crate lazy_static;
 
-pub mod configuration;
 pub mod service;
+pub mod settings;
 
-pub use configuration::load_config;
-use configuration::AppConfig;
+pub use settings::{load_config, AppConfig};
 
 use service::blacklist::extract_blacklist;
 use service::hosts_writer;
