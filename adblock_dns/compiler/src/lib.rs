@@ -18,10 +18,10 @@ pub async fn run(config: AppConfig) {
 
     let blacklists = blacklist_handle.await.unwrap();
     let whitelists = whitelist_handle.await.unwrap();
+    let overrides = overrides_handle.await.unwrap();
 
     let domains = filter_whitelist(&blacklists, &whitelists);
+    let content = hosts_writer::build_content(domains, overrides);
 
-    let overrides_list = overrides_handle.await.unwrap();
-    let content = hosts_writer::build_content(domains, overrides_list);
     hosts_writer::write_to_file(&config.output_path, &content);
 }
