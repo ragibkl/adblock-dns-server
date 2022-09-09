@@ -1,10 +1,10 @@
-use crate::configuration::{AppConfig, OverrideFormat};
 use crate::service::loader::{build_path, load_content};
 use crate::service::parser::parse_cnames;
+use crate::settings::{AppConfig, OverrideFormat};
 
 fn parse(format: &OverrideFormat, content: &str) -> Vec<String> {
     match format {
-        OverrideFormat::cname => parse_cnames(content),
+        OverrideFormat::Cname => parse_cnames(content),
     }
 }
 

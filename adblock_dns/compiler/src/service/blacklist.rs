@@ -1,11 +1,11 @@
-use crate::configuration::{AppConfig, BlacklistFormat};
 use crate::service::loader::{build_path, load_content};
 use crate::service::parser::{parse_domains, parse_hosts};
+use crate::settings::{AppConfig, BlacklistFormat};
 
 fn parse(format: &BlacklistFormat, content: &str) -> Vec<String> {
     match format {
-        BlacklistFormat::hosts => parse_hosts(content),
-        BlacklistFormat::domains => parse_domains(content),
+        BlacklistFormat::Hosts => parse_hosts(content),
+        BlacklistFormat::Domains => parse_domains(content),
     }
 }
 
