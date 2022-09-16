@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 export TLS_ENABLED="${TLS_ENABLED:-false}"
 export TLS_EMAIL="${TLS_EMAIL:-user@example.com}"
@@ -86,6 +86,6 @@ PID_LIST="$PID_LIST $!"
 run_dnsdist &
 PID_LIST="$PID_LIST $!"
 
-trap "kill $PID_LIST" SIGINT SIGKILL EXIT
-wait $PID_LIST
-exit 0
+# trap "kill $PID_LIST" SIGINT SIGKILL EXIT
+wait -n
+exit $?

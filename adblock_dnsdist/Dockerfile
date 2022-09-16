@@ -4,7 +4,7 @@ RUN go install github.com/dnstap/golang-dnstap/dnstap@v0.4.0
 
 # dnsdist
 FROM alpine:latest
-RUN apk add dnsdist certbot
+RUN apk add dnsdist certbot bash
 
 COPY --from=dnstap /go/bin/dnstap /usr/bin/.
 COPY dnsdist.conf /etc/dnsdist.conf
