@@ -10,10 +10,6 @@ blacklist:
   - format: hosts
     path: https://badmojr.github.io/1Hosts/Lite/hosts.txt
   - format: hosts
-    path: https://block.energized.pro/porn/formats/hosts.txt
-  - format: hosts
-    path: http://sbc.io/hosts/alternates/fakenews-gambling-porn/hosts
-  - format: hosts
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileAds.txt
   - format: hosts
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileSpyware.txt
@@ -37,6 +33,10 @@ blacklist:
     path: https://curben.gitlab.io/malware-filter/urlhaus-filter-hosts.txt
   - format: hosts
     path: https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt
+  - format: hosts
+    path: https://block.energized.pro/porn/formats/hosts.txt
+  - format: hosts
+    path: http://sbc.io/hosts/alternates/fakenews-gambling-porn/hosts
   - format: hosts
     path: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts
   # - format: hosts
