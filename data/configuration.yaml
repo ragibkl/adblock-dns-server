@@ -10,10 +10,6 @@ blacklist:
   - format: hosts
     path: https://badmojr.github.io/1Hosts/Lite/hosts.txt
   - format: hosts
-    path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileAds.txt
-  - format: hosts
-    path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileSpyware.txt
-  - format: hosts
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardDNS.txt
   - format: hosts
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacySpecific.txt
@@ -45,6 +41,12 @@ blacklist:
   # - format: hosts
   #   path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardCNAME.txt
   #   already included in stevenblack alternate
+  # - format: hosts
+  #   path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileAds.txt
+  #   already included in adguardDns list
+  # - format: hosts
+  #   path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileSpyware.txt
+  #   already included in adguardDns list
   # - format: hosts
   #   path: https://raw.githubusercontent.com/dnswarden/blocklist/master/blacklist-formats/hosts
   #   outdated / discontinued
