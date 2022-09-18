@@ -83,8 +83,6 @@ blacklist:
   #   path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardApps.txt
   #   outdated / deprecated
   - format: domains
-    path: https://oooo.b-cdn.net/blahdns/blahdns_hosts.txt
-  - format: domains
     path: https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt
   - format: domains
     path: https://raw.githubusercontent.com/nextdns/metadata/master/parentalcontrol/bypass-methods
@@ -110,6 +108,9 @@ blacklist:
   # - format: domains
   #   path: https://blokada.org/blocklists/ddgtrackerradar/standard/hosts.txt
   #   false positives / breaks websites
+  # - format: domains
+  #   path: https://oooo.b-cdn.net/blahdns/blahdns_hosts.txt
+  #   bancuh already uses most of its source lists
   - format: hosts
     path: ./blacklist.d/ads_custom.hosts
   - format: hosts
