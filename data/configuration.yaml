@@ -1,21 +1,23 @@
 blacklist:
-  - format: hosts
-    path: https://adaway.org/hosts.txt
+  # - format: hosts
+  #   path: https://adaway.org/hosts.txt
+  #   already included in sebsauvage
   # - format: hosts
   #   path: http://winhelp2002.mvps.org/hosts.txt
   #   outdated / deprecated
   - format: hosts
     path: https://sebsauvage.net/hosts/hosts
-  - format: hosts
-    path: https://someonewhocares.org/hosts/zero/hosts
-  - format: domains
-    path: https://oooo.b-cdn.net/blahdns/blahdns_hosts.txt
-  - format: hosts
-    path: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+  # - format: hosts
+  #   path: https://someonewhocares.org/hosts/zero/hosts
+  #   already included in sebsauvage
+  # - format: hosts
+  #   path: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+  #   already included in the alternate list
   - format: hosts
     path: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts
-  - format: hosts
-    path: https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext
+  # - format: hosts
+  #   path: https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext
+  #   already included in sebsauvage
   # - format: hosts
   #   path: http://sysctl.org/cameleon/hosts
   #   seems to be outdated, last update 2018
@@ -62,8 +64,9 @@ blacklist:
   #   outdated / deprecated
   - format: hosts
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardDNS.txt
-  - format: hosts
-    path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardCNAME.txt
+  # - format: hosts
+  #   path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardCNAME.txt
+  #   already included in stevenblack alternate
   - format: hosts
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacySpecific.txt
   - format: hosts
@@ -72,10 +75,8 @@ blacklist:
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacyCNAME.txt
   - format: hosts
     path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-YouTube-AdBlock.txt
-  #   has issue were videos are blocked and need to be reloaded to play + app still play ads
   - format: hosts
     path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Spotify-AdBlock.txt
-  #   history of false positives / breaks websites
   - format: hosts
     path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Samsung-AdBlock.txt
   - format: hosts
@@ -87,6 +88,8 @@ blacklist:
     path: https://curben.gitlab.io/malware-filter/urlhaus-filter-hosts.txt
   - format: hosts
     path: https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt
+  - format: domains
+    path: https://oooo.b-cdn.net/blahdns/blahdns_hosts.txt
   - format: domains
     path: https://raw.githubusercontent.com/nextdns/metadata/master/parentalcontrol/bypass-methods
   - format: domains
@@ -107,14 +110,14 @@ blacklist:
     path: https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSquatting
   - format: hosts
     path: ./blacklist.d/ads_custom.hosts
-  - format: domains
-    path: ./blacklist.d/misc_blacklist.txt
   - format: hosts
     path: ./blacklist.d/porn_custom.hosts
   - format: hosts
     path: ./blacklist.d/porn_reddit.hosts
   - format: hosts
     path: ./blacklist.d/__extra_blacklist.hosts
+  - format: domains
+    path: ./blacklist.d/misc_blacklist.txt
   - format: domains
     path: ./blacklist.d/nextdns_cname_cloaking.txt
 
@@ -143,6 +146,12 @@ whitelist:
     path: ./whitelist.d/statuspage_whitelist.txt
   - format: domains
     path: ./whitelist.d/windows_update_nsatc_net.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/raghavdua1995/DNSlock-PiHole-whitelist/master/whitelist.list
+  - format: domains
+    path: https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/notracking/hosts-blocklists-scripts/master/hostnames.whitelist.txt
   - format: zone
     path: ./overrides.d/bing-safesearch.zone
   - format: zone
@@ -151,12 +160,6 @@ whitelist:
     path: ./overrides.d/google-safesearch.zone
   - format: zone
     path: ./overrides.d/ignore-whitelist.zone
-  - format: domains
-    path: https://raw.githubusercontent.com/raghavdua1995/DNSlock-PiHole-whitelist/master/whitelist.list
-  - format: domains
-    path: https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
-  - format: domains
-    path: https://raw.githubusercontent.com/notracking/hosts-blocklists-scripts/master/hostnames.whitelist.txt
 
 overrides:
   - format: cname
