@@ -35,6 +35,8 @@ blacklist:
     path: http://sbc.io/hosts/alternates/fakenews-gambling-porn/hosts
   - format: hosts
     path: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts
+  - format: hosts
+    path: https://raw.githubusercontent.com/kboghdady/youTube_ads_4_pi-hole/master/youtubelist.txt
   # - format: hosts
   #   path: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
   #   already included in the alternate list
