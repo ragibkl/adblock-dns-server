@@ -1,19 +1,17 @@
-FROM ekidd/rust-musl-builder as builder
-
-COPY compiler/Cargo.toml Cargo.toml
-COPY compiler/Cargo.lock Cargo.lock
-COPY compiler/src src
-
-RUN cargo build --release
+# builder
+FROM rust:alpine as builder
+RUN apk add musl-dev
+RUN cargo install --no-default-features --features rustls-tls adblock-list-compiler
 
 
+# runner
 FROM alpine:latest
 RUN apk --update add bind gettext bash
 
 COPY bind/. /etc/bind/.
 COPY entrypoint.sh /entrypoint.sh
 
-COPY --from=builder /home/rust/src/target/x86_64-unknown-linux-musl/release/compiler /usr/local/bin/compiler
+COPY --from=builder /usr/local/cargo/bin/ablc /usr/local/bin/ablc
 
 EXPOSE 53
 

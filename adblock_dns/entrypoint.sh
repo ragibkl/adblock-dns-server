@@ -20,8 +20,8 @@ run_bind() {
 run_update() {
 	while true; do
 		echo "updating blacklist"
-		compiler \
-			-f $CONFIG_URL \
+		ablc compile \
+			-c $CONFIG_URL \
 			-o /etc/bind/blacklist.zone
 		echo "updating blacklist complete"
 
