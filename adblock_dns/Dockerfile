@@ -1,8 +1,7 @@
 # builder
 FROM rust:alpine as builder
 RUN apk add musl-dev
-RUN cargo install --no-default-features --features rustls-tls adblock-list-compiler
-
+RUN cargo install --no-default-features --features rustls-tls adblock-list-compiler@0.0.7
 
 # runner
 FROM alpine:latest
