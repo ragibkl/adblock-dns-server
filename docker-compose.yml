@@ -2,7 +2,7 @@ version: "3"
 
 services:
   dns:
-    image: ragibkl/adblock_dns:disable-bind-log
+    image: ragibkl/adblock_dns
     restart: always
     ports:
       - 1153:53/tcp
@@ -21,31 +21,31 @@ services:
       - ./data:/local-data
       - logs:/logs
 
-  # dnsdist:
-  #   image: ragibkl/adblock_dnsdist
-  #   restart: always
-  #   network_mode: host
-  #   environment:
-  #     TLS_ENABLED: "false"
-  #     BACKEND_PORT: "1153"
-  #     PORT: "1154"
-  #   logging:
-  #     driver: json-file
-  #     options:
-  #       max-size: 1m
-  #       max-file: "20"
-  #   volumes:
-  #     - logs:/logs
+  dnsdist:
+    image: ragibkl/adblock_dnsdist
+    restart: always
+    network_mode: host
+    environment:
+      TLS_ENABLED: "false"
+      BACKEND_PORT: "1153"
+      PORT: "1154"
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+        max-file: "20"
+    volumes:
+      - logs:/logs
 
-  # dnsdist_logs:
-  #   image: ragibkl/adblock_dnsdist_logs
-  #   restart: always
-  #   network_mode: host
-  #   environment:
-  #     LOG_FILE: /logs/logs.yaml
-  #     PORT: "8080"
-  #   volumes:
-  #     - logs:/logs
+  dnsdist_logs:
+    image: ragibkl/adblock_dnsdist_logs
+    restart: always
+    network_mode: host
+    environment:
+      LOG_FILE: /logs/logs.yaml
+      PORT: "8080"
+    volumes:
+      - logs:/logs
 
 volumes:
   logs:
