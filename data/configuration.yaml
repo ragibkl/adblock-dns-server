@@ -32,7 +32,7 @@ blacklist:
   - format: hosts
     path: https://block.energized.pro/porn/formats/hosts.txt
   - format: hosts
-    path: http://sbc.io/hosts/alternates/fakenews-gambling-porn/hosts
+    path: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts
   - format: hosts
     path: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts
   # - format: hosts
@@ -93,9 +93,9 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt
   - format: domains
-    path: https://dbl.oisd.nl/
+    path: https://raw.githubusercontent.com/sjhgvr/oisd/main/dbl_full.txt
   - format: domains
-    path: https://dbl.oisd.nl/nsfw/
+    path: https://raw.githubusercontent.com/sjhgvr/oisd/main/dbl_nsfw.txt
   - format: domains
     path: https://raw.githubusercontent.com/farrokhi/adblock-iran/master/pihole.txt
   - format: domains
