@@ -26,7 +26,7 @@ run_update() {
 		echo "updating blacklist complete"
 
 		rndc reload
-		sleep 3600
+		sleep 21600 # 6 hours interval
 	done
 }
 
