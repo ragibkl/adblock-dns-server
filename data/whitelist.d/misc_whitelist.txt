@@ -41,6 +41,7 @@ fr.aliexpress.com
 fr.uptodown.com
 freepik.cdnpk.net
 g.api.mega.co.nz
+gae2-spclient.spotify.com
 gg.gg
 identity.netlify.com
 iobit.com
