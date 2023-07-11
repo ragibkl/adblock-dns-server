@@ -31,6 +31,8 @@ blacklist:
     path: https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt
   - format: hosts
     path: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts
+  - format: hosts
+    path: https://raw.githubusercontent.com/blocklistproject/Lists/master/porn.txt
   - format: domains
     path: https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt
   - format: domains
@@ -45,6 +47,12 @@ blacklist:
     path: https://raw.githubusercontent.com/farrokhi/adblock-iran/master/pihole.txt
   - format: domains
     path: https://raw.githubusercontent.com/nimasaj/uBOPa/master/uBOPa_Pihole.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/mhhakim/pihole-blocklist/master/porn.txt
+  - format: domains
+    path: https://www.technoy.de/lists/xporn.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/Bon-Appetit/porn-domains/master/block.txt
   - format: zone
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/rpz/doh-vpn-proxy-bypass.txt
   - format: zone
