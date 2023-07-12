@@ -1,6 +1,6 @@
 blacklist:
   - format: hosts
-    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/pro.txt
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/pro.plus.txt
   - format: hosts
     path: https://raw.githubusercontent.com/bongochong/CombinedPrivacyBlockLists/master/newhosts-final-Dual.hosts
   - format: hosts
