@@ -1,12 +1,8 @@
 blacklist:
   - format: hosts
-    path: https://sebsauvage.net/hosts/hosts
-  - format: hosts
-    path: https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/pro.txt
   - format: hosts
     path: https://raw.githubusercontent.com/bongochong/CombinedPrivacyBlockLists/master/newhosts-final-Dual.hosts
-  - format: hosts
-    path: https://gitlab.com/intr0/iVOID.GitLab.io/raw/master/iVOID.hosts
   - format: hosts
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardDNS.txt
   - format: hosts
@@ -28,23 +24,19 @@ blacklist:
   - format: hosts
     path: https://malware-filter.gitlab.io/malware-filter/phishing-filter-hosts.txt
   - format: hosts
+    path: https://gitlab.com/intr0/iVOID.GitLab.io/raw/master/iVOID.hosts
+  - format: hosts
     path: https://storage.googleapis.com/nsablocklist/hosts
   - format: hosts
-    path: https://raw.githubusercontent.com/blocklistproject/Lists/master/phishing.txt
-  - format: hosts
-    path: https://raw.githubusercontent.com/blocklistproject/Lists/master/scam.txt
+    path: https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt
   - format: hosts
     path: https://raw.githubusercontent.com/blocklistproject/Lists/master/ransomware.txt
   - format: hosts
     path: https://raw.githubusercontent.com/blocklistproject/Lists/master/fraud.txt
   - format: hosts
-    path: https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt
+    path: https://raw.githubusercontent.com/blocklistproject/Lists/master/porn.txt
   - format: hosts
     path: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts
-  - format: hosts
-    path: https://raw.githubusercontent.com/blocklistproject/Lists/master/porn.txt
-  - format: domains
-    path: https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt
   - format: domains
     path: https://raw.githubusercontent.com/GeorgeForse/VPN-List/master/list.txt
   - format: domains
@@ -59,8 +51,6 @@ blacklist:
     path: https://raw.githubusercontent.com/RPiList/specials/revert-968-master/Blocklisten/DomainSquatting4
   - format: domains
     path: https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt
-  - format: domains
-    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/pro.txt
   - format: domains
     path: https://raw.githubusercontent.com/farrokhi/adblock-iran/master/pihole.txt
   - format: domains
@@ -90,6 +80,10 @@ blacklist:
   - format: domains
     path: ./blacklist.d/nextdns_cname_cloaking.txt
   # Archive
+  # - format: hosts
+  #   path: https://sebsauvage.net/hosts/hosts
+  # - format: hosts
+  #   path: https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt
   # - format: hosts
   #   path: https://badmojr.github.io/1Hosts/Lite/hosts.txt
   # - format: hosts
@@ -160,6 +154,8 @@ blacklist:
   # - format: domains
   #   path: https://oooo.b-cdn.net/blahdns/blahdns_hosts.txt
   #   bancuh already uses most of its source lists
+  # - format: domains
+  #   path: https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt
 
 whitelist:
   - format: hosts
