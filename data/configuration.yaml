@@ -38,6 +38,14 @@ blacklist:
   - format: hosts
     path: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts
   - format: domains
+    path: https://raw.githubusercontent.com/mhhakim/pihole-blocklist/master/porn.txt
+  - format: domains
+    path: https://www.technoy.de/lists/xporn.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/Bon-Appetit/porn-domains/master/block.txt
+  - format: domains
+    path: https://nsfw.oisd.nl/domainswild2
+  - format: domains
     path: https://raw.githubusercontent.com/GeorgeForse/VPN-List/master/list.txt
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/doh-vpn-proxy-bypass-onlydomains.txt
@@ -59,12 +67,6 @@ blacklist:
     path: https://raw.githubusercontent.com/farrokhi/adblock-iran/master/pihole.txt
   - format: domains
     path: https://raw.githubusercontent.com/nimasaj/uBOPa/master/uBOPa_Pihole.txt
-  - format: domains
-    path: https://raw.githubusercontent.com/mhhakim/pihole-blocklist/master/porn.txt
-  - format: domains
-    path: https://www.technoy.de/lists/xporn.txt
-  - format: domains
-    path: https://raw.githubusercontent.com/Bon-Appetit/porn-domains/master/block.txt
   - format: hosts
     path: ./blacklist.d/ads_custom.hosts
   - format: hosts
