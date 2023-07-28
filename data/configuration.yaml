@@ -38,7 +38,17 @@ blacklist:
   - format: hosts
     path: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts
   - format: domains
+    path: https://raw.githubusercontent.com/mhhakim/pihole-blocklist/master/porn.txt
+  - format: domains
+    path: https://www.technoy.de/lists/xporn.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/Bon-Appetit/porn-domains/master/block.txt
+  - format: domains
+    path: https://nsfw.oisd.nl/domainswild2
+  - format: domains
     path: https://raw.githubusercontent.com/GeorgeForse/VPN-List/master/list.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/doh-vpn-proxy-bypass-onlydomains.txt
   - format: domains
     path: https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/proxies
   - format: domains
@@ -50,23 +60,13 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/RPiList/specials/revert-968-master/Blocklisten/DomainSquatting4
   - format: domains
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/nosafesearch-onlydomains.txt
+  - format: domains
     path: https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt
   - format: domains
     path: https://raw.githubusercontent.com/farrokhi/adblock-iran/master/pihole.txt
   - format: domains
     path: https://raw.githubusercontent.com/nimasaj/uBOPa/master/uBOPa_Pihole.txt
-  - format: domains
-    path: https://raw.githubusercontent.com/mhhakim/pihole-blocklist/master/porn.txt
-  - format: domains
-    path: https://www.technoy.de/lists/xporn.txt
-  - format: domains
-    path: https://raw.githubusercontent.com/Bon-Appetit/porn-domains/master/block.txt
-  - format: zone
-    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/rpz/doh-vpn-proxy-bypass.txt
-  - format: zone
-    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/rpz/nosafesearch.txt
-  - format: zone
-    path: https://nsfw.oisd.nl/rpz
   - format: hosts
     path: ./blacklist.d/ads_custom.hosts
   - format: hosts
@@ -182,6 +182,8 @@ whitelist:
     path: ./whitelist.d/statuspage_whitelist.txt
   - format: domains
     path: ./whitelist.d/windows_update_nsatc_net.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/whitelist.txt
   - format: domains
     path: https://raw.githubusercontent.com/raghavdua1995/DNSlock-PiHole-whitelist/master/whitelist.list
   - format: domains
