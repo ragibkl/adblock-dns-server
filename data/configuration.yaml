@@ -183,6 +183,8 @@ whitelist:
   - format: domains
     path: ./whitelist.d/windows_update_nsatc_net.txt
   - format: domains
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/whitelist.txt
+  - format: domains
     path: https://raw.githubusercontent.com/raghavdua1995/DNSlock-PiHole-whitelist/master/whitelist.list
   - format: domains
     path: https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
