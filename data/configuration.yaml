@@ -40,6 +40,8 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/GeorgeForse/VPN-List/master/list.txt
   - format: domains
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/doh-vpn-proxy-bypass-onlydomains.txt
+  - format: domains
     path: https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/proxies
   - format: domains
     path: https://raw.githubusercontent.com/RPiList/specials/revert-968-master/Blocklisten/DomainSquatting1
@@ -49,6 +51,8 @@ blacklist:
     path: https://raw.githubusercontent.com/RPiList/specials/revert-968-master/Blocklisten/DomainSquatting3
   - format: domains
     path: https://raw.githubusercontent.com/RPiList/specials/revert-968-master/Blocklisten/DomainSquatting4
+  - format: domains
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/nosafesearch-onlydomains.txt
   - format: domains
     path: https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt
   - format: domains
@@ -61,12 +65,6 @@ blacklist:
     path: https://www.technoy.de/lists/xporn.txt
   - format: domains
     path: https://raw.githubusercontent.com/Bon-Appetit/porn-domains/master/block.txt
-  - format: zone
-    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/rpz/doh-vpn-proxy-bypass.txt
-  - format: zone
-    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/rpz/nosafesearch.txt
-  - format: zone
-    path: https://nsfw.oisd.nl/rpz
   - format: hosts
     path: ./blacklist.d/ads_custom.hosts
   - format: hosts
