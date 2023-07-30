@@ -37,6 +37,8 @@ eu.static.mega.co.nz
 eu15.force.com
 filehippo.com
 football365.fr
+fr-dns1.bancuh.com
+fr-dns2.bancuh.com
 fr.aliexpress.com
 fr.uptodown.com
 freepik.cdnpk.net
@@ -45,6 +47,7 @@ gae2-spclient.spotify.com
 gg.gg
 identity.netlify.com
 iobit.com
+jp-dns1.bancuh.com
 leclercdrive.fr
 lesannuaires.com
 linkneverdie.com
@@ -78,6 +81,8 @@ sale.aliexpress.com
 secure.indeed.com
 sendgrid.com
 sfr.fr
+sg-dns1.bancuh.com
+sg-dns2.bancuh.com
 sgp1.digitaloceanspaces.com
 srv3.airdroid.com
 ssl.marfeelcdn.com
