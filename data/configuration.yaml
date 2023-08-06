@@ -30,7 +30,7 @@ blacklist:
   - format: hosts
     path: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts
   - format: domains
-    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro.plus.txt
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro.plus-onlydomains.txt
   - format: domains
     path: https://raw.githubusercontent.com/blocklistproject/Lists/master/alt-version/ransomware-nl.txt
   - format: domains
@@ -44,11 +44,11 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/Bon-Appetit/porn-domains/master/block.txt
   - format: domains
-    path: https://nsfw.oisd.nl/domainswild
+    path: https://nsfw.oisd.nl/domainswild2
   - format: domains
     path: https://raw.githubusercontent.com/GeorgeForse/VPN-List/master/list.txt
   - format: domains
-    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/doh-vpn-proxy-bypass.txt
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/doh-vpn-proxy-bypass-onlydomains.txt
   - format: domains
     path: https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/proxies
   - format: domains
@@ -58,7 +58,7 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/RPiList/specials/3343aaeaccf7f0d37ebcddb365bdc21193093d63/Blocklisten/DomainSquatting3
   - format: domains
-    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/nosafesearch.txt
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/nosafesearch-onlydomains.txt
   - format: domains
     path: https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt
   - format: domains
