@@ -1,7 +1,5 @@
 blacklist:
   - format: hosts
-    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/pro.plus.txt
-  - format: hosts
     path: https://raw.githubusercontent.com/bongochong/CombinedPrivacyBlockLists/master/newhosts-final-Dual.hosts
   - format: hosts
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardDNS.txt
@@ -30,13 +28,15 @@ blacklist:
   - format: hosts
     path: https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt
   - format: hosts
-    path: https://raw.githubusercontent.com/blocklistproject/Lists/master/ransomware.txt
-  - format: hosts
-    path: https://raw.githubusercontent.com/blocklistproject/Lists/master/fraud.txt
-  - format: hosts
-    path: https://raw.githubusercontent.com/blocklistproject/Lists/master/porn.txt
-  - format: hosts
     path: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts
+  - format: domains
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro.plus.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/blocklistproject/Lists/master/alt-version/ransomware-nl.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/blocklistproject/Lists/master/alt-version/fraud-nl.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/blocklistproject/Lists/master/alt-version/porn-nl.txt
   - format: domains
     path: https://raw.githubusercontent.com/mhhakim/pihole-blocklist/master/porn.txt
   - format: domains
@@ -44,7 +44,7 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/Bon-Appetit/porn-domains/master/block.txt
   - format: domains
-    path: https://nsfw.oisd.nl/domainswild2
+    path: https://nsfw.oisd.nl/domainswild
   - format: domains
     path: https://raw.githubusercontent.com/GeorgeForse/VPN-List/master/list.txt
   - format: domains
@@ -52,13 +52,11 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/proxies
   - format: domains
-    path: https://raw.githubusercontent.com/RPiList/specials/revert-968-master/Blocklisten/DomainSquatting1
+    path: https://raw.githubusercontent.com/RPiList/specials/3343aaeaccf7f0d37ebcddb365bdc21193093d63/Blocklisten/DomainSquatting1
   - format: domains
-    path: https://raw.githubusercontent.com/RPiList/specials/revert-968-master/Blocklisten/DomainSquatting2
+    path: https://raw.githubusercontent.com/RPiList/specials/3343aaeaccf7f0d37ebcddb365bdc21193093d63/Blocklisten/DomainSquatting2
   - format: domains
-    path: https://raw.githubusercontent.com/RPiList/specials/revert-968-master/Blocklisten/DomainSquatting3
-  - format: domains
-    path: https://raw.githubusercontent.com/RPiList/specials/revert-968-master/Blocklisten/DomainSquatting4
+    path: https://raw.githubusercontent.com/RPiList/specials/3343aaeaccf7f0d37ebcddb365bdc21193093d63/Blocklisten/DomainSquatting3
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/nosafesearch-onlydomains.txt
   - format: domains
