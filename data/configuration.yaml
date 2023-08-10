@@ -27,22 +27,12 @@ blacklist:
     path: https://storage.googleapis.com/nsablocklist/hosts
   - format: hosts
     path: https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt
-  - format: hosts
-    path: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/pro.plus.txt
   - format: domains
-    path: https://raw.githubusercontent.com/blocklistproject/Lists/master/alt-version/ransomware-nl.txt
-  - format: domains
-    path: https://raw.githubusercontent.com/blocklistproject/Lists/master/alt-version/fraud-nl.txt
-  - format: domains
-    path: https://raw.githubusercontent.com/blocklistproject/Lists/master/alt-version/porn-nl.txt
+    path: https://raw.githubusercontent.com/badmojr/addons_1Hosts/main/kidSaf/domains.wildcards
   - format: domains
     path: https://raw.githubusercontent.com/mhhakim/pihole-blocklist/master/porn.txt
-  - format: domains
-    path: https://www.technoy.de/lists/xporn.txt
-  - format: domains
-    path: https://raw.githubusercontent.com/Bon-Appetit/porn-domains/master/block.txt
   - format: domains
     path: https://nsfw.oisd.nl/domainswild2
   - format: domains
@@ -77,83 +67,6 @@ blacklist:
     path: ./blacklist.d/misc_blacklist.txt
   - format: domains
     path: ./blacklist.d/nextdns_cname_cloaking.txt
-  # Archive
-  # - format: hosts
-  #   path: https://sebsauvage.net/hosts/hosts
-  # - format: hosts
-  #   path: https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt
-  # - format: hosts
-  #   path: https://badmojr.github.io/1Hosts/Lite/hosts.txt
-  # - format: hosts
-  #   path: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts
-  # - format: hosts
-  #   path: https://block.energized.pro/porn/formats/hosts.txt
-  # - format: hosts
-  #   path: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
-  #   already included in the alternate list
-  # - format: hosts
-  #   path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardCNAME.txt
-  #   already included in stevenblack alternate
-  # - format: hosts
-  #   path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileAds.txt
-  #   already included in adguardDns list
-  # - format: hosts
-  #   path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileSpyware.txt
-  #   already included in adguardDns list
-  # - format: hosts
-  #   path: https://raw.githubusercontent.com/dnswarden/blocklist/master/blacklist-formats/hosts
-  #   outdated / discontinued
-  # - format: hosts
-  #   path: https://adaway.org/hosts.txt
-  #   already included in sebsauvage
-  # - format: hosts
-  #   path: http://winhelp2002.mvps.org/hosts.txt
-  #   outdated / deprecated
-  # - format: hosts
-  #   path: https://someonewhocares.org/hosts/zero/hosts
-  #   already included in sebsauvage
-  # - format: hosts
-  #   path: https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext
-  #   already included in sebsauvage
-  # - format: hosts
-  #   path: http://sysctl.org/cameleon/hosts
-  #   seems to be outdated, last update 2018
-  # - format: hosts
-  #   path: https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt
-  #   aggressive / breaks websites
-  # - format: hosts
-  #   path: https://raw.githubusercontent.com/mtxadmin/ublock/master/hosts.txt
-  #   false positives / breaks websites
-  # - format: hosts
-  #   path: https://block.energized.pro/ultimate/formats/hosts.txt
-  #   unified had a lot of false positeves / issues, ultimate seems to be less aggressive and gets fixes more frequently for some reason, 
-  #   and even then, it is still on the aggressive side UPDATE: yep, still aggressive, please disable for now
-  # - format: hosts
-  #   path: https://block.energized.pro/extensions/regional/formats/hosts-ipv6.txt
-  # - format: hosts
-  #   path: https://block.energized.pro/extensions/ips/formats/list.txt
-  # - format: hosts
-  #   path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardApps.txt
-  #   outdated / deprecated
-  # - format: domains
-  #   path: https://raw.githubusercontent.com/nextdns/metadata/master/parentalcontrol/bypass-methods
-  # - format: domains
-  #   path: https://raw.githubusercontent.com/sjhgvr/oisd/main/dbl_full.txt
-  # - format: domains
-  #   path: https://raw.githubusercontent.com/sjhgvr/oisd/main/dbl_nsfw.txt
-  # - format: domains
-  #   path: https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/DomainSquatting
-  # - format: domains
-  #   path: https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
-  #   outdated / deprecated
-  # - format: domains
-  #   path: https://blokada.org/blocklists/ddgtrackerradar/standard/hosts.txt
-  #   false positives / breaks websites
-  # - format: domains
-  #   path: https://oooo.b-cdn.net/blahdns/blahdns_hosts.txt
-  #   bancuh already uses most of its source lists
-  # - format: domains
-  #   path: https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt
 
 whitelist:
   - format: hosts
