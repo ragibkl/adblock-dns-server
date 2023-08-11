@@ -28,15 +28,23 @@ blacklist:
   - format: hosts
     path: https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt
   - format: domains
-    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/pro.plus.txt
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro.plus.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro.plus-onlydomains.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/badmojr/addons_1Hosts/main/kidSaf/wildcards.txt
   - format: domains
     path: https://raw.githubusercontent.com/badmojr/addons_1Hosts/main/kidSaf/domains.wildcards
   - format: domains
     path: https://raw.githubusercontent.com/mhhakim/pihole-blocklist/master/porn.txt
   - format: domains
+    path: https://nsfw.oisd.nl/domainswild
+  - format: domains
     path: https://nsfw.oisd.nl/domainswild2
   - format: domains
     path: https://raw.githubusercontent.com/GeorgeForse/VPN-List/master/list.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/doh-vpn-proxy-bypass.txt
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/doh-vpn-proxy-bypass-onlydomains.txt
   - format: domains
@@ -49,6 +57,8 @@ blacklist:
     path: https://raw.githubusercontent.com/RPiList/specials/3343aaeaccf7f0d37ebcddb365bdc21193093d63/Blocklisten/DomainSquatting3
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/nosafesearch.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/nosafesearch-onlydomains.txt
   - format: domains
     path: https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt
   - format: domains
