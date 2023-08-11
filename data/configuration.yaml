@@ -36,8 +36,6 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/badmojr/addons_1Hosts/main/kidSaf/domains.wildcards
   - format: domains
-    path: https://raw.githubusercontent.com/mhhakim/pihole-blocklist/master/porn.txt
-  - format: domains
     path: https://nsfw.oisd.nl/domainswild
   - format: domains
     path: https://nsfw.oisd.nl/domainswild2
