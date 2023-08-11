@@ -26,6 +26,10 @@ blacklist:
   - format: hosts
     path: https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt
   - format: domains
+    path: https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list_browser.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/olbat/ut1-blacklists/master/blacklists/cryptojacking/domains
+  - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro.plus.txt
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro.plus-onlydomains.txt
@@ -39,6 +43,8 @@ blacklist:
     path: https://nsfw.oisd.nl/domainswild2
   - format: domains
     path: https://raw.githubusercontent.com/GeorgeForse/VPN-List/master/list.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/olbat/ut1-blacklists/master/blacklists/vpn/domains
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/doh-vpn-proxy-bypass.txt
   - format: domains
