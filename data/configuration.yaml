@@ -2,8 +2,6 @@ blacklist:
   - format: hosts
     path: https://raw.githubusercontent.com/bongochong/CombinedPrivacyBlockLists/master/newhosts-final-Dual.hosts
   - format: hosts
-    path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardDNS.txt
-  - format: hosts
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacySpecific.txt
   - format: hosts
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacy3rdParty.txt
