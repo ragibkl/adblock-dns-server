@@ -1,4 +1,5 @@
 # misc whitelist
+*.9gag.com
 01net.com
 149366088.v2.pressablecdn.com
 9gag.com
