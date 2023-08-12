@@ -29,12 +29,11 @@ function extract (message) {
   return [question, answers]
 }
 
-async function getLogs (ctx) {
-  const ip = getIp(ctx)
+async function getQueries (ip) {
   const text = await readFileAsync(logFile, 'utf8')
   const data = yaml.loadAll(text)
 
-  const queries = data
+  return data
     .filter(Boolean)
     .filter(d => d.message.query_address === ip)
     .map(d => {
@@ -52,10 +51,21 @@ async function getLogs (ctx) {
         answers
       }
     })
+}
 
+async function getLogs (ctx) {
+  const ip = getIp(ctx)
+  const queries = await getQueries(ip)
   await ctx.render('views/getLogs', { ip, queries })
 }
 
+async function getLogsApi (ctx) {
+  const ip = getIp(ctx)
+  const queries = await getQueries(ip)
+  ctx.body = { queries }
+}
+
 module.exports = {
-  getLogs
+  getLogs,
+  getLogsApi
 }
