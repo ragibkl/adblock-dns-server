@@ -1,5 +1,7 @@
 # misc whitelist
 *.9gag.com
+*.ecosia.org
+*.startpage.com
 01net.com
 149366088.v2.pressablecdn.com
 9gag.com
@@ -14,6 +16,7 @@ awstrack.me
 best.aliexpress.com
 bit.ly
 brands.aliexpress.com
+ecosia.org
 c.eu15.content.force.com
 cdburnerxp.se
 cdiscount.com
@@ -87,6 +90,7 @@ sg-dns2.bancuh.com
 sgp1.digitaloceanspaces.com
 srv3.airdroid.com
 ssl.marfeelcdn.com
+startpage.com
 static.ccm2.net
 static.prd.map.nytimes.com
 static.ts.360.com
