@@ -48,11 +48,7 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/proxies
   - format: domains
-    path: https://raw.githubusercontent.com/RPiList/specials/3343aaeaccf7f0d37ebcddb365bdc21193093d63/Blocklisten/DomainSquatting1
-  - format: domains
-    path: https://raw.githubusercontent.com/RPiList/specials/3343aaeaccf7f0d37ebcddb365bdc21193093d63/Blocklisten/DomainSquatting2
-  - format: domains
-    path: https://raw.githubusercontent.com/RPiList/specials/3343aaeaccf7f0d37ebcddb365bdc21193093d63/Blocklisten/DomainSquatting3
+    path: https://raw.githubusercontent.com/cbuijs/accomplist/master/typosquat/plain.black.domain.list
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/nosafesearch.txt
   - format: domains
