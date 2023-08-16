@@ -50,6 +50,8 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/proxies
   - format: domains
+    path: https://raw.githubusercontent.com/cbuijs/accomplist/master/cloak/optimized.black.domain.list
+  - format: domains
     path: https://raw.githubusercontent.com/cbuijs/accomplist/master/typosquat/optimized.black.top-n.domain.list
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/nosafesearch.txt
