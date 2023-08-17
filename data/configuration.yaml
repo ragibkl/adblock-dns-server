@@ -21,6 +21,8 @@ blacklist:
     path: https://gitlab.com/intr0/iVOID.GitLab.io/raw/master/iVOID.hosts
   - format: hosts
     path: https://storage.googleapis.com/nsablocklist/hosts
+  - format: hosts
+    path: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-only/hosts
   - format: domains
     path: https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list_browser.txt
   - format: domains
@@ -38,7 +40,7 @@ blacklist:
   - format: domains
     path: https://nsfw.oisd.nl/domainswild2
   - format: domains
-    path: https://raw.githubusercontent.com/cbuijs/accomplist/master/adult-themed/optimized.black.top-n.domain.list
+    path: https://raw.githubusercontent.com/blocklistproject/Lists/master/alt-version/porn-nl.txt
   - format: domains
     path: https://raw.githubusercontent.com/GeorgeForse/VPN-List/master/list.txt
   - format: domains
