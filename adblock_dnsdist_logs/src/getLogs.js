@@ -1,13 +1,14 @@
 const fs = require('fs')
 const pify = require('pify')
 const yaml = require('js-yaml')
+const reqIp = require('request-ip')
 
 const { logFile } = require('./config')
 
 const readFileAsync = pify(fs.readFile)
 
 function getIp (ctx) {
-  const requestIp = ctx.ip
+  const requestIp = reqIp.getClientIp(ctx.request)
   if (requestIp.startsWith('::ffff:')) {
     return requestIp.replace('::ffff:', '')
   }
