@@ -7,6 +7,7 @@
 9gag.com
 accueil.leclercdrive.fr
 aliexpress.com
+api-iam.intercom.io
 api.services.goto.com
 app.adjust.com
 appgallery.cloud.huawei.com
@@ -49,6 +50,7 @@ freepik.cdnpk.net
 g.api.mega.co.nz
 gae2-spclient.spotify.com
 gg.gg
+googletagmanager.com
 identity.netlify.com
 iobit.com
 jp-dns1.bancuh.com
@@ -115,6 +117,7 @@ www.coronastatus.fr
 www.doctissimo.fr
 www.flyme.cn
 www.football365.fr
+www.googletagmanager.com
 www.iobit.com
 www.journaldunet.com
 www.linkneverdie.com
