@@ -42,6 +42,12 @@ eu.static.mega.co.nz
 eu15.force.com
 filehippo.com
 football365.fr
+fota5.adups.com
+fota5db.adups.com
+fota5p.adups.com
+fota5s.adups.com
+fota5t.adups.com
+fota5tbk.adups.com
 fr-dns1.bancuh.com
 fr-dns2.bancuh.com
 fr.aliexpress.com
