@@ -57,6 +57,7 @@ g.api.mega.co.nz
 gae2-spclient.spotify.com
 gg.gg
 googletagmanager.com
+greasyfork.org
 identity.netlify.com
 iobit.com
 jp-dns1.bancuh.com
