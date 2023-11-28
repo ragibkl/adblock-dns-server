@@ -83,6 +83,7 @@ polink-static-contents.polarisoffice.com
 pubsub-global.pubnub.com
 r.orange.fr
 rapidgator.net
+rethinkdns.com
 rlog.9gag.com
 rts.ch
 ru.aliexpress.com
