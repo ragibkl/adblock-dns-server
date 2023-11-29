@@ -2,6 +2,7 @@
 *.9gag.com
 *.ecosia.org
 *.startpage.com
+*.rethinkdns.com
 01net.com
 149366088.v2.pressablecdn.com
 9gag.com
