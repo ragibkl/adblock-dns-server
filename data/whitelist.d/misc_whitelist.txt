@@ -4,11 +4,9 @@
 *.startpage.com
 *.rethinkdns.com
 01net.com
-149366088.v2.pressablecdn.com
 9gag.com
 accueil.leclercdrive.fr
 aliexpress.com
-api-iam.intercom.io
 api.services.goto.com
 app.adjust.com
 appgallery.cloud.huawei.com
@@ -26,12 +24,6 @@ cdn.yandex.net
 click.virt.s50.exacttarget.com
 cn.uptodown.com
 coronastatus.fr
-cs1-apr-8315.wac.edgecastcdn.net
-cs41.wac.edgecastcdn.net
-cs491.wac.edgecastcdn.net
-cs531.wpc.edgecastcdn.net
-cs837.wac.edgecastcdn.net
-deals.souq.com
 display.360totalsecurity.com
 dl.airdroid.com
 dl.clubic.com
@@ -57,7 +49,6 @@ freepik.cdnpk.net
 g.api.mega.co.nz
 gae2-spclient.spotify.com
 gg.gg
-googletagmanager.com
 greasyfork.org
 identity.netlify.com
 iobit.com
@@ -126,7 +117,6 @@ www.coronastatus.fr
 www.doctissimo.fr
 www.flyme.cn
 www.football365.fr
-www.googletagmanager.com
 www.iobit.com
 www.journaldunet.com
 www.linkneverdie.com
