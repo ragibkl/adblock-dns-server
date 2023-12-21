@@ -51,6 +51,7 @@ gae2-spclient.spotify.com
 gg.gg
 greasyfork.org
 identity.netlify.com
+incoming.telemetry.mozilla.org
 iobit.com
 jp-dns1.bancuh.com
 leclercdrive.fr
