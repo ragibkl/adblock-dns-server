@@ -1,0 +1,55 @@
+version: "3"
+
+services:
+  dns:
+    image: ragibkl/bancuh_dns
+    restart: always
+    ports:
+      - 1153:53/tcp
+      - 1153:53/udp
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+        max-file: "20"
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+
+  dnsdist:
+    image: ragibkl/adblock_dnsdist
+    restart: always
+    network_mode: host
+    env_file: .env
+    volumes:
+      - letsencrypt:/etc/letsencrypt
+      - logs:/logs
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+        max-file: "20"
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+
+  dnsdist_logs:
+    image: ragibkl/adblock_dnsdist_logs
+    restart: always
+    network_mode: host
+    environment:
+      LOG_FILE: /logs/logs.yaml
+      PORT: "8080"
+    volumes:
+      - logs:/logs
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+
+  watchtower:
+    image: v2tec/watchtower
+    command: --cleanup --label-enable --interval 3600
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  logs:
+  letsencrypt:
