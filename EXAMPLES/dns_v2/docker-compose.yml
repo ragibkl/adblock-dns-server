@@ -4,6 +4,7 @@ services:
   dns:
     image: ragibkl/bancuh_dns
     restart: always
+    privileged: true # For some reason, some distro needs this
     ports:
       - 1153:53/tcp
       - 1153:53/udp
