@@ -105,24 +105,24 @@ The following should work for `Ubuntu Server 20.04`.
 
 1. Disable and stop the systemd-resolved service:
 
-```shell
-sudo systemctl disable systemd-resolved
-sudo systemctl stop systemd-resolved
-```
+    ```shell
+    sudo systemctl disable systemd-resolved
+    sudo systemctl stop systemd-resolved
+    ```
 
 2. Edit the file: `/etc/resolv.conf`, maybe replacing with google dns
 
-```shell
-nameserver 8.8.8.8
-nameserver 8.8.4.4
-```
+    ```shell
+    nameserver 8.8.8.8
+    nameserver 8.8.4.4
+    ```
 
 3. Test that the port is open
 
-```shell
-sudo lsof -i:53
-# no result
-```
+    ```shell
+    sudo lsof -i:53
+    # no result
+    ```
 
 ## Running the server
 
@@ -137,37 +137,37 @@ cd adblock-dns-server
 
 1. cd into the `default` folder. Run the start script. The server may take a few minutes to spin up.
 
-```shell
-cd EXAMPLES/default
-./start.sh
-```
+    ```shell
+    cd EXAMPLES/default
+    ./start.sh
+    ```
 
 2. It should also setup a `.env` file with some default values.
 
-```shell
-# file: EXAMPLES/default/.env
-CONFIG_URL=https://raw.githubusercontent.com/ragibkl/adblock-dns-server/master/data/configuration.yaml
-FQDN=dns.localhost.localdomain
-IPV4=0.0.0.0
-IPv6=::
-TLS_ENABLED=false
-TLS_DOMAIN=dns1.example.com
-TLS_EMAIL=user@example.com
-```
+    ```shell
+    # file: EXAMPLES/default/.env
+    CONFIG_URL=https://raw.githubusercontent.com/ragibkl/adblock-dns-server/master/data/configuration.yaml
+    FQDN=dns.localhost.localdomain
+    IPV4=0.0.0.0
+    IPv6=::
+    TLS_ENABLED=false
+    TLS_DOMAIN=dns1.example.com
+    TLS_EMAIL=user@example.com
+    ```
 
-**IPV4/IPV6** - the default values here will route ads to null unreachable IPs. If you change them to the IP addresses of your servers, it will instead redirect to the default http server, which will show a tasteful blocked page. TODO: this is not working right now
+    **IPV4/IPV6** - the default values here will route ads to null unreachable IPs. If you change them to the IP addresses of your servers, it will instead redirect to the default http server, which will show a tasteful blocked page. TODO: this is not working right now
 
-**CONFIG_URL** - this value specifies the config file location where the server should load its configuration. The server uses the sources in that config file to dynamically compile the ads blocklist during server startup. The ads blocklist is also refreshed and recompiled every hour automatically. The default value here points to the configuration file maintained in this repo. See section below on how to use a customized blocklist configuration.
+    **CONFIG_URL** - this value specifies the config file location where the server should load its configuration. The server uses the sources in that config file to dynamically compile the ads blocklist during server startup. The ads blocklist is also refreshed and recompiled every hour automatically. The default value here points to the configuration file maintained in this repo. See section below on how to use a customized blocklist configuration.
 
-**TLS_ENABLED** - if set to `true`, the server will also enable DoH and DoT dns protocols. This requires that `TLS_DOMAIN` and `TLS_EMAIL` to be set correctly
+    **TLS_ENABLED** - if set to `true`, the server will also enable DoH and DoT dns protocols. This requires that `TLS_DOMAIN` and `TLS_EMAIL` to be set correctly
 
-**TLS_DOMAIN** - only required when `TLS_ENABLED=true`. This value should point to a public domain name record that points to the public ip of your server. We use this value to request the TLS certificates from LetsEncrypt
+    **TLS_DOMAIN** - only required when `TLS_ENABLED=true`. This value should point to a public domain name record that points to the public ip of your server. We use this value to request the TLS certificates from LetsEncrypt
 
-**TLS_EMAIL** - only required when `TLS_ENABLED=true`. This value should point to your email. LetsEncrypt uses this value to send you reports on expiring TLS certificates.
+    **TLS_EMAIL** - only required when `TLS_ENABLED=true`. This value should point to your email. LetsEncrypt uses this value to send you reports on expiring TLS certificates.
 
-If you changed any of the values above, please re-run the start script.
+    If you changed any of the values above, please re-run the start script.
 
-4. Stopping the service
+3. Stopping the service
 
 ```shell
 ./stop.sh
@@ -177,37 +177,41 @@ If you changed any of the values above, please re-run the start script.
 
 The above instructions will run the `adblock-dns-server` using the default blocklist configuration. In order to add additional ads-domains to the blacklist, or filter some in a whitelist, you also have the option to use a custom config.
 
-1. Modify the contents under `data/` folder as you see fit. Feel free to add/remove additional domains and http sources as needed.
+1. Modify the contents under `data/` folder as you see fit.
+Feel free to add/remove additional domains and http sources as needed.
 
-2. Change the `CONFIG_URL` value to point to the local config file. This works because I have conveniently mounted the `data/` folder into `/local-data/` in the container. You can check the `docker-compose.yml` file for the corresponding line.
+2. Change the `CONFIG_URL` value to point to the local config file.
+    This works because I have conveniently mounted the `data/` folder into `/local-data/` in the container.
+    You can check the `docker-compose.yml` file for the corresponding line.
 
-```shell
-# file: EXAMPLES/default/.env
-CONFIG_URL=/local-data/configuration.yaml
-...
-```
+    ```shell
+    # file: EXAMPLES/default/.env
+    CONFIG_URL=/local-data/configuration.yaml
+    ...
+    ```
 
 3. Rerun the start script.
 
 ### Enabling DoH and DoT protocols
 
-By default, the server only listens for dns requests via regular dns protocol. The server also supports listening dns requests via DoH and DoT protocols. You can make this work by the following:
+By default, the server only listens for dns requests via regular dns protocol. The server also supports listening dns requests via DoH and DoT protocols.
+You can make this work by the following:
 
-1. Your server needs to have a public IP address. An web request from the public Internet should be able to reach you by port 80.
+1. Your server needs to have a public IP address. A web request from the public Internet should be able to reach you by port 80.
 
 2. You also need to have a domain name record that points to the public IP address of your server. Something in the form of `dns1.example.com`.
 
 3. Change the config in the `.env` file as follows:
 
-```shell
-# file: EXAMPLES/default/.env
-TLS_DOMAIN=dns1.example.com # this should be the domain name that points to the public IP address of your server
-TLS_EMAIL=user@example.com # your email
-TLS_ENABLED=true # set this to true to enable DoH and DoT
-...
-```
+   ```shell
+   # file: EXAMPLES/default/.env
+   TLS_DOMAIN=dns1.example.com # this should be the domain name that points to the public IP address of your server
+   TLS_EMAIL=user@example.com # your email
+   TLS_ENABLED=true # set this to true to enable DoH and DoT
+   ...
+   ```
 
-3. Rerun the start script.
+4. Rerun the start script.
 
 ## Testing the server
 
@@ -217,21 +221,21 @@ Now that we have spin up our Adblock DNS Server, it is time for us to run a few 
 # tests dns lookup against Google's dns server
 # should return regular/valid response
 $ nslookup zedo.com 8.8.8.8
-Server:		8.8.8.8
-Address:	8.8.8.8#53
+Server:  8.8.8.8
+Address: 8.8.8.8#53
 
 Non-authoritative answer:
-Name:	zedo.com
+Name: zedo.com
 Address: 64.41.197.44
 
 # tests dns lookup against our adblock dns server
 # should return our server's IP or the null route instead
 $ nslookup zedo.com X.X.X.X
-Server:		X.X.X.X
-Address:	X.X.X.X#53
+Server:  X.X.X.X
+Address: X.X.X.X#53
 
 Non-authoritative answer:
-Name:	zedo.com
+Name: zedo.com
 Address: X.X.X.X
 ```
 
@@ -255,9 +259,13 @@ This works on all devices connected to the wifi router.
 This is the best approach if you want this change to apply to all devices in your network, and only have a single place to make the change.
 
 1. Go to your router admin page, under WAN settings.
+
 2. Edit DNS settings.
+
 3. Use your adblock-dns server's IP address instead of automatic or Google's (8.8.8.8, 8.8.4.4).
+
 4. Go to your router LAN -> DHCP settings.
+
 5. Ensure that the DHCP DNS server is set to your router's IP address.
 
 #### Option 2: Personal Computer level
@@ -265,7 +273,9 @@ This is the best approach if you want this change to apply to all devices in you
 This works on a single computer.
 
 1. Go to your computer's network setting.
+
 2. Change DNS settings.
+
 3. Use your adblock-dns server's IP address instead of automatic or Google's (8.8.8.8, 8.8.4.4)
 
 #### Option 3: Android Private DNS
@@ -275,11 +285,12 @@ Using this feature, your device can connect to a dns server over DoT protocol.
 You can use this feature if you have enabled TLS on your server.
 
 1. On your Android device, go to Settings -> Connection & Sharing -> Private DNS.
+
 2. Set private dns to Custom Domain, and set the domain to point to the domain of your DNS server.
 
 ### Web quick start guide
 
-Visit https://bancuh.com/start/ for a quickstart on how to use Bancuh DNS on your device.
+Visit <https://bancuh.com/start/> for a quickstart on how to use Bancuh DNS on your device.
 However, instead of the provided servers, use the details for your own DNS servers.
 
 ## Contributing
