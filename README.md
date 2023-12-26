@@ -41,7 +41,7 @@ The sources list has been revised several times based on user feedback.
 
 However, I also provide the tools and scripts necessary if you would like to customize your own block list.
 
-## Production Live Environment
+### Production Live Environment
 
 This project is used to run the [Bancuh Adblock DNS](https://bancuh.com/) service.
 If you want to have a taste of what you can run using this project, visit the [Quick Start](https://bancuh.com/start) page and try setting it for use on your device.
@@ -85,7 +85,8 @@ sudo lsof -i:53
 # no result
 ```
 
-If you see an empty prompt, it means that the port is open. Feel free to skip the next section.
+If you see an empty prompt, it means that the port is open.
+Feel free to skip the next section.
 
 #### Disabling systemd-resolve
 
@@ -126,7 +127,8 @@ The following should work for `Ubuntu Server 20.04`.
 
 ## Running the server
 
-Clone this project. Then, cd into the cloned project folder.
+Clone this project.
+Then, cd into the cloned project folder.
 
 ```shell
 git clone https://github.com/ragibkl/adblock-dns-server.git
@@ -135,7 +137,9 @@ cd adblock-dns-server
 
 ### Running the server with default config
 
-1. cd into the `default` folder. Run the start script. The server may take a few minutes to spin up.
+1. cd into the `default` folder.
+Run the start script
+The server may take a few minutes to spin up.
 
     ```shell
     cd EXAMPLES/default
@@ -155,15 +159,26 @@ cd adblock-dns-server
     TLS_EMAIL=user@example.com
     ```
 
-    **IPV4/IPV6** - the default values here will route ads to null unreachable IPs. If you change them to the IP addresses of your servers, it will instead redirect to the default http server, which will show a tasteful blocked page. TODO: this is not working right now
+    **IPV4/IPV6** - the default values here will route ads to null unreachable IPs.
+    If you change them to the IP addresses of your servers, it will instead redirect to the default http server, which will show a tasteful blocked page.
+    TODO: this is not working right now
 
-    **CONFIG_URL** - this value specifies the config file location where the server should load its configuration. The server uses the sources in that config file to dynamically compile the ads blocklist during server startup. The ads blocklist is also refreshed and recompiled every hour automatically. The default value here points to the configuration file maintained in this repo. See section below on how to use a customized blocklist configuration.
+    **CONFIG_URL** - this value specifies the config file location where the server should load its configuration.
+    The server uses the sources in that config file to dynamically compile the ads blocklist during server startup.
+    The ads blocklist is also refreshed and recompiled every hour automatically.
+    The default value here points to the configuration file maintained in this repo.
+    See section below on how to use a customized blocklist configuration.
 
-    **TLS_ENABLED** - if set to `true`, the server will also enable DoH and DoT dns protocols. This requires that `TLS_DOMAIN` and `TLS_EMAIL` to be set correctly
+    **TLS_ENABLED** - if set to `true`, the server will also enable DoH and DoT dns protocols.
+    This requires that `TLS_DOMAIN` and `TLS_EMAIL` to be set correctly
 
-    **TLS_DOMAIN** - only required when `TLS_ENABLED=true`. This value should point to a public domain name record that points to the public ip of your server. We use this value to request the TLS certificates from LetsEncrypt
+    **TLS_DOMAIN** - only required when `TLS_ENABLED=true`.
+    This value should point to a public domain name record that points to the public ip of your server.
+    We use this value to request the TLS certificates from LetsEncrypt
 
-    **TLS_EMAIL** - only required when `TLS_ENABLED=true`. This value should point to your email. LetsEncrypt uses this value to send you reports on expiring TLS certificates.
+    **TLS_EMAIL** - only required when `TLS_ENABLED=true`.
+    This value should point to your email.
+    LetsEncrypt uses this value to send you reports on expiring TLS certificates.
 
     If you changed any of the values above, please re-run the start script.
 
@@ -175,7 +190,8 @@ cd adblock-dns-server
 
 ### Using a customized ads blocklist configuration
 
-The above instructions will run the `adblock-dns-server` using the default blocklist configuration. In order to add additional ads-domains to the blacklist, or filter some in a whitelist, you also have the option to use a custom config.
+The above instructions will run the `adblock-dns-server` using the default blocklist configuration.
+In order to add additional ads-domains to the blacklist, or filter some in a whitelist, you also have the option to use a custom config.
 
 1. Modify the contents under `data/` folder as you see fit.
 Feel free to add/remove additional domains and http sources as needed.
@@ -194,12 +210,15 @@ Feel free to add/remove additional domains and http sources as needed.
 
 ### Enabling DoH and DoT protocols
 
-By default, the server only listens for dns requests via regular dns protocol. The server also supports listening dns requests via DoH and DoT protocols.
+By default, the server only listens for dns requests via regular dns protocol.
+The server also supports listening dns requests via DoH and DoT protocols.
 You can make this work by the following:
 
-1. Your server needs to have a public IP address. A web request from the public Internet should be able to reach you by port 80.
+1. Your server needs to have a public IP address.
+A web request from the public Internet should be able to reach you by port 80.
 
-2. You also need to have a domain name record that points to the public IP address of your server. Something in the form of `dns1.example.com`.
+2. You also need to have a domain name record that points to the public IP address of your server.
+Something in the form of `dns1.example.com`.
 
 3. Change the config in the `.env` file as follows:
 
