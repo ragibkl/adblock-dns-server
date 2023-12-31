@@ -24,6 +24,8 @@ services:
     restart: always
     network_mode: host
     env_file: .env
+    environment:
+      - BACKEND=127.0.0.1:1153
     volumes:
       - letsencrypt:/etc/letsencrypt
     logging:
