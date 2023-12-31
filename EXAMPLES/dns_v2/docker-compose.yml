@@ -20,30 +20,17 @@ services:
       - com.centurylinklabs.watchtower.enable=true
 
   dnsdist:
-    image: ragibkl/adblock_dnsdist
+    image: ragibkl/dnsdist-acme
     restart: always
     network_mode: host
     env_file: .env
     volumes:
       - letsencrypt:/etc/letsencrypt
-      - logs:/logs
     logging:
       driver: json-file
       options:
         max-size: 1m
         max-file: "20"
-    labels:
-      - com.centurylinklabs.watchtower.enable=true
-
-  dnsdist_logs:
-    image: ragibkl/adblock_dnsdist_logs
-    restart: always
-    network_mode: host
-    environment:
-      LOG_FILE: /logs/logs.yaml
-      PORT: "8080"
-    volumes:
-      - logs:/logs
     labels:
       - com.centurylinklabs.watchtower.enable=true
 
@@ -55,5 +42,4 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
-  logs:
   letsencrypt:
