@@ -1,6 +1,6 @@
 # Adblock DNS Server
 
-Adblock DNS server using bind and nginx, running in Docker.
+Adblock DNS Server powered by `Bancuh DNS` and `dnsdist-acme` running in Docker.
 
 ## Introduction
 
