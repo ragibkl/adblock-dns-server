@@ -22,6 +22,7 @@ services:
   dnsdist:
     image: ragibkl/dnsdist-acme
     restart: always
+    privileged: true # For some reason, some distro needs this
     network_mode: host
     env_file: .env
     environment:
