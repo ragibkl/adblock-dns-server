@@ -2,14 +2,14 @@ version: "3"
 
 services:
   dns:
-    image: ragibkl/adblock_dns
+    image: ragibkl/bancuh-dns
     restart: always
+    privileged: true # For some reason, some distro needs this
     ports:
       - 1153:53/tcp
       - 1153:53/udp
     env_file: .env
     volumes:
-      - logs:/logs
       - ../../data:/local-data/
     logging:
       driver: json-file
@@ -20,30 +20,19 @@ services:
       - com.centurylinklabs.watchtower.enable=true
 
   dnsdist:
-    image: ragibkl/adblock_dnsdist
+    image: ragibkl/dnsdist-acme
     restart: always
     network_mode: host
     env_file: .env
+    environment:
+      - BACKEND=127.0.0.1:1153
     volumes:
       - letsencrypt:/etc/letsencrypt
-      - logs:/logs
     logging:
       driver: json-file
       options:
         max-size: 1m
         max-file: "20"
-    labels:
-      - com.centurylinklabs.watchtower.enable=true
-
-  dnsdist_logs:
-    image: ragibkl/adblock_dnsdist_logs
-    restart: always
-    network_mode: host
-    environment:
-      LOG_FILE: /logs/logs.yaml
-      PORT: "8080"
-    volumes:
-      - logs:/logs
     labels:
       - com.centurylinklabs.watchtower.enable=true
 
@@ -55,5 +44,4 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
-  logs:
   letsencrypt:
