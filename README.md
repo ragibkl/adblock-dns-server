@@ -22,7 +22,7 @@ By default, all internet connected devices and networks are configured to point 
 This is usually based on the default config of the device, or network's ISP.
 
 An Adblock DNS server works just like a regular DNS server, but with some additional custom rules to block Ads.
-On top of its regular functionality, an Adblock DNS server will resolve domains for known Ads services, into null webservers or an unrouteable IP address.
+On top of its regular functionality, an Adblock DNS server will resolve domains for known Ads services, into an unrouteable IP address.
 Without a valid ip address, your web browser and apps cannot connect to the servers hosting the Ads service.
 Ads would effectively be blocked.
 The same custom rules can also be used to block known user tracking servers, malware sites and sites for adult contents.
@@ -138,8 +138,8 @@ cd adblock-dns-server
 ### Running the server with default config
 
 1. cd into the `default` folder.
-Run the start script
-The server may take a few minutes to spin up.
+    Run the start script
+    The server may take a few minutes to spin up.
 
     ```shell
     cd EXAMPLES/default
@@ -151,17 +151,10 @@ The server may take a few minutes to spin up.
     ```shell
     # file: EXAMPLES/default/.env
     CONFIG_URL=https://raw.githubusercontent.com/ragibkl/adblock-dns-server/master/data/configuration.yaml
-    FQDN=dns.localhost.localdomain
-    IPV4=0.0.0.0
-    IPv6=::
     TLS_ENABLED=false
     TLS_DOMAIN=dns1.example.com
     TLS_EMAIL=user@example.com
     ```
-
-    **IPV4/IPV6** - the default values here will route ads to null unreachable IPs.
-    If you change them to the IP addresses of your servers, it will instead redirect to the default http server, which will show a tasteful blocked page.
-    TODO: this is not working right now
 
     **CONFIG_URL** - this value specifies the config file location where the server should load its configuration.
     The server uses the sources in that config file to dynamically compile the ads blocklist during server startup.
@@ -215,19 +208,19 @@ The server also supports listening dns requests via DoH and DoT protocols.
 You can make this work by the following:
 
 1. Your server needs to have a public IP address.
-A web request from the public Internet should be able to reach you by port 80.
+    A web request from the public Internet should be able to reach you by port 80.
 
 2. You also need to have a domain name record that points to the public IP address of your server.
-Something in the form of `dns1.example.com`.
+    Something in the form of `dns1.example.com`.
 
 3. Change the config in the `.env` file as follows:
 
    ```shell
    # file: EXAMPLES/default/.env
-   TLS_DOMAIN=dns1.example.com # this should be the domain name that points to the public IP address of your server
-   TLS_EMAIL=user@example.com # your email
-   TLS_ENABLED=true # set this to true to enable DoH and DoT
    ...
+   TLS_ENABLED=true             # set this to true to enable DoH and DoT
+   TLS_DOMAIN=dns1.example.com  # this should be the domain name that points to the public IP address of your server
+   TLS_EMAIL=user@example.com   # your email, must be a valid email address
    ```
 
 4. Rerun the start script.
@@ -266,7 +259,11 @@ For privacy reasons, the logs viewer will only show you queries based on your cu
 If you make any dns queries from an IP address, you can only view those queries on a web browser from the same IP address.
 Additionally, the logs file is emptied every 10 minutes.
 
-On your web browser, simply visit the logs endpoint on port 8080 to view your logs, i.e.: `http://X.X.X.X:8080`.
+On your web browser, simply visit the logs endpoints as follows:
+
+- <http://server-ip-address:8080/logs>
+- <http://dns1.example.com:8080/logs>
+- <https://dns1.example.com:8443/logs> # only with tls enabled
 
 ## Configuring your device
 
