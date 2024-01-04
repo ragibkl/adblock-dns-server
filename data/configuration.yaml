@@ -114,6 +114,8 @@ whitelist:
   - format: zone
     path: ./overrides.d/bing-safesearch.zone
   - format: zone
+    path: ./overrides.d/brave-safesearch.zone
+  - format: zone
     path: ./overrides.d/duckduckgo-safesearch.zone
   - format: zone
     path: ./overrides.d/google-safesearch.zone
