@@ -1,0 +1,3 @@
+cdn.search.brave.com
+imgs.search.brave.com
+tiles.search.brave.com

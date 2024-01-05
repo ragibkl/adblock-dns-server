@@ -84,6 +84,8 @@ whitelist:
   - format: domains
     path: ./whitelist.d/blogspot_whitelist.txt
   - format: domains
+    path: ./whitelist.d/brave_whitelist.txt
+  - format: domains
     path: ./whitelist.d/facebook_whitelist.txt
   - format: domains
     path: ./whitelist.d/fbcdn_whitelist.txt
