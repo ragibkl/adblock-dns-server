@@ -10,6 +10,7 @@ aliexpress.com
 api.services.goto.com
 app.adjust.com
 appgallery.cloud.huawei.com
+ask.fm
 awin.com
 awin1.com
 awstrack.me
