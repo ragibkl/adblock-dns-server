@@ -10,3 +10,7 @@ curl -H 'accept: application/dns-message' 'https://fr-dns2.bancuh.com/dns-query?
 
 # JP
 curl -H 'accept: application/dns-message' 'https://jp-dns1.bancuh.com/dns-query?dns=rmUBAAABAAAAAAAAB2NhcmVlcnMHb3BlbmRucwNjb20AAAEAAQ' | hexdump -C
+curl -H 'accept: application/dns-message' 'https://jp-dns2.bancuh.com/dns-query?dns=rmUBAAABAAAAAAAAB2NhcmVlcnMHb3BlbmRucwNjb20AAAEAAQ' | hexdump -C
+
+# US
+curl -H 'accept: application/dns-message' 'https://us-dns1.bancuh.com/dns-query?dns=rmUBAAABAAAAAAAAB2NhcmVlcnMHb3BlbmRucwNjb20AAAEAAQ' | hexdump -C
