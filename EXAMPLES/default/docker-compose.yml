@@ -1,6 +1,15 @@
 version: "3"
 
 services:
+  bind:
+    image: ragibkl/bancuh-bind
+    restart: always
+    ports:
+      - 1154:53/tcp
+      - 1154:53/udp
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+
   dns:
     image: ragibkl/bancuh-dns
     restart: always
@@ -9,6 +18,9 @@ services:
       - 1153:53/tcp
       - 1153:53/udp
     env_file: .env
+    environment:
+      FORWARDERS: "127.0.0.1"
+      FORWARDERS_PORT: "1154"
     volumes:
       - ../../data:/local-data/
     logging:
@@ -26,7 +38,7 @@ services:
     network_mode: host
     env_file: .env
     environment:
-      - BACKEND=127.0.0.1:1153
+      BACKEND: 127.0.0.1:1153
     volumes:
       - letsencrypt:/etc/letsencrypt
     logging:
