@@ -14,11 +14,10 @@ services:
     image: ragibkl/bancuh-dns
     restart: always
     privileged: true # For some reason, some distro needs this
-    ports:
-      - 1153:53/tcp
-      - 1153:53/udp
+    network_mode: host
     env_file: .env
     environment:
+      PORT: "1153"
       FORWARDERS: "127.0.0.1"
       FORWARDERS_PORT: "1154"
     volumes:
