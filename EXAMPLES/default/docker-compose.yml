@@ -2,7 +2,7 @@ version: "3"
 
 services:
   dns:
-    image: ragibkl/bancuh-dns
+    image: ragibkl/bancuh-dns:pr-2
     restart: always
     privileged: true # For some reason, some distro needs this
     ports:
