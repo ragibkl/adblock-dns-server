@@ -151,6 +151,7 @@ cd adblock-dns-server
     ```shell
     # file: EXAMPLES/default/.env
     CONFIG_URL=https://raw.githubusercontent.com/ragibkl/adblock-dns-server/master/data/configuration.yaml
+    #FORWARDERS=8.8.8.8,8.8.4.4
     TLS_ENABLED=false
     TLS_DOMAIN=dns1.example.com
     TLS_EMAIL=user@example.com
@@ -161,6 +162,12 @@ cd adblock-dns-server
     The ads blocklist is also refreshed and recompiled every hour automatically.
     The default value here points to the configuration file maintained in this repo.
     See section below on how to use a customized blocklist configuration.
+
+    **FORWARDERS** - this value specifies custom backend dns servers to use as forwarders.
+    By default, this value is empty and the server will use a built-in bind server to recursively resolve dns queries.
+    This is best for privacy but might use more memory.
+    If you would like to forward dns queries to other dns servers, uncomment and set this to your preferred values.
+    This will also turn off the internal bind server.
 
     **TLS_ENABLED** - if set to `true`, the server will also enable DoH and DoT dns protocols.
     This requires that `TLS_DOMAIN` and `TLS_EMAIL` to be set correctly
