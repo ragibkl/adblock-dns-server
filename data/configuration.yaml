@@ -1,5 +1,9 @@
 blacklist:
   - format: hosts
+    path: https://ewpratten.github.io/youtube_ad_blocklist/hosts.ipv4.txt
+  - format: hosts
+    path: https://ewpratten.github.io/youtube_ad_blocklist/hosts.ipv6.txt
+  - format: hosts
     path: https://raw.githubusercontent.com/bongochong/CombinedPrivacyBlockLists/master/newhosts-final-Dual.hosts
   - format: hosts
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacySpecific.txt
