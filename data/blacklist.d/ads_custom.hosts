@@ -1,4 +1,5 @@
 # additional adservers
+127.0.0.1 *.mediation.unity3d.com
 127.0.0.1 ad.ettoday.net
 127.0.0.1 adservice.google.fr
 127.0.0.1 ailiyou1999.com
