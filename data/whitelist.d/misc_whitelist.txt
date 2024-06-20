@@ -54,6 +54,8 @@ greasyfork.org
 identity.netlify.com
 iobit.com
 jp-dns1.bancuh.com
+jp-dns2.bancuh.com
+keepassxc.org
 leclercdrive.fr
 lesannuaires.com
 linkneverdie.com
@@ -104,6 +106,7 @@ tripadvisor.fr
 update.iobit.com
 uptobox.com
 uptodown.com
+us-dns1.bancuh.com
 video.twimg.com
 vivaldi.ampxdirect.com
 vivaldi.ampxdirect.com
