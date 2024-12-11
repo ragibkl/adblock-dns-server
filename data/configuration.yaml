@@ -27,8 +27,24 @@ blacklist:
     path: https://storage.googleapis.com/nsablocklist/hosts
   - format: hosts
     path: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-only/hosts
+  - format: hosts
+    path: https://raw.githubusercontent.com/MasterKia/PersianBlocker/refs/heads/main/hosts-0
+  - format: hosts
+    path: https://raw.githubusercontent.com/bkrucarci/turk-adlist/refs/heads/master/hosts
+  - format: hosts
+    path: https://raw.githubusercontent.com/yous/YousList/refs/heads/master/hosts.txt
+  - format: hosts
+    path: https://raw.githubusercontent.com/lassekongo83/Frellwits-filter-lists/refs/heads/master/Frellwits-Swedish-Hosts-File.txt
+  - format: hosts
+    path: https://raw.githubusercontent.com/durablenapkin/scamblocklist/refs/heads/master/hosts.txt
+  - format: hosts
+    path: https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/refs/heads/master/hosts
+  - format: hosts
+    path: https://gitlab.com/ZeroDot1/CoinBlockerLists/-/raw/master/hosts_optional
   - format: domains
     path: https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list_browser.txt
+  - format: domains
+    path: https://gitlab.com/ZeroDot1/CoinBlockerLists/-/raw/master/list_browser_AdBlock.txt
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro.plus.txt
   - format: domains
@@ -44,7 +60,11 @@ blacklist:
   - format: domains
     path: https://nsfw.oisd.nl/domainswild2
   - format: domains
+    path: https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Shock
+  - format: domains
     path: https://raw.githubusercontent.com/blocklistproject/Lists/master/alt-version/porn-nl.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Dating
   - format: domains
     path: https://raw.githubusercontent.com/GeorgeForse/VPN-List/master/list.txt
   - format: domains
@@ -64,11 +84,49 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/nosafesearch-onlydomains.txt
   - format: domains
+    path: https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/Lists/Cryptocurrency
+  - format: domains
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/gambling.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/gambling-onlydomains.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/blocklistproject/Lists/refs/heads/master/alt-version/drugs-nl.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/blocklistproject/Lists/refs/heads/master/alt-version/crypto-nl.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/blocklistproject/Lists/refs/heads/master/alt-version/vaping-nl.txt
+  - format: domains
     path: https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt
   - format: domains
     path: https://raw.githubusercontent.com/farrokhi/adblock-iran/master/pihole.txt
   - format: domains
     path: https://raw.githubusercontent.com/nimasaj/uBOPa/master/uBOPa_Pihole.txt
+  - format: domains
+    path: https://filters.hufilter.hu/hufilter-dns.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/cbuijs/ut1/refs/heads/master/violence/domains
+  - format: domains
+    path: https://malware-filter.gitlab.io/malware-filter/phishing-filter-domains.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/AssoEchap/stalkerware-indicators/refs/heads/master/generated/hosts
+  - format: domains
+    path: https://raw.githubusercontent.com/az0/vpn_ip/main/data/output/hostname.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/cbuijs/ut1/master/proxy/domains
+  - format: domains
+    path: https://raw.githubusercontent.com/olbat/ut1-blacklists/master/blacklists/residential-proxies/domains
+  - format: domains
+    path: https://gitlab.com/quidsup/notrack-blocklists/-/raw/master/trackers.list
+  - format: domains
+    path: https://raw.githubusercontent.com/paulgb/BarbBlock/refs/heads/main/blocklists/domain-list.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/im-sm/Pi-hole-Torrent-Blocklist/main/all-torrent-trackres.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/nextdns/piracy-blocklists/refs/heads/master/torrent-websites
+  - format: domains
+    path: https://raw.githubusercontent.com/nextdns/piracy-blocklists/refs/heads/master/torrent-trackers
+  - format: domains
+    path: https://raw.githubusercontent.com/nextdns/piracy-blocklists/refs/heads/master/torrent-clients
   - format: hosts
     path: ./blacklist.d/ads_custom.hosts
   - format: hosts
