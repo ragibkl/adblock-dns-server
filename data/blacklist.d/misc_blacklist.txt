@@ -1,12 +1,35 @@
 # VPN Providers that allows to bypass the adblock
-yogavpn.com
 alhapi.com
 alhvp.com
+alohaprofile.com
 alohavpn.app
 y.freevpn.cloud
+yogavpn.com
 # Missed stuff in d3ward adblock test
 ads.google.com
 googleadservices.com
 freshmarketer.com
 stats.wp.com
 data.mistat.intl.xiaomi.com
+metok-ccc.intl.xiaomi.com
+like.video
+candycrush-live.ext.p.midasplayer.cloud
+analytics.etisalat.eg
+snaptube.app
+kwai.net
+kwaicdn.com
+wshareit.com
+flowbit.io
+hentaila.ml
+hentaila.com
+hentaila-1.disqus.com
+access.motormetropolisdetroit.cc
+dood.li
+adsrv001.com
+milfat.com
+arbada.net
+arab-xn.com
+sexalarabi.co
+i.doodcdn.com
+dood.video
+yourupload.com
