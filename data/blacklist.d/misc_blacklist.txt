@@ -13,6 +13,7 @@ freshmarketer.com
 stats.wp.com
 data.mistat.intl.xiaomi.com
 metok-ccc.intl.xiaomi.com
+filemoon.sx
 like.video
 candycrush-live.ext.p.midasplayer.cloud
 analytics.etisalat.eg
