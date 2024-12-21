@@ -66,4 +66,10 @@ ad.k.21cn.com
 appcloud.zhihu.com
 appcloud2.in.zhihu.com
 punion.tjjt360.com
+fnyfeds.com
+muslimpro.com
+muslim-pro-app.firebaseio.com
+muslimpro.zendesk.com
+us-central1-muslim-pro-app.cloudfunctions.net
+mymuslimdaily.com
 wxs.qq.com
