@@ -1,5 +1,6 @@
 # additional adservers
 127.0.0.1 *.mediation.unity3d.com
+127.0.0.1 *.dalyfeds.com
 127.0.0.1 *.fnyfeds.com
 127.0.0.1 *.muslimpro.com
 127.0.0.1 *.mymuslimdaily.com
@@ -14,6 +15,7 @@
 127.0.0.1 cheap-ads.net
 127.0.0.1 euw.adserver.snapads.com
 127.0.0.1 mediation.unity3d.com
+127.0.0.1 dalyfeds.com
 127.0.0.1 fnyfeds.com
 127.0.0.1 muslimpro.com
 127.0.0.1 mymuslimdaily.com
