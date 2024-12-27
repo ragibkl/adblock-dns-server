@@ -9,6 +9,7 @@ windscribe.info
 # Missed stuff in d3ward adblock test
 ads.google.com
 googleadservices.com
+dalyfeds.com
 freshmarketer.com
 stats.wp.com
 data.mistat.intl.xiaomi.com
