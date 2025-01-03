@@ -2,6 +2,7 @@
 127.0.0.1 *.mediation.unity3d.com
 127.0.0.1 *.dalyfeds.com
 127.0.0.1 *.fnyfeds.com
+127.0.0.1 *.kwcdn.com
 127.0.0.1 *.muslimpro.com
 127.0.0.1 *.mymuslimdaily.com
 127.0.0.1 *.windscribe.info
@@ -17,6 +18,7 @@
 127.0.0.1 mediation.unity3d.com
 127.0.0.1 dalyfeds.com
 127.0.0.1 fnyfeds.com
+127.0.0.1 kwcdn.com
 127.0.0.1 muslimpro.com
 127.0.0.1 mymuslimdaily.com
 127.0.0.1 windscribe.info
