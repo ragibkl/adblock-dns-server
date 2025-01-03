@@ -1,6 +1,7 @@
 # VPN Providers that allows to bypass the adblock
 alhapi.com
 alhvp.com
+alohafind.com
 alohaprofile.com
 alohavpn.app
 y.freevpn.cloud
@@ -14,6 +15,7 @@ freshmarketer.com
 stats.wp.com
 data.mistat.intl.xiaomi.com
 metok-ccc.intl.xiaomi.com
+gleekraurtoomsy.com
 filemoon.sx
 like.video
 candycrush-live.ext.p.midasplayer.cloud
@@ -21,6 +23,7 @@ analytics.etisalat.eg
 snaptube.app
 kwai.net
 kwaicdn.com
+amdahost.com
 wshareit.com
 flowbit.io
 hentaila.ml
