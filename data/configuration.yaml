@@ -112,6 +112,8 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/AssoEchap/stalkerware-indicators/refs/heads/master/generated/hosts
   - format: domains
+    path: https://raw.githubusercontent.com/AssoEchap/stalkerware-indicators/master/generated/quad9_blocklist.txt
+  - format: domains
     path: https://raw.githubusercontent.com/az0/vpn_ip/main/data/output/hostname.txt
   - format: domains
     path: https://raw.githubusercontent.com/cbuijs/ut1/master/proxy/domains
