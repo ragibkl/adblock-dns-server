@@ -44,7 +44,7 @@ blacklist:
   - format: domains
     path: https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list_browser.txt
   - format: domains
-    path: https://gitlab.com/ZeroDot1/CoinBlockerLists/-/raw/master/list_browser_AdBlock.txt
+    path: https://raw.githubusercontent.com/cbuijs/accomplist/refs/heads/main/chris/amnestytech-investigations.list
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro.plus.txt
   - format: domains
@@ -80,13 +80,13 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/cbuijs/accomplist/master/cloak/optimized.black.domain.list
   - format: domains
-    path: https://raw.githubusercontent.com/cbuijs/accomplist/master/typosquat/optimized.black.top-n.domain.list
+    path: https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Typo
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/nosafesearch.txt
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/nosafesearch-onlydomains.txt
   - format: domains
-    path: https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/Lists/Cryptocurrency
+    path: https://raw.githubusercontent.com/cbuijs/accomplist/refs/heads/main/crypto/optimized.black.domain.list
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/gambling.txt
   - format: domains
@@ -106,7 +106,7 @@ blacklist:
   - format: domains
     path: https://filters.hufilter.hu/hufilter-dns.txt
   - format: domains
-    path: https://raw.githubusercontent.com/cbuijs/ut1/refs/heads/master/violence/domains
+    path: https://raw.githubusercontent.com/cbuijs/ut1/refs/heads/master/agressif/domains
   - format: domains
     path: https://malware-filter.gitlab.io/malware-filter/phishing-filter-domains.txt
   - format: domains
@@ -116,7 +116,7 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/az0/vpn_ip/main/data/output/hostname.txt
   - format: domains
-    path: https://raw.githubusercontent.com/cbuijs/ut1/master/proxy/domains
+    path: https://raw.githubusercontent.com/cbuijs/ut1/refs/heads/master/redirector/domains
   - format: domains
     path: https://raw.githubusercontent.com/olbat/ut1-blacklists/master/blacklists/residential-proxies/domains
   - format: domains
