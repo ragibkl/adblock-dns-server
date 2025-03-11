@@ -39,12 +39,8 @@ blacklist:
     path: https://raw.githubusercontent.com/durablenapkin/scamblocklist/refs/heads/master/hosts.txt
   - format: hosts
     path: https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/refs/heads/master/hosts
-  - format: hosts
-    path: https://gitlab.com/ZeroDot1/CoinBlockerLists/-/raw/master/hosts_optional
   - format: domains
-    path: https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list_browser.txt
-  - format: domains
-    path: https://raw.githubusercontent.com/cbuijs/accomplist/refs/heads/main/chris/amnestytech-investigations.list
+    path: https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Typo
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro.plus.txt
   - format: domains
@@ -80,7 +76,7 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/cbuijs/accomplist/master/cloak/optimized.black.domain.list
   - format: domains
-    path: https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Typo
+    path: https://raw.githubusercontent.com/cbuijs/accomplist/refs/heads/main/chris/amnestytech-investigations.list
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/nosafesearch.txt
   - format: domains
