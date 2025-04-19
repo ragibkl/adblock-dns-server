@@ -56,6 +56,10 @@ blacklist:
   - format: domains
     path: https://nsfw.oisd.nl/domainswild2
   - format: domains
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/refs/heads/main/wildcard/nsfw.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/refs/heads/main/wildcard/nsfw-onlydomains.txt
+  - format: domains
     path: https://raw.githubusercontent.com/MDP43140/BaDomain/refs/heads/main/misc/NoNSFW.txt
   - format: domains
     path: https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Shock
