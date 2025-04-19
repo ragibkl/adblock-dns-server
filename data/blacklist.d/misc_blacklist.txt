@@ -10,6 +10,7 @@ windscribe.info
 # Missed stuff in d3ward adblock test
 ads.google.com
 googleadservices.com
+# Misc
 dalyfeds.com
 freshmarketer.com
 stats.wp.com
@@ -18,7 +19,9 @@ metok-ccc.intl.xiaomi.com
 gleekraurtoomsy.com
 filemoon.sx
 like.video
+likee.video
 candycrush-live.ext.p.midasplayer.cloud
+frontend-dot-telemetrics-production.appspot.com
 analytics.etisalat.eg
 snaptube.app
 kwai.net
@@ -35,9 +38,11 @@ adsrv001.com
 milfat.com
 arbada.net
 arab-xn.com
+bigwarp.io
 sexalarabi.co
 i.doodcdn.com
 dood.video
+dooodster.com
 yourupload.com
 bridgeoos.com
 sdk.api.oaid.wocloud.cn
@@ -55,16 +60,19 @@ pageviewp.icbc.com.cn
 pglstatp-toutiao.com
 video-cn.snssdk.com
 shuzilm.com
+simppro.com
 al-log.d.meituan.net
 babel-statistics-android.d.meituan.net
 maplocatesdksnapshot.d.meituan.net
 metrics-picture.d.meituan.net
+partner.simpledesign.ltd
 route-stats.d.meituan.net
 info4.video.qq.com
 info6.video.qq.com
 adintl.cn
 aid.m.taobao.com
 ads.95516.com
+searchlabspartnerservice-pa.googleapis.com
 switch.cup.com.cn
 vali-ugc.cp31.ott.cibntv.net
 ad.k.21cn.com
