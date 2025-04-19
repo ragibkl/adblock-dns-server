@@ -45,6 +45,7 @@ i.doodcdn.com
 dood.video
 dooodster.com
 yourupload.com
+api.bridgeoos.com
 bridgeoos.com
 sdk.api.oaid.wocloud.cn
 rt-sgp.vivacops.com
