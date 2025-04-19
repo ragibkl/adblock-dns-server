@@ -50,8 +50,6 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/tif-onlydomains.txt
   - format: domains
-    path: https://raw.githubusercontent.com/cbuijs/accomplist/master/nrd/optimized.black.top-n.domain.list
-  - format: domains
     path: https://nsfw.oisd.nl/domainswild
   - format: domains
     path: https://nsfw.oisd.nl/domainswild2
@@ -77,8 +75,6 @@ blacklist:
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/doh-vpn-proxy-bypass-onlydomains.txt
   - format: domains
     path: https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/proxies
-  - format: domains
-    path: https://raw.githubusercontent.com/cbuijs/accomplist/master/cloak/optimized.black.domain.list
   - format: domains
     path: https://raw.githubusercontent.com/cbuijs/accomplist/refs/heads/main/chris/amnestytech-investigations.list
   - format: domains
