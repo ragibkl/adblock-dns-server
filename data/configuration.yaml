@@ -4,10 +4,6 @@ blacklist:
   - format: hosts
     path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacySpecific.txt
   - format: hosts
-    path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacy3rdParty.txt
-  - format: hosts
-    path: https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/EasyPrivacyCNAME.txt
-  - format: hosts
     path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-YouTube-AdBlock.txt
   - format: hosts
     path: https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Extension/GoodbyeAds-Spotify-AdBlock.txt
@@ -121,6 +117,10 @@ blacklist:
     path: https://raw.githubusercontent.com/paulgb/BarbBlock/refs/heads/main/blocklists/domain-list.txt
   - format: domains
     path: https://raw.githubusercontent.com/im-sm/Pi-hole-Torrent-Blocklist/main/all-torrent-trackres.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/blocklistproject/Lists/refs/heads/master/alt-version/youtube-nl.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/kboghdady/youTube_ads_4_pi-hole/refs/heads/master/youtubelist.txt
   - format: domains
     path: https://raw.githubusercontent.com/nextdns/piracy-blocklists/refs/heads/master/torrent-websites
   - format: domains
