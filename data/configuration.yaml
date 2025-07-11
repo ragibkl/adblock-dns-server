@@ -48,6 +48,8 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/tif-onlydomains.txt
   - format: domains
+    path: https://raw.githubusercontent.com/cbuijs/oisd/refs/heads/master/big/domains
+  - format: domains
     path: https://nsfw.oisd.nl/domainswild
   - format: domains
     path: https://nsfw.oisd.nl/domainswild2
