@@ -35,6 +35,8 @@ blacklist:
     path: https://raw.githubusercontent.com/durablenapkin/scamblocklist/refs/heads/master/hosts.txt
   - format: hosts
     path: https://raw.githubusercontent.com/mitchellkrogza/The-Big-List-of-Hacked-Malware-Web-Sites/refs/heads/master/hosts
+  - format: hosts
+    path: https://raw.githubusercontent.com/www-k9/hosts/refs/heads/main/hosts
   - format: domains
     path: https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Typo
   - format: domains
