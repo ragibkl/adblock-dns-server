@@ -48,6 +48,12 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/tif-onlydomains.txt
   - format: domains
+    path: https://raw.githubusercontent.com/xRuffKez/NRD/refs/heads/main/lists/14-day-mini/wildcard/nrd-14day-mini_wildcard_part1.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/xRuffKez/NRD/refs/heads/main/lists/14-day-mini/wildcard/nrd-14day-mini_wildcard_part2.txt
+  - format: domains
+    path: https://raw.githubusercontent.com/xRuffKez/NRD/refs/heads/main/lists/14-day-mini/domains-only/nrd-14day-mini.txt
+  - format: domains
     path: https://raw.githubusercontent.com/cbuijs/oisd/refs/heads/master/big/domains
   - format: domains
     path: https://nsfw.oisd.nl/domainswild
