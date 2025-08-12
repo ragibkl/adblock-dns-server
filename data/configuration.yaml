@@ -96,7 +96,7 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/blocklistproject/Lists/refs/heads/master/alt-version/drugs-nl.txt
   - format: domains
-    path: https://raw.githubusercontent.com/blocklistproject/Lists/refs/heads/master/alt-version/crypto-nl.txt
+    path: https://raw.githubusercontent.com/cbuijs/ut1/refs/heads/master/cryptojacking/domains
   - format: domains
     path: https://raw.githubusercontent.com/blocklistproject/Lists/refs/heads/master/alt-version/vaping-nl.txt
   - format: domains
