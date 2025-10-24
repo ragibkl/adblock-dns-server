@@ -48,13 +48,11 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/tif-onlydomains.txt
   - format: domains
-    path: https://raw.githubusercontent.com/xRuffKez/NRD/refs/heads/main/lists/14-day-mini/wildcard/nrd-14day-mini_wildcard_part1.txt
-  - format: domains
-    path: https://raw.githubusercontent.com/xRuffKez/NRD/refs/heads/main/lists/14-day-mini/wildcard/nrd-14day-mini_wildcard_part2.txt
-  - format: domains
-    path: https://raw.githubusercontent.com/xRuffKez/NRD/refs/heads/main/lists/14-day-mini/domains-only/nrd-14day-mini.txt
+    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/dga30.txt
   - format: domains
     path: https://raw.githubusercontent.com/cbuijs/oisd/refs/heads/master/big/domains
+  - format: domains
+    path: https://raw.githubusercontent.com/cbuijs/accomplist/refs/heads/main/chris/cloaking-domains.list
   - format: domains
     path: https://nsfw.oisd.nl/domainswild
   - format: domains
@@ -116,7 +114,7 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/AssoEchap/stalkerware-indicators/master/generated/quad9_blocklist.txt
   - format: domains
-    path: https://raw.githubusercontent.com/az0/vpn_ip/main/data/output/hostname.txt
+    path: https://az0-vpnip-public.oooninja.com/hostname.txt
   - format: domains
     path: https://raw.githubusercontent.com/cbuijs/ut1/refs/heads/master/redirector/domains
   - format: domains
@@ -126,7 +124,7 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/paulgb/BarbBlock/refs/heads/main/blocklists/domain-list.txt
   - format: domains
-    path: https://raw.githubusercontent.com/im-sm/Pi-hole-Torrent-Blocklist/main/all-torrent-trackres.txt
+    path: https://raw.githubusercontent.com/im-sm/Pi-hole-Torrent-Blocklist/main/all-torrent-trackers.txt
   - format: domains
     path: https://raw.githubusercontent.com/blocklistproject/Lists/refs/heads/master/alt-version/youtube-nl.txt
   - format: domains
