@@ -40,6 +40,10 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Typo
   - format: domains
+    path: https://raw.githubusercontent.com/cbuijs/accomplist/refs/heads/main/typosquat/plain.black.domain.list
+  - format: domains
+    path: https://raw.githubusercontent.com/cbuijs/accomplist/refs/heads/main/typosquat/plain.black.idn.domain.list
+  - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro.plus.txt
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro.plus-onlydomains.txt
@@ -49,8 +53,12 @@ blacklist:
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/tif-onlydomains.txt
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/dga30.txt
+  - format: domains  
+    path: https://raw.githubusercontent.com/cbuijs/nrd/refs/heads/main/nrd-30d.domains.list
   - format: domains
-    path: https://raw.githubusercontent.com/cbuijs/oisd/refs/heads/master/big/domains
+    path: https://big.oisd.nl/domainswild
+  - format: domains
+    path: https://big.oisd.nl/domainswild2
   - format: domains
     path: https://raw.githubusercontent.com/cbuijs/accomplist/refs/heads/main/chris/cloaking-domains.list
   - format: domains
@@ -86,7 +94,9 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/nosafesearch-onlydomains.txt
   - format: domains
-    path: https://raw.githubusercontent.com/cbuijs/accomplist/refs/heads/main/crypto/optimized.black.domain.list
+    path: https://raw.githubusercontent.com/cbuijs/accomplist/refs/heads/main/crypto/plain.black.domain.list
+  - format: domains
+    path: https://raw.githubusercontent.com/cbuijs/accomplist/refs/heads/main/crypto/plain.black.idn.domain.list
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/gambling.txt
   - format: domains
