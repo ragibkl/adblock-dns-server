@@ -58,8 +58,6 @@ blacklist:
   - format: domains
     path: https://big.oisd.nl/domainswild2
   - format: domains
-    path: https://raw.githubusercontent.com/cbuijs/accomplist/refs/heads/main/chris/cloaking-domains.list
-  - format: domains
     path: https://nsfw.oisd.nl/domainswild
   - format: domains
     path: https://nsfw.oisd.nl/domainswild2
