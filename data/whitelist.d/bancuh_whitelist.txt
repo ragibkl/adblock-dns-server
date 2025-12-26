@@ -1,0 +1,3 @@
+# bancuh.com whitelist, looks like someone is trolling me!
+bancuh.com
+*.bancuh.com
