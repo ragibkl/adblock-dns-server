@@ -158,6 +158,8 @@ whitelist:
   - format: hosts
     path: ./whitelist.d/__extra_whitelist.hosts
   - format: domains
+    path: ./whitelist.d/bancuh_whitelist.txt
+  - format: domains
     path: ./whitelist.d/blogspot_whitelist.txt
   - format: domains
     path: ./whitelist.d/brave_whitelist.txt
