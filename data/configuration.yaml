@@ -204,6 +204,8 @@ overrides:
   - format: cname
     path: ./overrides.d/bing-safesearch.zone
   - format: cname
+    path: ./overrides.d/brave-safesearch.zone
+  - format: cname
     path: ./overrides.d/duckduckgo-safesearch.zone
   - format: cname
     path: ./overrides.d/google-safesearch.zone
