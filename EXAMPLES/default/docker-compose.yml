@@ -16,8 +16,6 @@ services:
       options:
         max-size: 1m
         max-file: "20"
-    labels:
-      - com.centurylinklabs.watchtower.enable=true
 
   dnsdist:
     image: ragibkl/dnsdist-acme
@@ -34,15 +32,6 @@ services:
       options:
         max-size: 1m
         max-file: "20"
-    labels:
-      - com.centurylinklabs.watchtower.enable=true
-
-  watchtower:
-    image: v2tec/watchtower
-    command: --cleanup --label-enable --interval 3600
-    restart: always
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
   letsencrypt:
