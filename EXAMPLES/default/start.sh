@@ -1,4 +1,7 @@
 #!/bin/sh
 
+COMPOSE="docker compose"
+docker compose version >/dev/null 2>&1 || COMPOSE="docker-compose"
+
 cp -n sample.env .env
-docker-compose up -d
+$COMPOSE up -d
