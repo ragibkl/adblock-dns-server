@@ -159,7 +159,7 @@ cd adblock-dns-server
 
     **CONFIG_URL** - this value specifies the config file location where the server should load its configuration.
     The server uses the sources in that config file to dynamically compile the ads blocklist during server startup.
-    The ads blocklist is also refreshed and recompiled every hour automatically.
+    The ads blocklist is also refreshed and recompiled every day automatically.
     The default value here points to the configuration file maintained in this repo.
     See section below on how to use a customized blocklist configuration.
 
@@ -195,6 +195,10 @@ In order to add additional ads-domains to the blacklist, or filter some in a whi
 
 1. Modify the contents under `data/` folder as you see fit.
 Feel free to add/remove additional domains and http sources as needed.
+
+    For quick local additions without editing the main config, you can use the pre-wired placeholder files:
+    - `data/blacklist.d/__extra_blacklist.hosts` — add domains to block (hosts format)
+    - `data/whitelist.d/__extra_whitelist.hosts` — add domains to allow (hosts format)
 
 2. Change the `CONFIG_URL` value to point to the local config file.
     This works because I have conveniently mounted the `data/` folder into `/local-data/` in the container.
