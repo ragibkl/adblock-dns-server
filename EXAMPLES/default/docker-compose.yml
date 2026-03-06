@@ -4,8 +4,7 @@ services:
   dns:
     image: ragibkl/bancuh-dns:2
     restart: always
-    cap_add:
-      - NET_BIND_SERVICE
+    privileged: true
     network_mode: host
     env_file: .env
     volumes:
