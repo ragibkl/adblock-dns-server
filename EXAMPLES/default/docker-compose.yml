@@ -2,13 +2,19 @@ version: "3"
 
 services:
   dns:
-    image: ragibkl/bancuh-dns
+    image: ragibkl/bancuh-dns:2
     restart: always
     privileged: true # For some reason, some distro needs this
     ports:
       - 1153:53/tcp
       - 1153:53/udp
     env_file: .env
+    environment:
+      # TLS/DoT/DoH/ACME are handled by dnsdist, not by bancuh-dns.
+      # .env is shared by both services, so TLS_ENABLED=true (meant for
+      # dnsdist) must be overridden here or bancuh-dns starts its own
+      # ACME run and fails the HTTP-01 challenge in a retry loop.
+      TLS_ENABLED: "false"
     volumes:
       - ../../data:/local-data/
     logging:
