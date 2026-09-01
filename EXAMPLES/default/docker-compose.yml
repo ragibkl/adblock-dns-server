@@ -15,13 +15,20 @@ services:
       # dnsdist) must be overridden here or bancuh-dns starts its own
       # ACME run and fails the HTTP-01 challenge in a retry loop.
       TLS_ENABLED: "false"
+      # Both images also read PORT from the shared .env. It is unset today, but
+      # setting it for dnsdist would silently move bancuh-dns off 53 and break
+      # the 1153:53 mapping below, so pin it here rather than rely on that.
+      PORT: "53"
     volumes:
       - ../../data:/local-data/
     logging:
       driver: json-file
       options:
         max-size: 1m
-        max-file: "20"
+        # 20 files held only about ten minutes of history on the busier nodes,
+        # which loses the daily blocklist update and any crash before anyone can
+        # look. Disk is not scarce here (~18G free), so keep an hour or so.
+        max-file: "100"
 
   dnsdist:
     image: ragibkl/dnsdist-acme
@@ -37,7 +44,10 @@ services:
       driver: json-file
       options:
         max-size: 1m
-        max-file: "20"
+        # 20 files held only about ten minutes of history on the busier nodes,
+        # which loses the daily blocklist update and any crash before anyone can
+        # look. Disk is not scarce here (~18G free), so keep an hour or so.
+        max-file: "100"
 
 volumes:
   letsencrypt:
