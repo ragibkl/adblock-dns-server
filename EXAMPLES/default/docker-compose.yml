@@ -5,9 +5,12 @@ services:
     image: ragibkl/bancuh-dns:2
     restart: always
     privileged: true # For some reason, some distro needs this
+    # Loopback only: dnsdist is the only client, and reaches this at
+    # 127.0.0.1:1153. Published on all interfaces, it was an open resolver that
+    # skipped dnsdist's rate limiting unless a cloud firewall happened to block it.
     ports:
-      - 1153:53/tcp
-      - 1153:53/udp
+      - 127.0.0.1:1153:53/tcp
+      - 127.0.0.1:1153:53/udp
     env_file: .env
     environment:
       # TLS/DoT/DoH/ACME are handled by dnsdist, not by bancuh-dns.
