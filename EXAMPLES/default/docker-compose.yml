@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   dns:
     image: ragibkl/bancuh-dns:2
