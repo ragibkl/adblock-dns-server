@@ -74,57 +74,55 @@ Some basic server hardening steps won't hurt as well.
 Your server also needs [Docker](https://docs.docker.com/get-docker/) with the [Compose v2 plugin](https://docs.docker.com/compose/install/) (the `docker compose` command).
 The old standalone `docker-compose` (Compose v1) is no longer supported; it reached end of life in 2023.
 
-### Checking if the network port is available
+### Checking that port 53 is free
 
-A DNS server typically listens and handles DNS queries on TCP/UDP ports 53.
-Before proceeding any further, we need to ensure that the ports that we need are available for use, and not being occupied by a different process running on the server.
-
-Run the following commands on your server as root.
+A DNS server listens for queries on TCP and UDP port 53, so nothing else on the server may be using it.
+Check with:
 
 ```shell
-sudo lsof -i:53
-# no result
+sudo ss -lntup | grep ':53 '
+# no output means port 53 is free
 ```
 
-If you see an empty prompt, it means that the port is open.
-Feel free to skip the next section.
+If there is no output, skip the next section.
 
-#### Disabling systemd-resolve
+#### If systemd-resolved is using port 53
 
-On some modern Linux distros running `systemd`, there is a locally running dns service called `systemd-resolved` that listens on port `53`.
-By default, this service handles any outgoing DNS results and caches them locally for performance.
+On Ubuntu (and other distros using `systemd-resolved`), a local DNS stub listens on port 53 of `127.0.0.53`, and on Ubuntu 24.04 also `127.0.0.54`.
+It blocks the DNS server from starting:
 
 ```shell
-sudo lsof -i:53
-COMMAND   PID            USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
-systemd-r 967 systemd-resolve   16u  IPv4  34553      0t0  UDP localhost:domain
-systemd-r 967 systemd-resolve   17u  IPv4  34554      0t0  TCP localhost:domain (LISTEN)
+sudo ss -lntup | grep ':53 '
+udp   UNCONN 0  0      127.0.0.54:53   0.0.0.0:*  users:(("systemd-resolve",pid=673,fd=16))
+udp   UNCONN 0  0   127.0.0.53%lo:53   0.0.0.0:*  users:(("systemd-resolve",pid=673,fd=14))
+tcp   LISTEN 0  4096 127.0.0.53%lo:53  0.0.0.0:*  users:(("systemd-resolved",pid=673,fd=15))
+tcp   LISTEN 0  4096    127.0.0.54:53  0.0.0.0:*  users:(("systemd-resolve",pid=673,fd=17))
 ```
 
-If you see something similar to the above prompt it means that `systemd-resolved` is running and needs to be disabled.
-There are plenty of guides on the internet on how to do this for specific Linux distros.
-The following should work for `Ubuntu Server 20.04`.
+Turn off just the stub listener.
+`systemd-resolved` keeps handling the server's own lookups, using the DNS servers your provider gives it:
 
-1. Disable and stop the systemd-resolved service:
+```shell
+sudo mkdir -p /etc/systemd/resolved.conf.d
+printf '[Resolve]\nDNSStubListener=no\n' | sudo tee /etc/systemd/resolved.conf.d/adblock-dns.conf
+sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+sudo systemctl restart systemd-resolved
+```
 
-    ```shell
-    sudo systemctl disable systemd-resolved
-    sudo systemctl stop systemd-resolved
-    ```
+The `ln` line matters: `/etc/resolv.conf` normally points at the stub, which is now gone.
+`/run/systemd/resolve/resolv.conf` lists the real upstream servers instead.
 
-2. Edit the file: `/etc/resolv.conf`, maybe replacing with google dns
+Check that port 53 is free and the server can still look up names:
 
-    ```shell
-    nameserver 8.8.8.8
-    nameserver 8.8.4.4
-    ```
+```shell
+sudo ss -lntup | grep ':53 '
+# no output
+getent hosts github.com
+# prints an address
+```
 
-3. Test that the port is open
-
-    ```shell
-    sudo lsof -i:53
-    # no result
-    ```
+This survives reboots and was tested on Ubuntu 24.04.
+Avoid the older advice of disabling `systemd-resolved` and editing `/etc/resolv.conf` by hand: on Ubuntu that file is a symlink, so the edit can be lost or leave the server unable to look up names after a reboot or a release upgrade.
 
 ## Running the server
 
@@ -146,6 +144,15 @@ cd adblock-dns-server
     cd EXAMPLES/default
     ./start.sh
     ```
+
+    `start.sh` returns as soon as the containers are created, so check that both stay up:
+
+    ```shell
+    docker compose ps
+    ```
+
+    If `dnsdist` keeps restarting, look at its logs with `docker compose logs dnsdist`.
+    `Address in use` means something is still using port 53: see "Checking that port 53 is free" above.
 
 2. It should also setup a `.env` file with some default values.
 
