@@ -71,7 +71,8 @@ I usually go for the latest Ubuntu Server LTS edition available.
 You also need to be able to ssh into the server securely.
 Some basic server hardening steps won't hurt as well.
 
-Your server also needs to have [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed.
+Your server also needs [Docker](https://docs.docker.com/get-docker/) with the [Compose v2 plugin](https://docs.docker.com/compose/install/) (the `docker compose` command).
+The old standalone `docker-compose` (Compose v1) is no longer supported; it reached end of life in 2023.
 
 ### Checking if the network port is available
 
