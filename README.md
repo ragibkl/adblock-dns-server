@@ -285,7 +285,7 @@ You can also see the logs of all dns requests that you make to the server.
 
 For privacy reasons, the logs viewer will only show you queries based on your current IP address.
 If you make any dns queries from an IP address, you can only view those queries on a web browser from the same IP address.
-Additionally, the logs file is emptied every 10 minutes.
+Additionally, the logs are held in memory only, and each entry is dropped after 10 minutes.
 
 On your web browser, simply visit the logs endpoints as follows:
 
