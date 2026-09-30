@@ -50,7 +50,7 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/tif-onlydomains.txt
   - format: domains
-    path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/dga30.txt
+    path: https://raw.githubusercontent.com/hagezi/nrd/main/domains/dga30.txt
   - format: domains  
     path: https://raw.githubusercontent.com/cbuijs/nrd/refs/heads/main/nrd-30d.domains.list
   - format: domains
@@ -70,7 +70,7 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Shock
   - format: domains
-    path: https://raw.githubusercontent.com/blocklistproject/Lists/master/alt-version/porn-nl.txt
+    path: https://raw.githubusercontent.com/blocklistproject/Lists/refs/heads/main/alt-version/porn-nl.txt
   - format: domains
     path: https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Dating
   - format: domains
@@ -98,11 +98,11 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/gambling-onlydomains.txt
   - format: domains
-    path: https://raw.githubusercontent.com/blocklistproject/Lists/refs/heads/master/alt-version/drugs-nl.txt
+    path: https://raw.githubusercontent.com/blocklistproject/Lists/refs/heads/main/alt-version/drugs-nl.txt
   - format: domains
     path: https://raw.githubusercontent.com/cbuijs/ut1/refs/heads/master/cryptojacking/domains
   - format: domains
-    path: https://raw.githubusercontent.com/blocklistproject/Lists/refs/heads/master/alt-version/vaping-nl.txt
+    path: https://raw.githubusercontent.com/blocklistproject/Lists/refs/heads/main/alt-version/vaping-nl.txt
   - format: domains
     path: https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt
   - format: domains
@@ -132,7 +132,7 @@ blacklist:
   - format: domains
     path: https://raw.githubusercontent.com/im-sm/Pi-hole-Torrent-Blocklist/main/all-torrent-trackers.txt
   - format: domains
-    path: https://raw.githubusercontent.com/blocklistproject/Lists/refs/heads/master/alt-version/youtube-nl.txt
+    path: https://raw.githubusercontent.com/blocklistproject/Lists/refs/heads/main/alt-version/youtube-nl.txt
   - format: domains
     path: https://raw.githubusercontent.com/kboghdady/youTube_ads_4_pi-hole/refs/heads/master/youtubelist.txt
   - format: domains
