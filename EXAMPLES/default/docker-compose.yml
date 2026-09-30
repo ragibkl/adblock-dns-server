@@ -22,6 +22,10 @@ services:
       PORT: "53"
     volumes:
       - ../../data:/local-data/
+      # The compiled blocklist is kept here across restarts and image updates,
+      # so a restart answers filtered within about a second. Without it, every
+      # restart waits for a full compile (about a minute) before answering.
+      - bancuh_db:/var/lib/bancuh-dns
     logging:
       driver: json-file
       options:
@@ -39,6 +43,13 @@ services:
     env_file: .env
     environment:
       BACKEND: 127.0.0.1:1153
+    # dnsdist warns that its config can need about 10,000 file descriptors
+    # (one per TCP, DoT and DoH connection, plus sockets). Docker's default
+    # soft limit varies by host: 1024 on Ubuntu, far higher on Alpine.
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
     volumes:
       - letsencrypt:/etc/letsencrypt
     logging:
@@ -52,3 +63,4 @@ services:
 
 volumes:
   letsencrypt:
+  bancuh_db:
