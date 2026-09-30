@@ -58,9 +58,8 @@ Having a static and public IP address also allows you to share this DNS server a
 It is also possible to run this project on a local network, either using a computer running Linux, or a virtual machine.
 If you are not willing to spend the money on a VPS just yet, or you are still experimenting, a virtual machine works fine.
 
-The default dns server in this project has a blocklist of about 3 million sites.
-It can take close to 2 GiB of RAM to run without a hiccup.
-I recommend that you provide your server with at least that amount for a smooth operation.
+The default configuration blocks about 5 million domains (measured in September 2026).
+It runs comfortably on a server with 1 GiB of RAM: the two containers use about 200 MB between them.
 
 ### System Requirements
 
@@ -75,6 +74,16 @@ Your server also needs [Docker](https://docs.docker.com/get-docker/) with the [C
 The old standalone `docker-compose` (Compose v1) is no longer supported; it reached end of life in 2023.
 
 ### Checking that port 53 is free
+
+These are the ports the server uses. Open them in your firewall (or your provider's) as needed:
+
+| Port | Protocol | Used for |
+|---|---|---|
+| 53 | TCP and UDP | DNS |
+| 853 | TCP | DNS over TLS (DoT), only with TLS enabled |
+| 443 | TCP | DNS over HTTPS (DoH), only with TLS enabled |
+| 80 | TCP | Getting the TLS certificate from Let's Encrypt, only with TLS enabled |
+| 8080, 8443 | TCP | The query logs page (8443 only with TLS enabled) |
 
 A DNS server listens for queries on TCP and UDP port 53, so nothing else on the server may be using it.
 Check with:
@@ -172,10 +181,10 @@ cd adblock-dns-server
     See section below on how to use a customized blocklist configuration.
 
     **FORWARDERS** - this value specifies custom backend dns servers to use as forwarders.
-    By default, this value is empty and the server will use a built-in bind server to recursively resolve dns queries.
-    This is best for privacy but might use more memory.
-    If you would like to forward dns queries to other dns servers, uncomment and set this to your preferred values.
-    This will also turn off the internal bind server.
+    By default, this value is empty and the server resolves dns queries itself, using a built-in Unbound resolver.
+    This is best for privacy.
+    If you would like to forward dns queries to other dns servers instead, uncomment and set this to your preferred values.
+    The internal Unbound resolver is then not started.
 
     **TLS_ENABLED** - if set to `true`, the server will also enable DoH and DoT dns protocols.
     This requires that `TLS_DOMAIN` and `TLS_EMAIL` to be set correctly
@@ -192,9 +201,9 @@ cd adblock-dns-server
 
 3. Stopping the service
 
-```shell
-./stop.sh
-```
+    ```shell
+    ./stop.sh
+    ```
 
 ### Using a customized ads blocklist configuration
 
@@ -259,15 +268,15 @@ Non-authoritative answer:
 Name: zedo.com
 Address: 64.41.197.44
 
-# tests dns lookup against our adblock dns server
-# should return our server's IP or the null route instead
+# tests dns lookup against our adblock dns server (replace X.X.X.X with its IP)
+# a blocked domain resolves to 0.0.0.0
 $ nslookup zedo.com X.X.X.X
 Server:  X.X.X.X
 Address: X.X.X.X#53
 
 Non-authoritative answer:
 Name: zedo.com
-Address: X.X.X.X
+Address: 0.0.0.0
 ```
 
 ## DNS Query Logs
