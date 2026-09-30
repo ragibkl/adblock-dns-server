@@ -58,7 +58,7 @@ Having a static and public IP address also allows you to share this DNS server a
 It is also possible to run this project on a local network, either using a computer running Linux, or a virtual machine.
 If you are not willing to spend the money on a VPS just yet, or you are still experimenting, a virtual machine works fine.
 
-The default configuration blocks about 5 million domains (measured in September 2026).
+The default configuration blocks about 7 million domains (measured at the end of September 2026).
 It runs comfortably on a server with 1 GiB of RAM: the two containers use about 200 MB between them.
 
 ### System Requirements
