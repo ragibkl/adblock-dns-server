@@ -160,6 +160,9 @@ cd adblock-dns-server
     docker compose ps
     ```
 
+    On the very first start the server does not answer DNS until it has compiled the blocklist, which takes about a minute.
+    The compiled blocklist is kept in the `bancuh_db` volume, so later restarts and updates answer, filtered, within a second or two.
+
     If `dnsdist` keeps restarting, look at its logs with `docker compose logs dnsdist`.
     `Address in use` means something is still using port 53: see "Checking that port 53 is free" above.
 
